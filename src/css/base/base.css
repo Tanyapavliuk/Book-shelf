@@ -59,7 +59,7 @@ body {
     text-transform: uppercase;
     line-height: 1.12;
     letter-spacing: -0.64px;
-    color: var(--subtitle-color);
+    color: var(--text-color);
 }
 
 .subtitle {
