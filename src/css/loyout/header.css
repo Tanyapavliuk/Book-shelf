@@ -1,0 +1,17 @@
+.menu-hamburger {
+  background-color: transparent;
+  padding-top: 20px;
+  padding-bottom: 14px;
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+}
+
+.icon-menu-hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  stroke: black;
+}
