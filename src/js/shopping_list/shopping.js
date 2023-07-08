@@ -36,21 +36,21 @@ function marcupListBooks(arr) {
                    buy_links.filter(({ name }) => {
                      return name === 'Amazon';
                    })[0].url
-                 }))}">Amazon</a>
+                 }))}"><img src="./images/amazon.png" alt="logo Amazon" /></a>
 </li>
 <li> 
   <a href="${
     buy_links.filter(({ name }) => {
       return name === 'Apple Books';
     })[0].url
-  }">Apple Books</a>
+  }"><img src="./images/book.png" alt="logo Book" /></a>
 </li>
 <li> 
 <a href="${
         buy_links.filter(({ name }) => {
           return name === 'Bookshop';
         })[0].url
-      }">Bookshop</a>
+      }"><img src="./images/book-block.png" alt="logo Book-block" /></a>
 </li></ul>
                 </div>
               </div>
