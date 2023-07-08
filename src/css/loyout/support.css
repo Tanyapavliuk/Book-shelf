@@ -6,16 +6,30 @@ color: #FFFFFF;
 .support-list {
     list-style-type: decimal-leading-zero;
   }
+
+  .support-item{
+    margin: 0;
+    padding: 0;
+  }
    
 .support {
   
     width: 356px;
     height: 490px;
+    overflow: hidden;
     border-radius: 16px;
-    box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
+    /* box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1); */
     background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
   
 }
   .support-emblem{
     display: flex;
+  }
+
+ 
+
+
+  
+  .see-more {
+    display: block; 
   }
