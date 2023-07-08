@@ -5,6 +5,8 @@ const container = document.querySelector('.container-books');
 console.dir(container);
 getQuery();
 
+function changeName() {}
+
 async function getQuery() {
   try {
     const resp = await axios.get(
@@ -23,8 +25,8 @@ function markup(data) {
     let list = el.books
       .map(
         ({ book_image, author, title }) =>
-          `<li>
-        <a href="#">
+          `<li class="bs-list-item" hidden>
+        <a href="#" class="book-card">
             <img class="book-img" src="${book_image}" alt="${title}" />
             <h3 class="book-title">${title}</h3>
             <h4 class="book-author">${author}</h4>

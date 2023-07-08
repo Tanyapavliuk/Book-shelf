@@ -3,8 +3,9 @@
     max-width: 375px;
     padding: 0 20px;
   }
-  /* .book-list:first-child {
-  } */
+  .bs-list-item:nth-child(1) {
+    display: contents;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -12,12 +13,18 @@
     max-width: 768px;
     padding: 0 20px;
   }
+  .bs-list-item:nth-child(-n + 3) {
+    display: contents;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .container-books {
     max-width: 1044px;
     padding: 0 24px;
+  }
+  .bs-list-item {
+    display: contents;
   }
 }
 
@@ -69,6 +76,9 @@ h1 {
   line-height: 18px;
   letter-spacing: -0.64px;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .book-author {
   margin-top: 4px;
