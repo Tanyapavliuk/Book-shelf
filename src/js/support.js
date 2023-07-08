@@ -50,7 +50,7 @@ const charityList = document.querySelector('.support-list');
 
 const listItems = charityFunds.map(function(fund) {
   return `<li class="support-item">
-  <img src="${fund.img}" alt="${fund.title}" class="support-logo" data-url="${fund.url}" width="159px" height="32px">
+  <img src="${fund.img}" alt="${fund.title}" class="support-logo" data-url="${fund.url}" height="32px">
   </li>`;
 });
 
