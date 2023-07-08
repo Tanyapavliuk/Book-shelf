@@ -1,28 +1,30 @@
 <header>
-  <div class="header-container">
+  <div class="header-container container">
     <nav class="main-nav">
       <!-- logo -->
-      <a class="logo" href="./index.html"
-        >Bookshelf
-        <span class="logo-item">
-          <svg class="logo-icon">
-            <use href="./images/sprite.svg#icon-logo"></use></svg></span
-      ></a>
+      <a class="logo" href="./index.html">
+        <svg class="logo-icon">
+          <use href="./images/sprite.svg#icon-logo"></use>
+        </svg>
+        <svg class="logo-icon-text">
+          <use href="./images/sprite.svg#icon-Bookshelf"></use>
+        </svg>
+      </a>
 
       <!-- menu-hamburger -->
-      <button class="menu-hamburger js-open-menu" type="button">
-        <svg class="icon-menu-hamburger">
+      <button class="hamburger-menu" type="button">
+        <svg class="hamburger-menu-icon">
           <use href="./images/sprite.svg#icon-burger"></use>
         </svg>
       </button>
 
       <!-- site-nav -->
-      <ul>
-        <li><a href="./index.html">home</a></li>
+      <ul class="site-nav">
+        <li><a class="home" href="./index.html">home</a></li>
         <li>
           <a href="./shopinglist.html"
             >shopping list
-            <svg class="logo-icon">
+            <svg class="shopping-list-icon">
               <use href="./images/sprite.svg#icon-package"></use></svg
           ></a>
         </li>
@@ -45,7 +47,7 @@
           <li>
             <a href="./shopinglist.html"
               >shopping list
-              <svg class="logo-icon">
+              <svg class="shopping-list-icon">
                 <use href="./images/sprite.svg#icon-package"></use></svg
             ></a>
           </li>
@@ -56,6 +58,16 @@
     <!-- dark-theme -->
     <div class="dark-theme">
       <label><input type="checkbox" name="switcher" /></label>
+    </div>
+
+    <!-- sing up -->
+    <div class="sing-up">
+      <button class="sing-up-btn" type="button">
+        Sing up
+        <svg class="sing-up-icon">
+          <use href="./images/sprite.svg#icon-arrow-narrow-right"></use>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
