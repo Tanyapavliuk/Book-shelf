@@ -1,0 +1,55 @@
+<div class="backdrop-login active">
+  
+    <!-- Modal-login -->
+  <div class="modal login active">
+    
+    <button type="button" class="modal-login-close">
+      <svg class="modal-login-close-icon">
+        <use href="./images/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <form class="login-form">
+      <input
+        class="login-input"
+        type="text"
+        name="username"
+        placeholder="Name"
+        pattern="[a-zA-Z]{2,15}"
+      />
+
+      <div class="wrap-input">
+        <input
+          class="login-input"
+          type="email"
+          name="useremail"
+          placeholder="Email"
+        />
+
+        <svg class="input-icon">
+          <use href="./images/sprite.svg#icon-email"></use>
+        </svg>
+      </div>
+
+      <div class="wrap-input">
+        <input
+          class="login-input"
+          type="password"
+          name="userpass"
+          placeholder="Password"
+        />
+
+        <svg class="input-icon">
+            <use href="./images/sprite.svg#icon-lock"></use>
+          </svg>
+      </div>
+    </form>
+
+    <button type="submit" class="button login">Sign up</button>
+
+    <div class="sign">
+      <button type="button" class="btn-sign">Sign up</button>
+      <button type="button" class="btn-sign">Sign in</button>
+    </div>
+  </div>
+</div>
