@@ -1,10 +1,12 @@
-const containerEl = document.querySelector('.container');
+const containerEl = document.querySelector('.hero-ul');
 const modalEl = document.querySelector('.backdrop');
+const modalCard = document.querySelector('.modal');
 const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
-const submitShoppingEl = document.querySelector('.button.book')
 
-const bookId = '643282b1e85766588626a0dc';
+const bookId = '643282b1e85766588626a080';
+
+let bookIdent;
 
 function closeModal() {
   modalEl.classList.remove('active');
@@ -73,7 +75,10 @@ async function callModal(bookId) {
   try {
     modalShoppingEl.innerHTML = '';
     const bookData = await fetchBookDetails(bookId);
+    bookIdent = bookData[0]._id;
+
     renderModal(bookData);
+    renderModalButton(bookIdent);
   } catch (error) {
     console.error(error);
   }
@@ -83,6 +88,7 @@ window.addEventListener('load', function () {
   containerEl.addEventListener('click', event => {
     callModal(bookId);
     modalEl.classList.add('active');
+    modalCard.classList.add('active');
   });
 
   modalEl.addEventListener('click', event => {
@@ -102,12 +108,82 @@ window.addEventListener('load', function () {
   });
 });
 
-submitShoppingEl.addEventListener('click', event => {
-  const cardModalElement = event.target.parentNode.closest('.card-modal');
-  if (cardModalElement) {
-    const id = cardModalElement.getAttribute('id');
-    console.log(id);
+async function saveObjectLocal(bookIdent) {
+  try {
+    const bookData = await fetchBookDetails(bookIdent);
+
+    const {
+      _id,
+      book_image,
+      title,
+      list_name,
+      description,
+      author,
+      buy_links,
+    } = bookData[0];
+
+    const savedBook = {
+      _id,
+      book_image,
+      title,
+      list_name,
+      description,
+      author,
+      buy_links,
+    };
+
+    const savedBooks = JSON.parse(localStorage.getItem('savedBooks')) || [];
+
+    savedBooks.push(savedBook);
+
+    localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
+  } catch (error) {
+    console.error(error);
   }
-});
+}
 
+function deleteObjectLocal(bookIdent) {
+  const savedBooks = JSON.parse(localStorage.getItem('savedBooks'));
 
+  const index = savedBooks.findIndex(book => book._id === bookIdent);
+
+  if (index !== -1) {
+    savedBooks.splice(index, 1);
+  }
+
+  localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
+}
+
+function renderModalButton(bookIdent) {
+  const savedBooks = JSON.parse(localStorage.getItem('savedBooks'));
+
+  if (savedBooks.some(book => book._id === bookIdent)) {
+    const modalBtn = `
+      <button type="submit" class="button book">
+        Remove from the shopping list
+      </button>
+      <p class="congratulation">
+        Сongratulations! You have added the book to the shopping list. To delete,
+        press the button “Remove from the shopping list”.
+      </p>
+    `;
+    modalShoppingEl.insertAdjacentHTML('beforeend', modalBtn);
+    const submitShoppingEl = document.querySelector('.button.book');
+    submitShoppingEl.addEventListener('click', event => {
+      deleteObjectLocal(bookIdent);
+      closeModal();
+    });
+  } else {
+    const modalBtn = `
+      <button type="submit" class="button book">
+        Add to shopping list
+      </button>
+    `;
+    modalShoppingEl.insertAdjacentHTML('beforeend', modalBtn);
+    const submitShoppingEl = document.querySelector('.button.book');
+    submitShoppingEl.addEventListener('click', event => {
+      saveObjectLocal(bookIdent);
+      closeModal();
+    });
+  }
+}
