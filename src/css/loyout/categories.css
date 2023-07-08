@@ -1,0 +1,121 @@
+.category-container{
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 100px;
+}
+.category-list{
+    display: inline-block;
+    width: 328px;
+    height:472px;
+    color: rgba(17, 17, 17, 0.60);
+font-family: DM Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 1.33;
+letter-spacing: -0.36px;
+
+overflow: auto;
+
+
+
+}
+.category-list::-webkit-scrollbar {
+    width: 8px;
+    color: transparent; /* ширина прокрутки */
+    /* border-radius: 12px; радіус прокрутки */
+  }
+  
+  /* Задаємо радіус прокручувального ползунка (thumb) */
+  .category-list::-webkit-scrollbar-thumb {
+    background-color:#E0E0E0; /* колір прокручувального ползунка */
+    border-radius: 12px; /* радіус прокрутки */
+  }
+
+.category-list-item {
+    margin-top: 32px;
+    cursor: pointer;
+  }
+
+.category-list-item:hover{
+    text-transform: uppercase;
+    color: #4F2EE8;
+font-family: DM Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 1.33;
+letter-spacing: -0.36px;
+transition: transform, 250ms;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+.bookCard{
+    display: inline-block;
+    flex-direction: column;
+   
+    margin-left: 40px;
+    margin-right: 24px;
+    width: 996px;
+    height: 998px;
+}
+
+.is-hiden{
+    display: none;
+}
+.bookCard-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 24px;
+    margin-top: 40px;
+}
+
+
+.book-list-item{
+    display: block;
+    width: 180px;
+    height: 306px;
+    
+
+}
+.image-overlay > img{
+    position: relative;
+    overflow: hidden;
+    width: 180px;
+    height: 256px;
+    border-radius: 8px;
+}
+.book-list-item:hover .image-description {
+    transform: translateY(0);
+  }
+.image-description {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+background: #EAC645;
+display: flex;
+
+padding: 0px 52px;
+justify-content: center;
+align-items: center;
+    transform: translateY(100%);
+    transition: transform, 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* padding:40px 32px 0 32px ; */
+  }
+  .image-overlay {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px 0px 8px 8px;
+  }
+  .image-overlay-description{
+color: #111111;
+font-family: DM Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px;
+letter-spacing: -0.56px;
+text-transform: uppercase;
+  }
