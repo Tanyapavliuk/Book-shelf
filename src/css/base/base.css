@@ -44,51 +44,83 @@ body {
         padding: 0 24px;
     }
 }
+/* ---header nav---- */
+.nav-title{
+    color: var(--text-color);
+    font-family: DMSant-Medium;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
+}
+.sing-log{
+    font-family: DMSant-Medium;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+}
 
-/* --- */
+/* ----для рендеру в main---- */
 .main-title {
+    font-family: DMSant-Bold;
     font-size: 48px;
-    font-weight: 700;
     line-height: 1.08;
     letter-spacing: -1.92px;
 }
+.brendcolor{
+    font-family: DMSant-Bold;
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
 
-.title {
+    color: var(--brand-color);
+}
+.title-for-categories{
+    color: var(--subtitle-color);
+    font-family: DMSant-Regular;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.42px;
+    text-transform: uppercase;
+}
+
+.title-book {
+    font-family: DMSant-Bold;
     font-size: 16px;
-    font-weight: 700;
     text-transform: uppercase;
     line-height: 1.12;
     letter-spacing: -0.64px;
     color: var(--text-color);
 }
-
-.subtitle {
+.autor{
+    color: var(--subtitle-color);
+    font-family: DM Sans;
     font-size: 12px;
-    font-style: italic;
-    font-weight: 400;
+    font-family: DMSant-RegularItalic;
     line-height: 1.16;
     letter-spacing: -0.48px;
-    color: var(--subtitle-color)
 }
 
 .shopping-list__subtitle {
+    font-family: DMSant-Regular;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.16;
     letter-spacing: 0.36px;
 }
-
-.text {
+/* ----опис книг---- */
+.description {
+    color: var(--text-color);
+    font-family: DMSant-Regular;
     font-size: 14px;
-    font-weight: 400;
     line-height: 1.28;
     letter-spacing: -0.56px;
 }
-
+/* ----для категорій в aside---- */
 .categories__title {
+    font-family: DMSant-Regular;
     color: var(--categories-rgba-color);
     font-size: 18px;
-    font-weight: 400;
     line-height: 1.33;
     letter-spacing: -0.36px;
     transition: color 250ms linear;
@@ -96,11 +128,35 @@ body {
 
 .categories__title:hover,
 .categories__title:focus {
+    font-family: DMSant-Bold;
     color: var(--brand-color);
     font-weight: 700;
     text-transform: uppercase;
 }
-
+.categories__title-active{
+    color: var(--brand-color);
+    font-family: DMSant-Bold;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.36px;
+    text-transform: uppercase;
+}
+/* ---модальне вікно з книгою--- */
+.book-title-in-modal{
+    color: var(--text-color);
+    font-family: DMSant-Bold;
+    font-size: 24px;
+    line-height: 1.16;
+    letter-spacing: -0.96px;
+}
+.button-modal{
+    color: var(--text-color);
+    font-family:DMSant-Bold;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.18px;
+    text-transform: uppercase;
+}
 /* ---button--- */
 
 .button {

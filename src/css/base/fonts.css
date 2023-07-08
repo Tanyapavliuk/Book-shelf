@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "DMSant-Bold";
+    src: url("../../fonts/DMSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "DMSant-Medium";
+    src: url("../../fonts/DMSans-Medium.ttf");
+}
+@font-face {
+    font-family: "DMSant-MediumItalic";
+    src: url("../../fonts/DMSans-MediumItalic.ttf");
+}
+@font-face {
+    font-family: "DMSant-Regular";
+    src: url("../../fonts/DMSans-Regular.ttf");
+}
+@font-face {
+    font-family: "DMSant-RegularItalic";
+    src: url("../../fonts/DMSans-Italic.ttf");
+}
