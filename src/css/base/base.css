@@ -1,9 +1,14 @@
+body,
+html{
+    height: 100%;
+}
 body {
-  background-color: var(--background-color);
-  font-family: DM Sans;
-  font-style: normal;
-  font-size: 14px;
-  color: var(--text-color);
+    margin: 0;
+    background-color: var(--background-color);
+    font-family: DM Sans;
+    font-style: normal;
+    font-size: 14px;
+    color: var(--text-color);
 }
 
 :root {
@@ -141,20 +146,20 @@ body {
   text-transform: uppercase;
 }
 /* ---модальне вікно з книгою--- */
-.book-title-in-modal {
-  color: var(--text-color);
-  font-family: DMSant-Bold;
-  font-size: 24px;
-  line-height: 1.16;
-  letter-spacing: -0.96px;
+.book-title-in-modal{
+    color: var(--text-color);
+    font-family: DMSant-Bold;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.96px;
 }
-.button-modal {
-  color: var(--text-color);
-  font-family: DMSant-Bold;
-  font-size: 18px;
-  line-height: 1.33;
-  letter-spacing: -0.18px;
-  text-transform: uppercase;
+.button-modal{
+    color: var(--text-color);
+    font-family:DMSant-Bold;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.18px;
+    text-transform: uppercase;
 }
 /* ---button--- */
 
