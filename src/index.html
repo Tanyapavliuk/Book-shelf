@@ -10,14 +10,21 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-  
-    <include src="./partials/header.html"></include>
+  <div class="wrapper container">
+    <div class="wrapper__header">
+      <include src="./partials/header.html"></include>
+    </div>
+    <main class="main">
+        <aside class="wrapper__sidebar">
+        <include src="./partials/categories.html"></include>
 
-    <include src="./partials/categories.html"></include>
-
-    <include src="./partials/support.html"></include>
-
-    <include src="./partials/hero.html"></include>
+        <include src="./partials/support.html"></include>
+        </aside>
+      <div class="wrapper__content">
+        <include src="./partials/hero.html"></include>
+      </div>
+    </main>
+  </div>
 
     <include src="./partials/modal.html"></include>
 
