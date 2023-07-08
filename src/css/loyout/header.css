@@ -3,10 +3,39 @@ header {
   border-radius: 0 0 8px 8px;
 }
 
+@media screen and (max-width: 767px) {
+  header {
+    position: relative;
+    z-index: 1;
+    background-color: #ffffff;
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  /* position: relative; */
+}
+
+/* nav */
+
 .main-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .main-nav {
+    justify-content: start;
+    gap: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .main-nav {
+    gap: 76px;
+  }
 }
 
 .logo {
@@ -16,6 +45,13 @@ header {
   padding-bottom: 20px;
   gap: 8px;
   color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 }
 
 .logo-icon {
@@ -41,21 +77,108 @@ header {
 @media screen and (min-width: 768px) {
   .site-nav {
     display: flex;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 18px;
-    letter-spacing: -4%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .shopping-list-icon {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
+    gap: 16px;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .site-nav {
+    gap: 24px;
+  }
+}
+
+.home {
+  font-weight: 700;
+  background-color: var(--yelow-color);
+
+  padding: 8px 16px;
+  border-radius: 36px;
+
+  display: inline-block;
+}
+
+.shopping-list {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.shopping-list-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+}
+
+/* thomb */
+
+.thomb {
+  display: flex;
+  gap: 14px;
+}
+
+@media screen and (min-width: 1440px) {
+  .thomb {
+    gap: 24px;
+  }
+}
+
+/* theme */
+
+.dark-theme {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, #4f2ee8, #dcdcdc);
+  transition: 0.4s;
+  border-radius: 9px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 1px;
+  bottom: 1px;
+  background-color: #ffffff;
+  transition: 0.4s;
+  border-radius: 10px;
+}
+
+input:checked + .slider {
+  background-image: linear-gradient(to bottom, #4f2ee8, #686868);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* hamburger */
 
 .hamburger-menu {
   background-color: transparent;
@@ -80,14 +203,95 @@ header {
   height: 28px;
   stroke: var(--text-color);
 }
-.mobile-menu {
-  display: none;
-}
 
-.dark-theme {
-  display: none;
-}
+/* sing-up */
 
 .sing-up {
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .sing-up {
+    display: flex;
+    align-items: center;
+  }
+
+  .sing-up-btn {
+    background-color: var(--brand-color);
+    border: 2px solid var(--text-color);
+    color: var(--white-color);
+    height: 48px;
+    width: 184px;
+    padding: 14px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 18px;
+  }
+
+  .sing-up-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* mobile menu */
+
+.mobile-menu {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+}
+
+.mobile-close {
+  z-index: 1;
+  background-color: transparent;
+  stroke: var(--text-color);
+  border: none;
+  padding: 0;
+}
+
+.mobile-close-icon {
+  height: 28px;
+  width: 28px;
+}
+
+.mobile-nav {
+  position: absolute;
+  left: 50%;
+  top: 273px;
+  transform: translate(-50%, -50%);
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bg-img {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../images/mobile-menu-books.png);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: contain;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
 }
