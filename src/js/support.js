@@ -55,12 +55,10 @@ const charityFunds = [
     </a>
   </li>`
   });
-
-  console.log('listItems:', listItems);
-
+ 
   charityList.innerHTML = listItems.join('');
 
-  console.log('charityList:', charityList);
+ 
 
 
 
