@@ -11,31 +11,12 @@ body {
     --text-color: #111111;
     --subtitle-color: #B4AFAF;
     --categories-rgba-color: rgba(17, 17, 17, 0.60);
+    --gray-button-color: #F3F3F3;
+    --gray-rgba-color: rgba(246, 246, 246, 0.50);
     --background-color: #F6F6F6;
     --white-color: #FFFFFF;
     --yelow-color: #EAC645;
-
-    --gray-button-color: #F3F3F3;
 }
-
-/* Кольори для темної теми */
-
-[dark] {
-    --brand-color: #4F2EE8;
-    --text-color: #FFFFFF;
-    --subtitle-color: #B4AFAF;
-    --categories-rgba-color: rgba(255, 255, 255, 0.60);
-    --background-color: #202024;
-    --white-color: #FFFFFF;
-    --yelow-color: #EAC645;
-
-    --gray-button-color: #F3F3F3;
-}
-
-.hidden {
-    display: none;
-}
-
 
 .container {
     max-width: 1440px;
