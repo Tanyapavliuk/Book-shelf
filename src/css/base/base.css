@@ -1,9 +1,13 @@
+body,
+html{
+    height: 100%;
+}
 body {
-  background-color: var(--background-color);
-  font-family: DM Sans;
-  font-style: normal;
-  font-size: 14px;
-  color: var(--text-color);
+    background-color: var(--background-color);
+    font-family: DM Sans;
+    font-style: normal;
+    font-size: 14px;
+    color: var(--text-color);
 }
 
 :root {
@@ -19,25 +23,23 @@ body {
 }
 
 .container {
-  /* max-width: 1440px;
-    width: 100%; */
-  max-width: 375px;
-
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* @media screen and (min-width:375px) {
+@media screen and (min-width:375px) {
     .container {
         max-width: 375px;
     }
-} */
+}
 
-@media screen and (min-width: 768px) {
-  .container {
-    width: 768px;
-    padding: 0 32px;
-  }
+@media screen and (min-width:768px) {
+    .container {
+        max-width: 768px;
+        padding: 0 32px;
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -63,29 +65,19 @@ body {
 }
 
 /* ----для рендеру в main---- */
-
 .main-title {
-  font-family: DMSant-Bold;
-  font-size: 32px;
-  line-height: 1.19;
-  letter-spacing: -1.92px;
-}
-@media screen and (min-width: 768px) {
-  .main-title {
     font-family: DMSant-Bold;
     font-size: 48px;
     line-height: 1.08;
     letter-spacing: -1.92px;
-  }
 }
-
-.brendcolor {
-  font-family: DMSant-Bold;
-  font-size: inherit;
-  /* line-height: 1.08;
+.brendcolor{
+    font-family: DMSant-Bold;
+    font-size: 48px;
+    line-height: 1.08;
     letter-spacing: -1.92px;
- */
-  color: var(--brand-color);
+
+    color: var(--brand-color);
 }
 .title-for-categories {
   color: var(--subtitle-color);
@@ -154,20 +146,20 @@ body {
   text-transform: uppercase;
 }
 /* ---модальне вікно з книгою--- */
-.book-title-in-modal {
-  color: var(--text-color);
-  font-family: DMSant-Bold;
-  font-size: 24px;
-  line-height: 1.16;
-  letter-spacing: -0.96px;
+.book-title-in-modal{
+    color: var(--text-color);
+    font-family: DMSant-Bold;
+    font-size: 24px;
+    line-height: 1.16;
+    letter-spacing: -0.96px;
 }
-.button-modal {
-  color: var(--text-color);
-  font-family: DMSant-Bold;
-  font-size: 18px;
-  line-height: 1.33;
-  letter-spacing: -0.18px;
-  text-transform: uppercase;
+.button-modal{
+    color: var(--text-color);
+    font-family:DMSant-Bold;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.18px;
+    text-transform: uppercase;
 }
 /* ---button--- */
 

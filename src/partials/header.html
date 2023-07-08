@@ -11,18 +11,11 @@
         </svg>
       </a>
 
-      <!-- menu-hamburger -->
-      <button class="hamburger-menu" type="button">
-        <svg class="hamburger-menu-icon">
-          <use href="./images/sprite.svg#icon-burger"></use>
-        </svg>
-      </button>
-
       <!-- site-nav -->
       <ul class="site-nav">
-        <li><a class="home" href="./index.html">home</a></li>
+        <li><a class="home nav-title" href="./index.html">home</a></li>
         <li>
-          <a href="./shopinglist.html"
+          <a class="shopping-list nav-title" href="./shopinglist.html"
             >shopping list
             <svg class="shopping-list-icon">
               <use href="./images/sprite.svg#icon-package"></use></svg
@@ -31,43 +24,57 @@
       </ul>
     </nav>
 
-    <!-- mobile-menu -->
-    <div class="mobile-menu">
+    <div class="thomb">
+      <!-- dark-theme -->
+      <div class="dark-theme">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- menu-hamburger -->
+      <button class="hamburger-menu" type="button">
+        <svg class="hamburger-menu-icon">
+          <use href="./images/sprite.svg#icon-burger"></use>
+        </svg>
+      </button>
+
       <!-- close -->
-      <button class="mobile-close" type="button">
+      <!-- <button class="mobile-close visually-hidden" type="button">
         <svg class="mobile-close-icon">
           <use href="./images/sprite.svg#icon-close"></use>
         </svg>
-      </button>
+      </button> -->
 
-      <!-- mobile-nav -->
-      <nav class="mobile-nav">
-        <ul>
-          <li><a href="./index.html">home</a></li>
-          <li>
-            <a href="./shopinglist.html"
-              >shopping list
-              <svg class="shopping-list-icon">
-                <use href="./images/sprite.svg#icon-package"></use></svg
-            ></a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <!-- dark-theme -->
-    <div class="dark-theme">
-      <label><input type="checkbox" name="switcher" /></label>
-    </div>
-
-    <!-- sing up -->
-    <div class="sing-up">
-      <button class="sing-up-btn" type="button">
-        Sing up
-        <svg class="sing-up-icon">
-          <use href="./images/sprite.svg#icon-arrow-narrow-right"></use>
-        </svg>
-      </button>
+      <!-- sing up -->
+      <div class="sing-up">
+        <button class="sing-up-btn sing-log" type="button">
+          Sing up
+          <svg class="sing-up-icon">
+            <use href="./images/sprite.svg#icon-arrow-narrow-right"></use>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </header>
+
+<!-- mobile-menu -->
+<div class="mobile-menu">
+  <!-- mobile-nav -->
+  <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+      <li><a class="home nav-title" href="./index.html">home</a></li>
+      <li>
+        <a class="shopping-list nav-title" href="./shopinglist.html"
+          >shopping list
+          <svg class="shopping-list-icon">
+            <use href="./images/sprite.svg#icon-package"></use></svg
+        ></a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="bg-img"></div>
+</div>
