@@ -8,8 +8,8 @@ export function marcupListBooks(arr) {
         description,
         list_name,
         buy_links,
-      }) => `<li>
-            <div><img src="${book_image}" alt="${title}" /></div>
+      }) => `<li class="shopping-list-card">
+            <div class="shopping-list-img-container"><img class="shopping-list-img" src="${book_image}" alt="${title}" /></div>
             <div>
               <div>
                 <h2 class="title-book">${title}</h2>
@@ -18,13 +18,13 @@ export function marcupListBooks(arr) {
               </div>
               <div>
                 <span class="autor">${author}</span>
-                <ul class="shop-list">
+                <ul>
                 <li> 
                  <a href="${
                    buy_links.filter(({ name }) => {
                      return name === 'Amazon';
                    })[0].url
-                 }))}">    <img src="./images/amazon.png" alt="logo Amazon" />
+                 }"><img src="./images/amazon.png" alt="logo Amazon" />
 </a>
 </li>
 <li> 
@@ -45,7 +45,7 @@ export function marcupListBooks(arr) {
                 </div>
               </div>
             </div>
-            <button></button>
+            
           </li>
 `
     )

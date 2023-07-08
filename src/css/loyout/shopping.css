@@ -1,0 +1,15 @@
+.shopping-list-card{
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+
+    /* background-color: blue; */
+}
+.shopping-list-img-container{
+    max-width: 100px;
+    overflow: hidden;
+}
+
+.shopping-list-img{
+    object-fit: cover;
+}
