@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const container = document.querySelector('.container');
+const container = document.querySelector('.container-books');
 
 console.dir(container);
 getQuery();
@@ -11,7 +11,7 @@ async function getQuery() {
       `https://books-backend.p.goit.global/books/top-books `
     );
     console.log(resp.data);
-    // container.insertAdjacentHTML('beforeend', markup(resp.data));
+    container.insertAdjacentHTML('beforeend', markup(resp.data));
   } catch (err) {
     console.log(err);
   }
@@ -25,17 +25,17 @@ function markup(data) {
         ({ book_image, author, title }) =>
           `<li>
         <a href="#">
-            <img src="${book_image}" alt="${title}" />
-            <h3>${title}</h3>
-            <h4>${author}</h4>
+            <img class="book-img" src="${book_image}" alt="${title}" />
+            <h3 class="book-title">${title}</h3>
+            <h4 class="book-author">${author}</h4>
         </a>
         </li>`
       )
       .join('');
-    html += `<div>
-        <h2>${el.list_name}</h2>
+    html += `<div class="category-block">
+        <h2 class="cat-title">${el.list_name}</h2>
         <ul class="book-list">${list}</ul>
-        <button type="button">SEE MORE</button>
+        <button type="button" class="btn-more">SEE MORE</button>
     </div>`;
   });
   return html;
