@@ -1,4 +1,9 @@
+body,
+html{
+    height: 100%;
+}
 body {
+    margin: 0;
     background-color: var(--background-color);
     font-family: DM Sans;
     font-style: normal;
