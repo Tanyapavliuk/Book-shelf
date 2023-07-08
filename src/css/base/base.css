@@ -19,21 +19,23 @@ body {
 }
 
 .container {
-    max-width: 1440px;
-    width: 100%;
+    /* max-width: 1440px;
+    width: 100%; */
+            max-width: 375px;
+
     margin: 0 auto;
     padding: 0 20px;
 }
 
-@media screen and (min-width:375px) {
+/* @media screen and (min-width:375px) {
     .container {
         max-width: 375px;
     }
-}
+} */
 
 @media screen and (min-width:768px) {
     .container {
-        max-width: 768px;
+      width: 768px;
         padding: 0 32px;
     }
 }
@@ -61,18 +63,30 @@ body {
 }
 
 /* ----для рендеру в main---- */
+
+
+.main-title {
+    font-family: DMSant-Bold;
+    font-size: 32px;
+    line-height: 1.19;
+    letter-spacing: -1.92px;
+}
+@media screen and (min-width:768px) {
 .main-title {
     font-family: DMSant-Bold;
     font-size: 48px;
     line-height: 1.08;
     letter-spacing: -1.92px;
 }
+}
+
+
 .brendcolor{
     font-family: DMSant-Bold;
-    font-size: 48px;
-    line-height: 1.08;
+    font-size: inherit;
+    /* line-height: 1.08;
     letter-spacing: -1.92px;
-
+ */
     color: var(--brand-color);
 }
 .title-for-categories{
