@@ -27,7 +27,7 @@ const charityFunds = [
   {
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
-    img: '../src/images/support/razom.png',
+    img: './images/support/razom.png',
   },
   {
     title: 'Action against hunger',
