@@ -1,4 +1,9 @@
+body,
+html{
+    height: 100%;
+}
 body {
+    margin: 0;
     background-color: var(--background-color);
     font-family: DM Sans;
     font-style: normal;
@@ -145,15 +150,15 @@ body {
 .book-title-in-modal{
     color: var(--text-color);
     font-family: DMSant-Bold;
-    font-size: 24px;
-    line-height: 1.16;
+    font-size: 16px;
+    line-height: 18px;
     letter-spacing: -0.96px;
 }
 .button-modal{
     color: var(--text-color);
     font-family:DMSant-Bold;
-    font-size: 18px;
-    line-height: 1.33;
+    font-size: 14px;
+    line-height: 18px;
     letter-spacing: -0.18px;
     text-transform: uppercase;
 }
