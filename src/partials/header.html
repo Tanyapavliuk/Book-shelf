@@ -24,30 +24,6 @@
       </ul>
     </nav>
 
-    <!-- mobile-menu -->
-    <div class="mobile-menu">
-      <!-- close -->
-      <button class="mobile-close" type="button">
-        <svg class="mobile-close-icon">
-          <use href="./images/sprite.svg#icon-close"></use>
-        </svg>
-      </button>
-
-      <!-- mobile-nav -->
-      <nav class="mobile-nav">
-        <ul>
-          <li><a href="./index.html">home</a></li>
-          <li>
-            <a href="./shopinglist.html"
-              >shopping list
-              <svg class="shopping-list-icon">
-                <use href="./images/sprite.svg#icon-package"></use></svg
-            ></a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
     <div class="thomb">
       <!-- dark-theme -->
       <div class="dark-theme">
@@ -64,6 +40,13 @@
         </svg>
       </button>
 
+      <!-- close -->
+      <!-- <button class="mobile-close visually-hidden" type="button">
+        <svg class="mobile-close-icon">
+          <use href="./images/sprite.svg#icon-close"></use>
+        </svg>
+      </button> -->
+
       <!-- sing up -->
       <div class="sing-up">
         <button class="sing-up-btn sing-log" type="button">
@@ -76,3 +59,22 @@
     </div>
   </div>
 </header>
+
+<!-- mobile-menu -->
+<div class="mobile-menu">
+  <!-- mobile-nav -->
+  <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+      <li><a class="home nav-title" href="./index.html">home</a></li>
+      <li>
+        <a class="shopping-list nav-title" href="./shopinglist.html"
+          >shopping list
+          <svg class="shopping-list-icon">
+            <use href="./images/sprite.svg#icon-package"></use></svg
+        ></a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="bg-img"></div>
+</div>
