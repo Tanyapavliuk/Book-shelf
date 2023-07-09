@@ -57,27 +57,33 @@
   color: var(--white-color);
   font-family: DMSans-Regular;
   letter-spacing: -0.56px;
+  
   display: flex;
   flex-direction: column;
   column-gap: 20px;
+  row-gap: 20px;
 }
 
 .support-item {
+  align-items: center;
   list-style: none;
   display: flex;
   gap: 16px;
-  row-gap: 20px;
+ 
 
 }
 
 .support-item::before {
   counter-increment: list-counter;
   content: counter(list-counter, decimal-leading-zero);
-  }
+  
+}
  
 .support-logo {
-  cursor: pointer;
-}
+  cursor: pointer; 
+  
+  }
+  
 
 .ukraine-emblem {
   fill: var(--white-color);
