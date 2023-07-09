@@ -1,9 +1,14 @@
 import axios from 'axios';
 
 const container = document.querySelector('.container-books');
+const booklist = document.querySelector('.book-list');
 
 console.dir(container);
 getQuery();
+
+booklist.addEventListener('click', onclick(evt));
+
+function onclick(evt) {}
 
 function changeName() {}
 
