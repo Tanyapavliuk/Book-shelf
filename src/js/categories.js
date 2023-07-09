@@ -6,8 +6,8 @@ categoryList.addEventListener('click', onCategoryListClick);
 
 
 
- function getCategoryList (){
-     axios.get(`https://books-backend.p.goit.global/books/category-list`).then(({data}) => {
+ async function getCategoryList (){
+    await axios.get(`https://books-backend.p.goit.global/books/category-list`).then(({data}) => {
     renderCategory(data)}).catch(err => console.log( 'error', err))
 }
 getCategoryList()
@@ -23,9 +23,15 @@ async function renderCategory(data){
 function onCategoryListClick(event){
     bookCardList.innerHTML='';
     const idElem= event.target;
+    const isActive = document.querySelector('.categories__title-active');
+   
     if (idElem.tagName!=="LI"){
         return;
     } getBookByCategory(idElem.textContent.trim());
+    const elem = document.querySelector('.categories__title-active');
+if (elem){
+    elem.classList.remove('categories__title-active');
+}event.target.classList.add('categories__title-active');
   
 }
 
@@ -37,20 +43,21 @@ async  function getBookByCategory(changeCategory){
     }
 
 function renderedBookCardItem(data){
-    const markup = `
+    console.log(data)
+    const  markup = `
     <h2 class =" categoryTitle">${data[0].list_name}</h2>
     <ul class=" bookCard-list">${data.map(({author ,book_image, description, title, _id }) =>
     `<li class="book-list-item">
     <div class="image-overlay">
-    <img src="${book_image}" alt="${description} id= "${_id}">
+    <img src="${book_image}" alt="${description} id= "${_id}" loading="lazy">
     <div class="image-description">
                     <p class="image-overlay-description">
                     quick view 
                     </p>
                   </div>
                   </div>
-    <p class="book-title">${title}</p>
-    <p class="book-author"> ${author}</p>
+    <p class="title-book">${title}</p>
+    <p class="autor"> ${author}</p>
     </li>`).join('')}
     </ul>
      `;
