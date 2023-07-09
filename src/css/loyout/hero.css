@@ -67,9 +67,7 @@
 .container-books span {
   color: var(--brand-color);
 }
-h1 {
-  margin: 40px 0 40px 0;
-}
+
 .cat-title {
   color: var(--subtitle-color);
   font-size: 14px;

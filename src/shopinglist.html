@@ -7,18 +7,24 @@
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
 
     <link rel="stylesheet" href="./css/styles.css" />
-    <!-- <script type="module" src="./index.js"></script> -->
+    <script type="module" src="./index.js"></script>
   </head>
 
   <body>
-    <!-- <include src="./partials/header.html"></include> -->
-    <div class="container">
-      <!-- <include src="./partials/support.html"></include> -->
-
-      <include src="./partials/shopping.html"></include>
-
+    <div class="wrapper container">
+      <div>
+        <include src="./partials/header.html"></include>
+      </div>
+      <main class="main shopping-list__wrapper">
+        <div class="wrapper__sidebar shopping-list__wrapper">
+            <include src="./partials/support.html"></include>
+        </div>
+        <div class="wrapper__content">
+            <include src="./partials/shopping.html"></include>
+        </div> 
+      </main>
       <!-- <include src="./partials/modal.html"></include> -->
-
+      
       <!-- <include src="./partials/modalLogin.html"></include> -->
     </div>
 

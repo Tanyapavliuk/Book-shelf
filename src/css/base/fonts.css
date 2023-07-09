@@ -1,21 +1,23 @@
+/* font-weight:700 */
 @font-face {
-    font-family: "DMSant-Bold";
+    font-family: "DMSans-Bold";
     src: url("../../fonts/DMSans-Bold.ttf");
 }
-
+/* font-weight: 500 */
 @font-face {
-    font-family: "DMSant-Medium";
+    font-family: "DMSans-Medium";
     src: url("../../fonts/DMSans-Medium.ttf");
 }
 @font-face {
-    font-family: "DMSant-MediumItalic";
+    font-family: "DMSans-MediumItalic";
     src: url("../../fonts/DMSans-MediumItalic.ttf");
 }
+/* font-weight: 400 */
 @font-face {
-    font-family: "DMSant-Regular";
+    font-family: "DMSans-Regular";
     src: url("../../fonts/DMSans-Regular.ttf");
 }
 @font-face {
-    font-family: "DMSant-RegularItalic";
+    font-family: "DMSans-RegularItalic";
     src: url("../../fonts/DMSans-Italic.ttf");
 }

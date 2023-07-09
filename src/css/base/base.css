@@ -5,7 +5,7 @@ html {
 }
 body {
   background-color: var(--background-color);
-  font-family: DM Sans;
+  font-family: DMSans-Regular;
   font-style: normal;
   font-size: 14px;
   color: var(--text-color);
@@ -16,9 +16,40 @@ body {
   --text-color: #111111;
   --subtitle-color: #b4afaf;
   --categories-rgba-color: rgba(17, 17, 17, 0.6);
+  --background-color: #f6f6f6;
+  --bg-color-header-card: #ffffff;
+
+  --button-sign-up-color: #111111;
+  --button-sign-up-font-color: #f3f3f3;
+
+  --button-yelow-color: #eac645;
+  --button-yelow-font-color: #111111;
+
   --gray-button-color: #f3f3f3;
   --gray-rgba-color: rgba(246, 246, 246, 0.5);
-  --background-color: #f6f6f6;
+
+  --white-color: #ffffff;
+  --yelow-color: #eac645;
+}
+
+/* Кольори для темної теми */
+
+[dark] {
+  --brand-color: #4F2EE8;
+  --text-color: #FFFFFF;
+  --subtitle-color: #B4AFAF;
+  --categories-rgba-color: rgba(255, 255, 255, 0.60);
+  --background-color: #202024;
+  --bg-color-header-card: #111111;
+
+  --button-sign-up-color: #f6f6f6;
+  --button-sign-up-font-color: #202024;
+
+  --button-yelow-color: #eac645;
+  --button-yelow-font-color: #111111;
+
+  --gray-button-color: #f3f3f3;
+
   --white-color: #ffffff;
   --yelow-color: #eac645;
 }
@@ -47,14 +78,14 @@ body {
 } /* ---header nav---- */
 .nav-title {
   color: var(--text-color);
-  font-family: DMSant-Medium;
+  font-family: DMSans-Medium;
   font-size: 14px;
   line-height: 1.28;
   letter-spacing: -0.56px;
   text-transform: uppercase;
 }
 .sing-log {
-  font-family: DMSant-Medium;
+  font-family: DMSans-Medium;
   font-size: 14px;
   line-height: 1.28;
   letter-spacing: -0.56px;
@@ -62,7 +93,7 @@ body {
 
 /* ----для рендеру в main---- */
 .main-title {
-  font-family: DMSant-Bold;
+  font-family: DMSans-Bold;
   font-size: 32px;
   line-height: 1.19;
   letter-spacing: -1.92px;
@@ -71,7 +102,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .main-title {
-    font-family: DMSant-Bold;
+    font-family: DMSans-Bold;
     font-size: 48px;
     line-height: 1.08;
     letter-spacing: -1.92px;
@@ -79,14 +110,14 @@ body {
 }
 
 .brendcolor {
-  font-family: DMSant-Bold;
+  font-family: DMSans-Bold;
   font-size: inherit;
   color: var(--brand-color);
 }
 
 .title-for-categories {
   color: var(--subtitle-color);
-  font-family: DMSant-Regular;
+  font-family: DMSans-Regular;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.42px;
@@ -94,7 +125,7 @@ body {
 }
 
 .title-book {
-  font-family: DMSant-Bold;
+  font-family: DMSans-Bold;
   font-size: 16px;
   text-transform: uppercase;
   line-height: 1.12;
@@ -106,16 +137,15 @@ body {
 
 .author {
   color: var(--subtitle-color);
-  font-family: DM Sans;
   font-size: 12px;
-  font-family: DMSant-RegularItalic;
+  font-family: DMSans-RegularItalic;
   line-height: 1.16;
   letter-spacing: -0.48px;
 }
 
 .shopping-list__subtitle {
   color: var(--subtitle-color);
-  font-family: DMSant-Regular;
+  font-family: DMSans-Regular;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.16;
@@ -124,24 +154,22 @@ body {
   margin-bottom: 8px;
 }
 @media screen and (min-width: 768px) {
-.shopping-list__subtitle {
-  margin-bottom: 14px;
-
-}}
-
+  .shopping-list__subtitle {
+    margin-bottom: 14px;
+  }
+}
 
 /* ----опис книг---- */
 .description {
   color: var(--text-color);
-  font-family: DMSant-Regular;
+  font-family: DMSans-Regular;
   font-size: 14px;
   line-height: 1.28;
   letter-spacing: -0.56px;
-
 }
 /* ----для категорій в aside---- */
 .categories__title {
-  font-family: DMSant-Regular;
+  font-family: DMSans-Regular;
   color: var(--categories-rgba-color);
   font-size: 18px;
   line-height: 1.33;
@@ -151,14 +179,14 @@ body {
 
 .categories__title:hover,
 .categories__title:focus {
-  font-family: DMSant-Bold;
+  font-family: DMSans-Bold;
   color: var(--brand-color);
   font-weight: 700;
   text-transform: uppercase;
 }
 .categories__title-active {
   color: var(--brand-color);
-  font-family: DMSant-Bold;
+  font-family: DMSans-Bold;
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: -0.36px;
@@ -167,14 +195,14 @@ body {
 /* ---модальне вікно з книгою--- */
 .book-title-in-modal {
   color: var(--text-color);
-  font-family: DMSant-Bold;
+  font-family: DMSans-Bold;
   font-size: 24px;
   line-height: 1.16;
   letter-spacing: -0.96px;
 }
 .button-modal {
   color: var(--text-color);
-  font-family: DMSant-Bold;
+  font-family: DMSans-Bold;
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: -0.18px;
@@ -183,6 +211,7 @@ body {
 /* ---button--- */
 
 .button {
+  font-family: DMSans-Bold;
   color: var(--text-color);
   background-color: transparent;
   border-radius: 40px;

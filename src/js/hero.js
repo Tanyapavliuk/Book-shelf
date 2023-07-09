@@ -1,17 +1,9 @@
 import axios from 'axios';
-export let bookId;
 
-const container = document.querySelector('.container-books');
+export const container = document.querySelector('.container-books');
 
+console.dir(container);
 getQuery();
-
-document.addEventListener('click', e => {
-  e.preventDefault();
-  if (e.target.classList.value.includes('js-ct')) {
-    bookId = e.target.parentElement.dataset.id;
-    console.log(bookId);
-  }
-});
 
 function changeName() {}
 
@@ -48,18 +40,14 @@ function markup(data) {
         <button type="button" class="btn-more">SEE MORE</button>
     </div>`;
   });
-<<<<<<< Updated upstream
-=======
-  html = `<h1>Best Sellers <span>Books</span></h1>` + html;
 
-  // setTimeout(() => {
-  //   const buttonMore = document.querySelector('.btn-more');
+  setTimeout(() => {
+    const buttonMore = document.querySelector('.btn-more');
 
-  //   buttonMore.addEventListener('click', event => {
-  //   event.stopPropagation();
-  // });
-  // }, 1000);
+    buttonMore.addEventListener('click', event => {
+    event.stopPropagation();
+  });
+  }, 1000);
 
->>>>>>> Stashed changes
   return html;
 }
