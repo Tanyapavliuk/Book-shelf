@@ -25,9 +25,9 @@ function markup(data) {
         ({ book_image, author, title, _id }) =>
           `<li class="bs-list-item" hidden>
         <div class="book-card" data-id="${_id}">
-        <div class="image-overlay">
-            <img class="book-img js-ct" src="${book_image}" alt="${title}" />
-            <div class="image-description">
+        <div class="image-overlay" data-id="${_id}">
+            <img class="book-img js-ct" src="${book_image}" alt="${title}" loading="lazy" />
+            <div class="image-description js-ct">
       <p class="image-overlay-description"> quick view  </p>
      </div>
       </div>

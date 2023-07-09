@@ -61,8 +61,8 @@ function renderedBookCardItem(data) {
         ({ author, book_image, description, title, _id }) =>
           `<li class="bs-list-item">
           <div class="book-card " data-id="${_id}">
-    <div class="image-overlay">
-    <img class="book-img js-ct" src="${book_image}" alt="${title} id= "${_id}" loading="lazy" >
+    <div class="image-overlay" data-id="${_id}">
+    <img class="book-img js-ct" src="${book_image}" alt="${title} loading="lazy" >
     <div class="image-description">
       <p class="image-overlay-description"> quick view  </p>
      </div>

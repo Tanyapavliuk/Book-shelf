@@ -1,7 +1,7 @@
 import { container as containerEl } from './hero';
-import amazon from '../images/amazon.png'
-import applebooks from '../images/book.png'
-import bookshop from '../images/book-block.png'
+import amazon from '../images/amazon.png';
+import applebooks from '../images/book.png';
+import bookshop from '../images/book-block.png';
 
 const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
@@ -197,6 +197,7 @@ isLocalStorage();
 window.addEventListener('load', function () {
   containerEl.addEventListener('click', event => {
     let bookId;
+    console.dir(event.target);
 
     if (event.target.classList.value.includes('js-ct')) {
       bookId = event.target.parentElement.dataset.id;
@@ -213,18 +214,16 @@ window.addEventListener('load', function () {
           closeModal();
         }
       });
-    
+
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape') {
           closeModal();
         }
       });
-    
+
       closeButtonEl.addEventListener('click', event => {
         closeModal();
       });
     }
   });
-
-
 });
