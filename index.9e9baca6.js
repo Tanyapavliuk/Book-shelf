@@ -25,7 +25,7 @@ let t;function e(t,e,r,n){Object.defineProperty(t,e,{get:r,set:n,enumerable:!0,c
         </a>
         </li>`).join("")}</ul>
         <button type="button" class="btn-more">SEE MORE</button>
-    </div>`}),e))}catch(t){console.log(t)}}console.dir(E),v(),document.addEventListener("click",t=>{t.target.classList.value.includes("js-ct")&&console.log(t.target.parentElement.dataset.id)});const A=document.querySelector(".hero-ul"),B=document.querySelector(".backdrop"),O=document.querySelector(".modal"),S=document.querySelector(".modal-shopping-close"),R=document.querySelector(".render-modal");function T(){B.classList.remove("active"),O.classList.remove("active"),document.body.style.overflow="auto"}async function x(t){try{let e=`https://books-backend.p.goit.global/books/${t}`,r=await fetch(e);if(!r.ok)throw Error(`Error: ${r.status} ${r.statusText}`);let n=await r.json();return[n]}catch(t){console.error(t)}}async function k(e){try{R.innerHTML="";let r=await x(e);t=r[0]._id,function(t){let e=t.map(t=>`
+    </div>`}),setTimeout(()=>{let t=document.querySelector(".btn-more");t.addEventListener("click",t=>{t.stopPropagation()})},1e3),e))}catch(t){console.log(t)}}console.dir(E),v();const A=document.querySelector(".backdrop"),B=document.querySelector(".modal"),O=document.querySelector(".modal-shopping-close"),S=document.querySelector(".render-modal");function R(){A.classList.remove("active"),B.classList.remove("active"),document.body.style.overflow="auto"}async function T(t){try{let e=`https://books-backend.p.goit.global/books/${t}`,r=await fetch(e);if(!r.ok)throw Error(`Error: ${r.status} ${r.statusText}`);let n=await r.json();return[n]}catch(t){console.error(t)}}async function x(e){try{S.innerHTML="";let r=await T(e);t=r[0]._id,function(t){let e=t.map(t=>`
         <div class="card-modal" id="${t._id}">
         <img
           class="modal-img"
@@ -58,7 +58,7 @@ let t;function e(t,e,r,n){Object.defineProperty(t,e,{get:r,set:n,enumerable:!0,c
           </ul>
         </div>
       </div>
-        `).join("");R.insertAdjacentHTML("beforeend",e)}(r),function(t){let e=JSON.parse(localStorage.getItem("savedBooks"));if(e.some(e=>e._id===t)){let e=`
+        `).join("");S.insertAdjacentHTML("beforeend",e)}(r),function(t){let e=JSON.parse(localStorage.getItem("savedBooks"));if(e.some(e=>e._id===t)){let e=`
       <button type="submit" class="button book">
         Remove from the shopping list
       </button>
@@ -66,9 +66,9 @@ let t;function e(t,e,r,n){Object.defineProperty(t,e,{get:r,set:n,enumerable:!0,c
         Сongratulations! You have added the book to the shopping list. To delete,
         press the button “Remove from the shopping list”.
       </p>
-    `;R.insertAdjacentHTML("beforeend",e);let r=document.querySelector(".button.book");r.addEventListener("click",e=>{(function(t){let e=JSON.parse(localStorage.getItem("savedBooks")),r=e.findIndex(e=>e._id===t);-1!==r&&e.splice(r,1),localStorage.setItem("savedBooks",JSON.stringify(e))})(t),T()})}else{let e=`
+    `;S.insertAdjacentHTML("beforeend",e);let r=document.querySelector(".button.book");r.addEventListener("click",e=>{(function(t){let e=JSON.parse(localStorage.getItem("savedBooks")),r=e.findIndex(e=>e._id===t);-1!==r&&e.splice(r,1),localStorage.setItem("savedBooks",JSON.stringify(e))})(t),R()})}else{let e=`
       <button type="submit" class="button book">
         Add to shopping list
       </button>
-    `;R.insertAdjacentHTML("beforeend",e);let r=document.querySelector(".button.book");r.addEventListener("click",e=>{L(t),T()})}}(t)}catch(t){console.error(t)}}async function L(t){try{let e=await x(t),{_id:r,book_image:n,title:o,list_name:i,description:s,author:a,buy_links:u}=e[0],l=JSON.parse(localStorage.getItem("savedBooks"))||[];l.push({_id:r,book_image:n,title:o,list_name:i,description:s,author:a,buy_links:u}),localStorage.setItem("savedBooks",JSON.stringify(l))}catch(t){console.error(t)}}!function(){let t=JSON.parse(localStorage.getItem("savedBooks"));t||localStorage.setItem("savedBooks",JSON.stringify([]))}(),window.addEventListener("load",function(){A.addEventListener("click",t=>{k("643282b1e85766588626a080"),B.classList.add("active"),O.classList.add("active"),document.body.style.overflow="hidden"}),B.addEventListener("click",t=>{t.target===B&&T()}),document.addEventListener("keydown",t=>{"Escape"===t.key&&T()}),S.addEventListener("click",t=>{T()})});let U=document.querySelector(".mask");window.addEventListener("load",()=>{U.classList.add("hiden"),setTimeout(()=>{U.remove()},600)});
-//# sourceMappingURL=index.263521e7.js.map
+    `;S.insertAdjacentHTML("beforeend",e);let r=document.querySelector(".button.book");r.addEventListener("click",e=>{k(t),R()})}}(t)}catch(t){console.error(t)}}async function k(t){try{let e=await T(t),{_id:r,book_image:n,title:o,list_name:i,description:s,author:a,buy_links:u}=e[0],l=JSON.parse(localStorage.getItem("savedBooks"))||[];l.push({_id:r,book_image:n,title:o,list_name:i,description:s,author:a,buy_links:u}),localStorage.setItem("savedBooks",JSON.stringify(l))}catch(t){console.error(t)}}!function(){let t=JSON.parse(localStorage.getItem("savedBooks"));t||localStorage.setItem("savedBooks",JSON.stringify([]))}(),window.addEventListener("load",function(){E.addEventListener("click",t=>{let e;t.target.classList.value.includes("js-ct")&&(e=t.target.parentElement.dataset.id),e&&(x(e),A.classList.add("active"),B.classList.add("active"),document.body.style.overflow="hidden",A.addEventListener("click",t=>{t.target===A&&R()}),document.addEventListener("keydown",t=>{"Escape"===t.key&&R()}),O.addEventListener("click",t=>{R()}))})});let L=document.querySelector(".mask");window.addEventListener("load",()=>{L.classList.add("hiden"),setTimeout(()=>{L.remove()},600)});
+//# sourceMappingURL=index.9e9baca6.js.map
