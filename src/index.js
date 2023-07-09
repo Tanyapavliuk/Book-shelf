@@ -7,5 +7,6 @@ import "./js/hero";
 import "./js/modal";
 import "./js/modalLogin";
 import "./js/loader";
+import "./js/scrollUp";
 
 
