@@ -5,6 +5,7 @@
     grid-template-rows: 72px 1fr;
     grid-template-areas: "header"
         "main";
+    row-gap: 40px;
 }
 
 .wrapper__header {
@@ -13,8 +14,6 @@
 
 .main {
     grid-area: main;
-
-    margin-top: 40px;
 }
 
 .wrapper__sidebar {
@@ -68,7 +67,6 @@
         grid-template-columns: 376px 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: "sidebar content";
-        column-gap: 40px;
     }
 
     .wrapper__sidebar {
@@ -78,19 +76,20 @@
     }
 }
 @media (min-width:1440px) {
-    .main.shopping-list {
+    .main.shopping-list__wrapper {
         align-items: start;
+        column-gap: 40px;
     }
-    .wrapper__sidebar.shopping-list {
+    .wrapper__sidebar.shopping-list__wrapper {
             margin-top: 10px;
      } 
 }
 
 @media (max-width:1439px) {
-    .main.shopping-list {
+    .main.shopping-list__wrapper {
     display: block;
     }
-    .wrapper__sidebar.shopping-list{
+    .wrapper__sidebar.shopping-list__wrapper{
     display: none;
 }
 }
