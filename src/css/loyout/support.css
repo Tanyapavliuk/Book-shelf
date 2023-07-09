@@ -53,6 +53,7 @@
 
 
 .support-list {
+  margin-top: 40px;
   counter-reset: list-counter;
   color: var(--white-color);
   font-family: DMSans-Regular;
@@ -81,7 +82,8 @@
  
 .support-logo {
   cursor: pointer; 
-  
+  height: 32px;
+  width: 131px;
   }
   
 
