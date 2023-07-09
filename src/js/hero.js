@@ -7,7 +7,6 @@ console.dir(container);
 getQuery();
 
 document.addEventListener('click', e => {
-  e.preventDefault();
   if (e.target.classList.value.includes('js-ct')) {
     bookId = e.target.parentElement.dataset.id;
     console.log(bookId);
