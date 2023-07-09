@@ -79,7 +79,7 @@ supportLogos.forEach(function(logo) {
 const supportBlock = document.querySelector('.support');
 const seeMoreButton = document.querySelector('.see-more');
 
-seeMoreButton.addEventListener('click', function() {
+seeMoreButton.addEventListener('click', function (e) {
   supportBlock.classList.toggle('expanded');
 });
 

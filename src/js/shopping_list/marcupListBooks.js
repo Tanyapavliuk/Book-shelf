@@ -1,7 +1,7 @@
 export function marcupListBooks(arr) {
   return arr
     .map(
-        ({
+        ({_id,
             title,
             book_image = './images/book_default/book_default.jpg',
             author,
@@ -20,34 +20,42 @@ export function marcupListBooks(arr) {
                 <p class="description">${description}</p>
               </div>
               <div class="shopping-list-thumb">
-                <span class="author">${author.split(",")[0]}</span>
+                <span class="author">${author.split(',')[0]}</span>
                 <ul class="shopping-list-store">
                 <li > 
-                 <a href="${buy_links.filter(({ name }) => {
-                return name === 'Amazon';
-            })[0].url
-            }"><img src="./images/amazon.png" alt="logo Amazon" />
+                 <a href="${
+                   buy_links.filter(({ name }) => {
+                     return name === 'Amazon';
+                   })[0].url
+                 }"><img src="./images/amazon.png" alt="logo Amazon" />
 </a>
 </li>
 <li> 
-  <a href="${buy_links.filter(({ name }) => {
-                return name === 'Apple Books';
-            })[0].url
-            }"><img src="./images/book.png" alt="Book" />
+  <a href="${
+    buy_links.filter(({ name }) => {
+      return name === 'Apple Books';
+    })[0].url
+  }"><img src="./images/book.png" alt="Book" />
 </a>
 </li>
 <li> 
-<a href="${buy_links.filter(({ name }) => {
+<a href="${
+              buy_links.filter(({ name }) => {
                 return name === 'Bookshop';
-            })[0].url
+              })[0].url
             }"><img src="./images/book-block.png" alt="logo Book-block" /></a>
 </li></ul>
                 </div>
               </div>
             </div>
-            
+            <button type="button" data-id="${_id}" class="shopping-list-btn-del js-trash ">
+</button> 
           </li>
-`
+`;
         })
     .join('');
+
 }
+// {/* <svg class="trash ">
+//   <use href="./images/sprite.svg#trash"></use>
+// </svg>; */}
