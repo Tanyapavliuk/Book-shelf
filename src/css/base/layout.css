@@ -19,6 +19,7 @@
 
 .wrapper__sidebar {
     grid-area: sidebar;
+    justify-items: center;
 }
 
 .wrapper__content {
@@ -75,3 +76,22 @@
         row-gap: 86px;
     }
 }
+@media (min-width:1440px) {
+    .main.shopping-list {
+        align-items: start;
+    }
+    .wrapper__sidebar.shopping-list {
+            margin-top: 10px;
+     } 
+}
+
+@media (max-width:1439px) {
+    .main.shopping-list {
+    display: block;
+    }
+    .wrapper__sidebar.shopping-list{
+    display: none;
+}
+}
+
+

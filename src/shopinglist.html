@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Shelf</title>
@@ -9,20 +8,26 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
     <script type="module" src="./index.js"></script>
-</head>
+  </head>
 
-<body>
-    <a href="./index.html">H O M E</a>
-    <!-- <include src="./partials/header.html"></include>
+  <body>
+    <div class="wrapper container">
+      <div>
+        <include src="./partials/header.html"></include>
+      </div>
+      <main class="main shopping-list">
+        <div class="wrapper__sidebar shopping-list">
+            <include src="./partials/support.html"></include>
+        </div>
+        <div class="wrapper__content">
+            <include src="./partials/shopping.html"></include>
+        </div> 
+      </main>
+      <!-- <include src="./partials/modal.html"></include> -->
+      
+      <!-- <include src="./partials/modalLogin.html"></include> -->
+    </div>
 
-    <include src="./partials/support.html"></include> -->
-
-    <include src="./partials/shopping.html"></include>
-
-    <!-- <include src="./partials/modal.html"></include>
-
-    <include src="./partials/modalLogin.html"></include> -->
-<script type="module" src="./js/shopping_list/shopping.js"></script>
-</body>
-
+    <script type="module" src="./js/shopping_list/shopping.js"></script>
+  </body>
 </html>
