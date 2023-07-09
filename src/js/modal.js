@@ -4,12 +4,26 @@ const modalCard = document.querySelector('.modal');
 const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
 
+
+// Temporary const
 const bookId = '643282b1e85766588626a080';
+const isLogin = 1;
+
 
 let bookIdent;
 
+
+function isLocalStorage() {
+  const savedBooks = JSON.parse(localStorage.getItem('savedBooks'));
+  if (!savedBooks) {
+    localStorage.setItem('savedBooks', JSON.stringify([]));
+  }
+}
+
 function closeModal() {
   modalEl.classList.remove('active');
+  modalCard.classList.remove('active');
+  document.body.style.overflow = 'auto';
 }
 
 async function fetchBookDetails(bookId) {
@@ -43,22 +57,26 @@ function renderModal(bookData) {
           <h2 class="book-title-in-modal">${data.title}</h2>
           <p class="subtitle-book">${data.author}</p>
           <p class="text book">
-          ${data.description}
+          ${
+            data.description
+              ? data.description
+              : 'Sorry, but this book does not have an accessible description. Try reading it on the website of one of the shops'
+          }
           </p>
           <ul class="shop-list">
             <li>
               <a href="${data.buy_links[0].url}">
-                <img src="./images/amazon.png" alt="Amazon" />
+                <img src="/images/amazon.png" alt="Amazon" />
               </a>
             </li>
             <li>
               <a href="${data.buy_links[1].url}">
-                <img src="./images/book.png" alt="Apple Books" />
+                <img src="/images/book.png" alt="Apple Books" />
               </a>
             </li>
             <li>
               <a href="${data.buy_links[4].url}">
-                <img src="./images/book-block.png" alt="Bookshop" />
+                <img src="/images/book-block.png" alt="Bookshop" />
               </a>
             </li>
           </ul>
@@ -83,30 +101,6 @@ async function callModal(bookId) {
     console.error(error);
   }
 }
-
-window.addEventListener('load', function () {
-  containerEl.addEventListener('click', event => {
-    callModal(bookId);
-    modalEl.classList.add('active');
-    modalCard.classList.add('active');
-  });
-
-  modalEl.addEventListener('click', event => {
-    if (event.target === modalEl) {
-      closeModal();
-    }
-  });
-
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-      closeModal();
-    }
-  });
-
-  closeButtonEl.addEventListener('click', event => {
-    closeModal();
-  });
-});
 
 async function saveObjectLocal(bookIdent) {
   try {
@@ -168,7 +162,12 @@ function renderModalButton(bookIdent) {
       </p>
     `;
     modalShoppingEl.insertAdjacentHTML('beforeend', modalBtn);
+
     const submitShoppingEl = document.querySelector('.button.book');
+    if (!isLogin) {
+      submitShoppingEl.disabled = true;
+    }
+
     submitShoppingEl.addEventListener('click', event => {
       deleteObjectLocal(bookIdent);
       closeModal();
@@ -180,10 +179,42 @@ function renderModalButton(bookIdent) {
       </button>
     `;
     modalShoppingEl.insertAdjacentHTML('beforeend', modalBtn);
+
     const submitShoppingEl = document.querySelector('.button.book');
+    if (!isLogin) {
+      submitShoppingEl.disabled = true;
+    }
+
     submitShoppingEl.addEventListener('click', event => {
       saveObjectLocal(bookIdent);
       closeModal();
     });
   }
 }
+
+isLocalStorage();
+
+window.addEventListener('load', function () {
+  containerEl.addEventListener('click', event => {
+    callModal(bookId);
+    modalEl.classList.add('active');
+    modalCard.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  modalEl.addEventListener('click', event => {
+    if (event.target === modalEl) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  closeButtonEl.addEventListener('click', event => {
+    closeModal();
+  });
+});
