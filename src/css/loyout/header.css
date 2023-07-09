@@ -301,6 +301,8 @@ input:checked + .slider:before {
     #4f2ee8 18.03%,
     #fff 100%
   );
+
+  transition: left 250ms linear;
 }
 
 .mobile-close {
@@ -314,6 +316,12 @@ input:checked + .slider:before {
 .mobile-close-icon {
   height: 28px;
   width: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-close {
+    display: none;
+  }
 }
 
 .mobile-nav {
@@ -332,8 +340,8 @@ input:checked + .slider:before {
 
 .bg-img {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-image: url(../../images/mobile-menu-books.png);
   background-repeat: no-repeat;
   background-position: 0 100%;
