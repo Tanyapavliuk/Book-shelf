@@ -1,4 +1,5 @@
 import { container as containerEl } from './hero';
+import { getBookByCategory } from './categories';
 import amazon from '../images/amazon.png';
 import applebooks from '../images/book.png';
 import bookshop from '../images/book-block.png';
@@ -198,7 +199,9 @@ window.addEventListener('load', function () {
   containerEl.addEventListener('click', event => {
     let bookId;
     console.dir(event.target);
-
+    if (event.target.tagName === 'BUTTON') {
+      getBookByCategory(event.target.dataset.catname);
+    }
     if (event.target.classList.value.includes('js-ct')) {
       bookId = event.target.parentElement.dataset.id;
     }

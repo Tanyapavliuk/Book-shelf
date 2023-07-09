@@ -43,7 +43,7 @@ function onCategoryListClick(event) {
   event.target.classList.add('categories__title-active');
 }
 
-async function getBookByCategory(changeCategory) {
+export async function getBookByCategory(changeCategory) {
   await axios
     .get(
       `https://books-backend.p.goit.global/books/category?category=${changeCategory}`

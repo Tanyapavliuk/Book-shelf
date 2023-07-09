@@ -11,6 +11,7 @@ export async function getQuery() {
     const resp = await axios.get(
       `https://books-backend.p.goit.global/books/top-books `
     );
+    console.log(resp.data);
     container.insertAdjacentHTML('beforeend', markup(resp.data));
   } catch (err) {
     console.log(err);
@@ -19,7 +20,10 @@ export async function getQuery() {
 
 function markup(data) {
   let html = '';
+
+  console.log;
   data.forEach(el => {
+    let catName = el.list_name;
     let list = el.books
       .map(
         ({ book_image, author, title, _id }) =>
@@ -40,7 +44,7 @@ function markup(data) {
     html += `<div class="category-block">
         <h2 class="cat-title">${el.list_name}</h2>
         <ul class="book-list">${list}</ul>
-        <button type="button" class="btn-more">SEE MORE</button>
+        <button type="button" class="btn-more" data-catname="${catName}">SEE MORE</button>
     </div>`;
   });
 
