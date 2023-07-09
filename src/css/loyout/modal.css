@@ -31,6 +31,7 @@
 .modal-img {
   width: 287px;
   height: 408px;
+
   border-radius: 8px;
 }
 
@@ -74,6 +75,16 @@
 
 .text.book {
   margin-top: 18px;
+  font-family: DM Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .text.book {
+    margin-top: 20px;
+  }
 }
 
 .shop-list {
@@ -111,6 +122,13 @@
   .button.book {
     width: 100%;
   }
+}
+
+.button.book:disabled {
+  background-color: var(--subtitle-color);
+  color: var(--white-color);
+  cursor: not-allowed;
+  border: 2px solid var(--yelow-color);
 }
 
 .congratulation {
