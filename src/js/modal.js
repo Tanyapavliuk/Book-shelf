@@ -1,17 +1,14 @@
-const containerEl = document.querySelector('.hero-ul');
+import { container as containerEl } from './hero';
+
 const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
 const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
 
-
 // Temporary const
-const bookId = '643282b1e85766588626a080';
 const isLogin = 1;
 
-
 let bookIdent;
-
 
 function isLocalStorage() {
   const savedBooks = JSON.parse(localStorage.getItem('savedBooks'));
@@ -196,25 +193,35 @@ isLocalStorage();
 
 window.addEventListener('load', function () {
   containerEl.addEventListener('click', event => {
-    callModal(bookId);
-    modalEl.classList.add('active');
-    modalCard.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  });
+    let bookId;
 
-  modalEl.addEventListener('click', event => {
-    if (event.target === modalEl) {
-      closeModal();
+    if (event.target.classList.value.includes('js-ct')) {
+      bookId = event.target.parentElement.dataset.id;
+    }
+
+    if (bookId) {
+      callModal(bookId);
+      modalEl.classList.add('active');
+      modalCard.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      modalEl.addEventListener('click', event => {
+        if (event.target === modalEl) {
+          closeModal();
+        }
+      });
+    
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+      });
+    
+      closeButtonEl.addEventListener('click', event => {
+        closeModal();
+      });
     }
   });
 
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-      closeModal();
-    }
-  });
 
-  closeButtonEl.addEventListener('click', event => {
-    closeModal();
-  });
 });

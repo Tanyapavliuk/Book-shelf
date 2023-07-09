@@ -45,14 +45,14 @@
 }
 
 @media screen and (min-width: 768px) {
-    .modal-login-close-icon {
-      top: 24px;
-      right: 24px;
+  .modal-login-close-icon {
+    top: 24px;
+    right: 24px;
 
-      width: 28px;
-      height: 28px;
-    }
+    width: 28px;
+    height: 28px;
   }
+}
 
 .button.login {
   width: 100%;
@@ -75,15 +75,15 @@
 }
 
 @media screen and (min-width: 768px) {
-    .button.login {
-        margin-top: 40px;
+  .button.login {
+    margin-top: 40px;
 
-        font-size: 18px;
-        line-height: 24px;
+    font-size: 18px;
+    line-height: 24px;
 
-        padding: 18px 24px;
-    }
+    padding: 18px 24px;
   }
+}
 
 .sign {
   margin-top: 14px;
@@ -94,10 +94,10 @@
 }
 
 @media screen and (min-width: 768px) {
-    .sign {
-        margin-top: 20px;
-    }
+  .sign {
+    margin-top: 20px;
   }
+}
 
 .btn-sign {
   font-size: 14px;
@@ -113,21 +113,25 @@
 }
 
 @media screen and (min-width: 768px) {
-    .btn-sign {
-        font-size: 18px;
-        line-height: 24px;
-    }
+  .btn-sign {
+    font-size: 18px;
+    line-height: 24px;
   }
+}
 
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  width: 295px;
 }
 
 @media screen and (min-width: 768px) {
   .login-form {
     gap: 28px;
+
+    width: 499px;
   }
 }
 
@@ -142,8 +146,8 @@
   line-height: 18px;
 
   text-transform: uppercase;
-
-  width: 100%;
+  box-sizing: border-box;
+  width: 295px;
   background-color: transparent;
 
   border: 2px solid var(--text-color);
@@ -152,16 +156,18 @@
 }
 
 @media screen and (min-width: 768px) {
-    .login-input {
-      padding-left: 40px;
-      padding-right: 54px;
-      padding-top: 18px;
-      padding-bottom: 18px;
+  .login-input {
+    padding-left: 40px;
+    padding-right: 54px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    box-sizing: border-box;
+    width: 499px;
 
-      font-size: 18px;
-      line-height: 24px;
-    }
+    font-size: 18px;
+    line-height: 24px;
   }
+}
 
 .login-input::placeholder {
   color: var(--text-color);
@@ -183,12 +189,11 @@
   fill: transparent;
 }
 
-
 @media screen and (min-width: 768px) {
-    .input-icon {
-        right: 28px;
-      
-        width: 28px;
-        height: 28px;
-    }
+  .input-icon {
+    right: 28px;
+
+    width: 28px;
+    height: 28px;
   }
+}
