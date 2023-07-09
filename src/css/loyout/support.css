@@ -16,7 +16,7 @@
   .support {
     position: relative;
     width: 335px;
-    height: 335px;
+    height: 352px;
     overflow: hidden;
     border-radius: 16px;
   
@@ -47,10 +47,14 @@
   font-size: 28px;
   line-height: 32px;
   letter-spacing: -1.12px;
-  text-align: left;
   color: var(--white-color);
 }
 
+.ukraine-emblem {
+  fill: var(--white-color);
+  margin-left: 12px;
+  vertical-align: middle;
+}
 
 .support-list {
   margin-top: 40px;
@@ -63,6 +67,11 @@
   flex-direction: column;
   column-gap: 20px;
   row-gap: 20px;
+}
+@media screen and (max-width: 767px) {
+  .support-list {
+    row-gap: 20px;
+  }
 }
 
 .support-item {
@@ -87,10 +96,19 @@
   }
   
 
-.ukraine-emblem {
-  fill: var(--white-color);
-  margin-left: 12px;
-  vertical-align: middle;
+.support-container {
+  max-height: 340px; 
+  overflow-y: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .support-container {
+    max-height: 240px; 
+  }
+}
+
+.expanded .support-container {
+  max-height: none; 
 }
 
 
@@ -103,19 +121,32 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 24px;
+  bottom: 20px;
   left: 0;
   right: 0;
 }
+@media screen and (min-width: 768px) {
+  .see-more-container {
+    bottom: 24px;
+   }
+}
+
 
 .see-more {
   border-radius: 50%;
   border: none;
   background-color: var(--white-color);
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 
+}
+
+@media screen and (min-width: 768px) {
+  .see-more {
+    width: 38px;
+    height: 38px; 
+  }
 }
