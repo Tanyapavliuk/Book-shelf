@@ -1,0 +1,61 @@
+.section-shopping{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.list-books {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shopping-list-card {
+  display: flex;
+  gap: 14px;
+
+  padding: 14px;
+
+  border-radius: 16px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  background: var(--white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .shopping-list-card {
+    padding: 24px;
+  }
+}
+
+.shopping-list-img-container {
+  max-width: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .shopping-list-img-container {
+    max-width: 116px;
+  }
+}
+
+.shopping-list-description-thumb {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.shopping-list-thumb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shopping-list-store {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+@media screen and (min-width: 768px) {
+  .shopping-list-store {
+    gap: 16px;
+  }
+}
