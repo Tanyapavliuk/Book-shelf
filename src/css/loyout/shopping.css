@@ -11,6 +11,7 @@
 }
 
 .shopping-list-card {
+  position: relative;
   display: flex;
   gap: 14px;
 
@@ -58,4 +59,20 @@
   .shopping-list-store {
     gap: 16px;
   }
+}
+
+.shopping-list-btn-del{
+  position: absolute;
+  background-color: blue;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  /* top:0; */
+left: 100%;
+
+}
+.trash{
+  fill: aliceblue;
+  stroke: aliceblue;
 }
