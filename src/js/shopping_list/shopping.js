@@ -1,6 +1,5 @@
 import fetch from './serviceBook';
 import { marcupListBooks } from './marcupListBooks';
-
 const listBooksEl = document.querySelector('.js-list-books');
 
 async function addLocalStoredge(data) {
@@ -23,11 +22,12 @@ try {
     listBooksEl.addEventListener('click', onRemuveCard);
 
     function onRemuveCard(e) {
+      console.log(e.target);
 
       if (!e.target.classList.contains('js-trash')) {
         return;
       }
-      console.log(books);
+      console.log(e.target.dataset.id);
 
       console.log('targetId', e.target.dataset.id);
       const indexDel = books.findIndex(

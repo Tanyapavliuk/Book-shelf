@@ -48,13 +48,14 @@ export function marcupListBooks(arr) {
                 </div>
               </div>
             </div>
-            <button type="button" data-id="${_id}" class="shopping-list-btn-del js-trash"></button> <svg class="trash"> 
-                <use href="./images/sprite.svg#trash"></use>
-            </svg>
-
+            <button type="button" data-id="${_id}" class="shopping-list-btn-del js-trash ">
+</button> 
           </li>
 `;
         })
     .join('');
 
 }
+// {/* <svg class="trash ">
+//   <use href="./images/sprite.svg#trash"></use>
+// </svg>; */}
