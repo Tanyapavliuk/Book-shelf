@@ -39,7 +39,7 @@ body {
   --text-color: #FFFFFF;
   --subtitle-color: #B4AFAF;
   --categories-rgba-color: rgba(255, 255, 255, 0.60);
-  --background-color: #f6f6f6;
+  --background-color: #202024;
 
   --button-sign-up-color: #f6f6f6;
   --button-sign-up-font-color: #202024;
@@ -214,6 +214,7 @@ body {
 /* ---button--- */
 
 .button {
+  font-family: DMSant-Bold;
   color: var(--text-color);
   background-color: transparent;
   border-radius: 40px;
