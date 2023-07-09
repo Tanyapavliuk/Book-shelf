@@ -1,14 +1,18 @@
 import axios from 'axios';
+export let bookId;
 
 const container = document.querySelector('.container-books');
-const booklist = document.querySelector('.book-list');
 
 console.dir(container);
 getQuery();
 
-booklist.addEventListener('click', onclick(evt));
-
-function onclick(evt) {}
+document.addEventListener('click', e => {
+  e.preventDefault();
+  if (e.target.classList.value.includes('js-ct')) {
+    bookId = e.target.parentElement.dataset.id;
+    console.log(bookId);
+  }
+});
 
 function changeName() {}
 
@@ -29,12 +33,12 @@ function markup(data) {
   data.forEach(el => {
     let list = el.books
       .map(
-        ({ book_image, author, title }) =>
+        ({ book_image, author, title, _id }) =>
           `<li class="bs-list-item" hidden>
-        <a href="#" class="book-card">
-            <img class="book-img" src="${book_image}" alt="${title}" />
-            <h3 class="book-title">${title}</h3>
-            <h4 class="book-author">${author}</h4>
+        <a href="#" class="book-card js-cta" data-id="${_id}">
+            <img class="book-img js-ct" src="${book_image}" alt="${title}" />
+            <h3 class="book-title js-ct">${title}</h3>
+            <h4 class="book-author js-ct">${author}</h4>
         </a>
         </li>`
       )
