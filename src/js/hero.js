@@ -1,14 +1,9 @@
 import axios from 'axios';
 
-const container = document.querySelector('.container-books');
-const booklist = document.querySelector('.book-list');
+export const container = document.querySelector('.container-books');
 
 console.dir(container);
 getQuery();
-
-booklist.addEventListener('click', onclick(evt));
-
-function onclick(evt) {}
 
 function changeName() {}
 
@@ -29,12 +24,12 @@ function markup(data) {
   data.forEach(el => {
     let list = el.books
       .map(
-        ({ book_image, author, title }) =>
+        ({ book_image, author, title, _id }) =>
           `<li class="bs-list-item" hidden>
-        <a href="#" class="book-card">
-            <img class="book-img" src="${book_image}" alt="${title}" />
-            <h3 class="book-title">${title}</h3>
-            <h4 class="book-author">${author}</h4>
+        <a href="#" class="book-card js-cta" data-id="${_id}">
+            <img class="book-img js-ct" src="${book_image}" alt="${title}" />
+            <h3 class="book-title js-ct">${title}</h3>
+            <h4 class="book-author js-ct">${author}</h4>
         </a>
         </li>`
       )
@@ -45,5 +40,14 @@ function markup(data) {
         <button type="button" class="btn-more">SEE MORE</button>
     </div>`;
   });
+
+  setTimeout(() => {
+    const buttonMore = document.querySelector('.btn-more');
+
+    buttonMore.addEventListener('click', event => {
+    event.stopPropagation();
+  });
+  }, 1000);
+
   return html;
 }

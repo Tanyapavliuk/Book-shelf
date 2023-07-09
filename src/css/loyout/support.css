@@ -55,7 +55,11 @@
 .support-list {
   counter-reset: list-counter;
   color: var(--white-color);
-  font-family: DMSans-regular;
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
   letter-spacing: -0.56px;
   display: flex;
   flex-direction: column;

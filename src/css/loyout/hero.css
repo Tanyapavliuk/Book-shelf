@@ -84,7 +84,7 @@
   display: block;
   padding: 14px 28px;
   border-radius: 40px;
-  border: 2px solid #4f2ee8;
+  border: 2px solid var(--brand-color);
   font-weight: 700;
   margin-top: 32px;
   margin-left: auto;
@@ -106,7 +106,7 @@
 }
 .book-author {
   margin-top: 4px;
-  color: #b4afaf;
+  color: var(--subtitle-color);
   font-style: italic;
   font-size: 14px;
   font-weight: 400;
