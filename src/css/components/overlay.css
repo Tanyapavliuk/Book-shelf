@@ -4,6 +4,7 @@
   /* Скрываем подложку  */
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
 
   position: fixed;
   top: 0;
@@ -31,7 +32,7 @@
 
   /*  Установаем ширину окна  */
   width: 100%;
-  max-width: 335px;
+  max-width: 287px;
 
   /*  Центрируем и задаем z-index */
   position: fixed;
@@ -44,7 +45,7 @@
 
 @media screen and (min-width: 768px) {
   .modal {
-    max-width: 579px;
+    max-width: 495px;
     padding: 40px;
   }
 }
@@ -56,6 +57,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
+  overflow: hidden;
 }
 
 .backdrop {
@@ -68,7 +70,7 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  overflow: auto;
+  overflow: hidden;
 
   background-color: rgba(17, 17, 17, 0.4);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -79,6 +81,7 @@
   visibility: visible;
   opacity: 1;
   pointer-events: all;
+  overflow: hidden;
 }
 
 .backdrop-login {
@@ -91,7 +94,7 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  overflow: auto;
+  overflow: hidden;
 
   background-color: rgba(79, 46, 232, 1);
 

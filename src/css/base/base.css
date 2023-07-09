@@ -1,14 +1,14 @@
 body,
-html{
-    height: 100%;
+html {
+  height: 100%;
+  margin: 0;
 }
 body {
-    margin: 0;
-    background-color: var(--background-color);
-    font-family: DM Sans;
-    font-style: normal;
-    font-size: 14px;
-    color: var(--text-color);
+  background-color: var(--background-color);
+  font-family: DM Sans;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--text-color);
 }
 
 :root {
@@ -16,23 +16,51 @@ body {
   --text-color: #111111;
   --subtitle-color: #b4afaf;
   --categories-rgba-color: rgba(17, 17, 17, 0.6);
+  --background-color: #f6f6f6;
+
+  --button-sign-up-color: #111111;
+  --button-sign-up-font-color: #f3f3f3;
+
+  --button-yelow-color: #eac645;
+  --button-yelow-font-color: #111111;
+
+
   --gray-button-color: #f3f3f3;
   --gray-rgba-color: rgba(246, 246, 246, 0.5);
-  --background-color: #f6f6f6;
+ 
   --white-color: #ffffff;
   --yelow-color: #eac645;
 }
 
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* Кольори для темної теми */
+
+[dark] {
+  --brand-color: #4F2EE8;
+  --text-color: #FFFFFF;
+  --subtitle-color: #B4AFAF;
+  --categories-rgba-color: rgba(255, 255, 255, 0.60);
+  --background-color: #202024;
+
+  --button-sign-up-color: #f6f6f6;
+  --button-sign-up-font-color: #202024;
+
+  --button-yelow-color: #eac645;
+  --button-yelow-font-color: #111111;
+
+  --gray-button-color: #F3F3F3;
+  
+  --white-color: #FFFFFF;
+  --yelow-color: #EAC645;
+ 
 }
 
-@media screen and (min-width: 375px) {
-  .container {
-    max-width: 375px;
-  }
+.container {
+  /* max-width: 1440px;
+    width: 100%; */
+  max-width: 375px;
+
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -47,8 +75,7 @@ body {
     max-width: 1440px;
     padding: 0 24px;
   }
-}
-/* ---header nav---- */
+} /* ---header nav---- */
 .nav-title {
   color: var(--text-color);
   font-family: DMSant-Medium;
@@ -67,18 +94,27 @@ body {
 /* ----для рендеру в main---- */
 .main-title {
   font-family: DMSant-Bold;
-  font-size: 48px;
-  line-height: 1.08;
-  letter-spacing: -1.92px;
-}
-.brendcolor {
-  font-family: DMSant-Bold;
-  font-size: 48px;
-  line-height: 1.08;
+  font-size: 32px;
+  line-height: 1.19;
   letter-spacing: -1.92px;
 
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .main-title {
+    font-family: DMSant-Bold;
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
+}
+
+.brendcolor {
+  font-family: DMSant-Bold;
+  font-size: inherit;
   color: var(--brand-color);
 }
+
 .title-for-categories {
   color: var(--subtitle-color);
   font-family: DMSant-Regular;
@@ -95,8 +131,11 @@ body {
   line-height: 1.12;
   letter-spacing: -0.64px;
   color: var(--text-color);
+
+  margin-bottom: 4px;
 }
-.autor {
+
+.author {
   color: var(--subtitle-color);
   font-family: DM Sans;
   font-size: 12px;
@@ -106,12 +145,22 @@ body {
 }
 
 .shopping-list__subtitle {
+  color: var(--subtitle-color);
   font-family: DMSant-Regular;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.16;
   letter-spacing: 0.36px;
+
+  margin-bottom: 8px;
 }
+@media screen and (min-width: 768px) {
+.shopping-list__subtitle {
+  margin-bottom: 14px;
+
+}}
+
+
 /* ----опис книг---- */
 .description {
   color: var(--text-color);
@@ -119,6 +168,7 @@ body {
   font-size: 14px;
   line-height: 1.28;
   letter-spacing: -0.56px;
+
 }
 /* ----для категорій в aside---- */
 .categories__title {
@@ -146,24 +196,25 @@ body {
   text-transform: uppercase;
 }
 /* ---модальне вікно з книгою--- */
-.book-title-in-modal{
-    color: var(--text-color);
-    font-family: DMSant-Bold;
-    font-size: 16px;
-    line-height: 18px;
-    letter-spacing: -0.96px;
+.book-title-in-modal {
+  color: var(--text-color);
+  font-family: DMSant-Bold;
+  font-size: 24px;
+  line-height: 1.16;
+  letter-spacing: -0.96px;
 }
-.button-modal{
-    color: var(--text-color);
-    font-family:DMSant-Bold;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.18px;
-    text-transform: uppercase;
+.button-modal {
+  color: var(--text-color);
+  font-family: DMSant-Bold;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
 }
 /* ---button--- */
 
 .button {
+  font-family: DMSant-Bold;
   color: var(--text-color);
   background-color: transparent;
   border-radius: 40px;
