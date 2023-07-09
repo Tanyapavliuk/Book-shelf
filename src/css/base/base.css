@@ -16,11 +16,42 @@ body {
   --text-color: #111111;
   --subtitle-color: #b4afaf;
   --categories-rgba-color: rgba(17, 17, 17, 0.6);
+  --background-color: #f6f6f6;
+
+  --button-sign-up-color: #111111;
+  --button-sign-up-font-color: #f3f3f3;
+
+  --button-yelow-color: #eac645;
+  --button-yelow-font-color: #111111;
+
+
   --gray-button-color: #f3f3f3;
   --gray-rgba-color: rgba(246, 246, 246, 0.5);
-  --background-color: #f6f6f6;
+ 
   --white-color: #ffffff;
   --yelow-color: #eac645;
+}
+
+/* Кольори для темної теми */
+
+[dark] {
+  --brand-color: #4F2EE8;
+  --text-color: #FFFFFF;
+  --subtitle-color: #B4AFAF;
+  --categories-rgba-color: rgba(255, 255, 255, 0.60);
+  --background-color: #f6f6f6;
+
+  --button-sign-up-color: #f6f6f6;
+  --button-sign-up-font-color: #202024;
+
+  --button-yelow-color: #eac645;
+  --button-yelow-font-color: #111111;
+
+  --gray-button-color: #F3F3F3;
+  
+  --white-color: #FFFFFF;
+  --yelow-color: #EAC645;
+ 
 }
 
 .container {
