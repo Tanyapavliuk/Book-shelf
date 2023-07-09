@@ -1,10 +1,10 @@
 .header-container {
   display: flex;
   justify-content: space-between;
-  border: 2px solid #111111;
+  border: 1.5px solid var(--text-color);
   border-radius: 0 0 8px 8px;
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--white-color);
 }
 
 @media screen and (max-width: 767px) {
@@ -40,7 +40,6 @@
   padding-top: 20px;
   padding-bottom: 20px;
   gap: 8px;
-  color: #000000;
 }
 
 @media screen and (min-width: 768px) {
@@ -64,6 +63,7 @@
   justify-content: center;
   height: 13.27px;
   width: 77px;
+  fill: var(--text-color);
 }
 
 .site-nav {
@@ -85,6 +85,7 @@
 }
 
 .home {
+  color: var(--button-yelow-font-color);
   font-weight: 700;
   background-color: var(--yelow-color);
 
@@ -98,6 +99,7 @@
   font-weight: 500;
   display: flex;
   align-items: center;
+  color: var(--button-yelow-font-color);
 }
 
 .shopping-list-icon {
@@ -107,6 +109,18 @@
   width: 24px;
   height: 24px;
   margin-left: 4px;
+
+  fill: var(--button-yelow-font-color);
+}
+
+@media screen and (min-width: 768px) {
+  .shopping-list {
+    color: var(--text-color);
+  }
+
+  .shopping-list-icon {
+    fill: var(--text-color);
+  }
 }
 
 /* thomb */
@@ -215,7 +229,7 @@ input:checked + .slider:before {
 
   .sing-up-btn {
     background-color: var(--brand-color);
-    border: 2px solid var(--text-color);
+    border: 2px solid var(--button-yelow-font-color);
     color: var(--white-color);
     height: 48px;
     width: 184px;
@@ -277,7 +291,7 @@ input:checked + .slider:before {
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 100%;
+  left: 0;
   right: 0;
   bottom: 0;
   width: 100vw;
@@ -372,7 +386,7 @@ input:checked + .slider:before {
 
   .sing-up-btn-mob {
     background-color: var(--brand-color);
-    border: 2px solid var(--text-color);
+    border: 2px solid var(--button-yelow-font-color);
     color: var(--white-color);
     height: 48px;
     width: 184px;
@@ -402,11 +416,11 @@ input:checked + .slider:before {
 
   .log-out-btn-mob {
     background-color: var(--white-color);
-    border: 2px solid var(--text-color);
-    color: var(--text-color);
+    border: 1.5px solid var(--button-yelow-font-color);
+    color: var(--button-yelow-font-color);
     height: 48px;
-    width: 118px;
-    padding: 14px;
+    gap: 4px;
+    padding: 14px 24px;
     align-items: center;
     display: flex;
     justify-content: space-between;
