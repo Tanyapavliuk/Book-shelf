@@ -56,10 +56,8 @@
 .subtitle-book {
   margin-top: 4px;
 
-  font-family: DM Sans;
+  font-family: DMSant-RegularItalic;
   font-size: 12px;
-  font-style: italic;
-  font-weight: 400;
   line-height: 14px;
   letter-spacing: -0.04em;
 
@@ -75,9 +73,8 @@
 
 .text.book {
   margin-top: 18px;
-  font-family: DM Sans;
+  font-family: DMSant-Regular;
   font-size: 14px;
-  font-weight: 400;
   line-height: 18px;
 }
 

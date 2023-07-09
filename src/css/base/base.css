@@ -17,6 +17,7 @@ body {
   --subtitle-color: #b4afaf;
   --categories-rgba-color: rgba(17, 17, 17, 0.6);
   --background-color: #f6f6f6;
+  --bg-color-header-card: #ffffff;
 
   --button-sign-up-color: #111111;
   --button-sign-up-font-color: #f3f3f3;
@@ -24,10 +25,9 @@ body {
   --button-yelow-color: #eac645;
   --button-yelow-font-color: #111111;
 
-
   --gray-button-color: #f3f3f3;
   --gray-rgba-color: rgba(246, 246, 246, 0.5);
- 
+
   --white-color: #ffffff;
   --yelow-color: #eac645;
 }
@@ -39,7 +39,8 @@ body {
   --text-color: #FFFFFF;
   --subtitle-color: #B4AFAF;
   --categories-rgba-color: rgba(255, 255, 255, 0.60);
-  --background-color: #f6f6f6;
+  --background-color: #202024;
+  --bg-color-header-card: #111111;
 
   --button-sign-up-color: #f6f6f6;
   --button-sign-up-font-color: #202024;
@@ -47,11 +48,10 @@ body {
   --button-yelow-color: #eac645;
   --button-yelow-font-color: #111111;
 
-  --gray-button-color: #F3F3F3;
-  
-  --white-color: #FFFFFF;
-  --yelow-color: #EAC645;
- 
+  --gray-button-color: #f3f3f3;
+
+  --white-color: #ffffff;
+  --yelow-color: #eac645;
 }
 
 .container {
@@ -155,11 +155,10 @@ body {
   margin-bottom: 8px;
 }
 @media screen and (min-width: 768px) {
-.shopping-list__subtitle {
-  margin-bottom: 14px;
-
-}}
-
+  .shopping-list__subtitle {
+    margin-bottom: 14px;
+  }
+}
 
 /* ----опис книг---- */
 .description {
@@ -168,7 +167,6 @@ body {
   font-size: 14px;
   line-height: 1.28;
   letter-spacing: -0.56px;
-
 }
 /* ----для категорій в aside---- */
 .categories__title {
@@ -214,6 +212,7 @@ body {
 /* ---button--- */
 
 .button {
+  font-family: DMSant-Bold;
   color: var(--text-color);
   background-color: transparent;
   border-radius: 40px;
