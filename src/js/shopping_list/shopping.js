@@ -10,8 +10,13 @@ addLocalStoredge(fetch);
 
 try {
   const books = JSON.parse(localStorage.getItem('shopingBooks'));
-  console.log('books', books);
+  // console.log('books', books);
+  // const books = [];
+  if (!books) {
+    // console.log("fuck!!!", books.length);
+    listBooksEl.innerHTML = `<p>This page is empty, add some books and proceed to order.</p><img src="./images/shopping_List/IMG_9606 1.png" alt="">
+`}else{  listBooksEl.innerHTML = marcupListBooks(books);
+}
 
+} catch (err) { console.log(err) }
 
-  listBooksEl.innerHTML = marcupListBooks(books);
-}catch(err){console.log(err)}
