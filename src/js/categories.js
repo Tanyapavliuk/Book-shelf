@@ -1,9 +1,9 @@
+
 const categoryList = document.querySelector(".category-list");
 const axios = require('axios').default;
 const bookCardList = document.querySelector(".bookCard-list");
 const bookCard =document.querySelector(".bookCard");
 categoryList.addEventListener('click', onCategoryListClick);
-
 
 
  async function getCategoryList (){
@@ -23,8 +23,7 @@ async function renderCategory(data){
 function onCategoryListClick(event){
     bookCardList.innerHTML='';
     const idElem= event.target;
-    const isActive = document.querySelector('.categories__title-active');
-   
+
     if (idElem.tagName!=="LI"){
         return;
     } getBookByCategory(idElem.textContent.trim());
@@ -45,23 +44,27 @@ async  function getBookByCategory(changeCategory){
 function renderedBookCardItem(data){
     console.log(data)
     const  markup = `
-    <h2 class =" categoryTitle">${data[0].list_name}</h2>
-    <ul class=" bookCard-list">${data.map(({author ,book_image, description, title, _id }) =>
+    <h2 class ="main-title">${data[0].list_name}</h2>
+    <ul class=" bookCard-list">${data.map(({author ,book_image, description, title, _id, }) =>
     `<li class="book-list-item">
     <div class="image-overlay">
     <img src="${book_image}" alt="${description} id= "${_id}" loading="lazy">
     <div class="image-description">
-                    <p class="image-overlay-description">
-                    quick view 
-                    </p>
-                  </div>
-                  </div>
-    <p class="title-book">${title}</p>
-    <p class="autor"> ${author}</p>
+      <p class="image-overlay-description"> quick view  </p>
+     </div>
+      </div>
+    <h3 class="title-book">${title}</h3>
+    <p class="author-title"> ${author}</p>
     </li>`).join('')}
     </ul>
      `;
-     bookCard.classList.remove("is-hiden")
+     bookCard.classList.remove("is-hiden");
     bookCard.innerHTML= markup;
+    const titleElement = document.querySelector(".main-title");
+    const titleText = titleElement.textContent;
+    const words = titleText.split(' ');
+    const lastWord = words[words.length - 1];
+titleElement.innerHTML = titleText.replace(lastWord, `<span class="brendcolor">${lastWord}</span>`);
    
 }
+
