@@ -1,9 +1,9 @@
 .header-container {
   display: flex;
   justify-content: space-between;
-  border: 1.5px solid var(--text-color);
   border-radius: 0 0 8px 8px;
   position: relative;
+  border: 1.5px solid var(--text-color);
   background-color: var(--bg-color-header-card);
 }
 
@@ -261,7 +261,7 @@ input:checked + .slider:before {
   width: 184px;
   justify-content: space-between;
 
-  font-family: DMSant-Regular;
+  font-family: DMSans-Regular;
   font-weight: 700;
   font-size: 22px;
   line-height: 28.64px;
@@ -365,7 +365,7 @@ input:checked + .slider:before {
   width: 184px;
   justify-content: space-between;
 
-  font-family: DMSant-Regular;
+  font-family: DMSans-Regular;
   font-weight: 700;
   font-size: 22px;
   line-height: 28.64px;
