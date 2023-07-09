@@ -11,7 +11,7 @@ font-style: normal;
 font-weight: 400;
 letter-spacing: -0.36px;
 overflow: auto;
-font-family: DMSant-Regular;
+font-family: DMSans-Regular;
   color: var(--categories-rgba-color);
   font-size: 18px;
   line-height: 1.33;
@@ -113,7 +113,7 @@ align-items: center;
   }
   .image-overlay-description{
 color: var(--text-color);
-font-family: DM Sans;
+font-family: DMSans-Medium;
 font-size: 14px;
 font-style: normal;
 font-weight: 500;
