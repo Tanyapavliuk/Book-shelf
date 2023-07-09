@@ -43,7 +43,7 @@
 .support-heaher {
   margin-top: 24px;
   margin-left: 40px;
-  font-family: DMSant-Bold;
+  font-family: DMSans-Bold;
   font-size: 28px;
   line-height: 32px;
   letter-spacing: -1.12px;
@@ -55,7 +55,7 @@
 .support-list {
   counter-reset: list-counter;
   color: var(--white-color);
-  font-family: DMSant-regular;
+  font-family: DMSans-regular;
   letter-spacing: -0.56px;
   display: flex;
   flex-direction: column;
