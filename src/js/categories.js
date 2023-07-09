@@ -1,6 +1,7 @@
 
 const categoryList = document.querySelector(".category-list");
 const axios = require('axios').default;
+
 const bookCardList = document.querySelector(".bookCard-list");
 const bookCard =document.querySelector(".bookCard");
 categoryList.addEventListener('click', onCategoryListClick);
@@ -45,7 +46,7 @@ function renderedBookCardItem(data){
     console.log(data)
     const  markup = `
     <h2 class ="main-title">${data[0].list_name}</h2>
-    <ul class=" bookCard-list">${data.map(({author ,book_image, description, title, _id, }) =>
+    <ul class=" bookCard-list">${data.map(({author ,book_image, description, title, _id }) =>
     `<li class="book-list-item">
     <div class="image-overlay">
     <img src="${book_image}" alt="${description} id= "${_id}" loading="lazy">
