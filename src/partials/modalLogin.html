@@ -1,15 +1,13 @@
 <div class="backdrop-login">
-  
-    <!-- Modal-login -->
+  <!-- Modal-login -->
   <div class="modal login">
-    
     <button type="button" class="modal-login-close">
       <svg class="modal-login-close-icon">
         <use href="./images/sprite.svg#icon-close"></use>
       </svg>
     </button>
 
-    <form class="login-form">
+    <form action="submit" class="login-form">
       <input
         class="login-input"
         type="text"
@@ -41,16 +39,17 @@
         />
 
         <svg class="input-icon">
-            <use href="./images/sprite.svg#icon-lock"></use>
-          </svg>
+          <use href="./images/sprite.svg#icon-lock"></use>
+        </svg>
       </div>
+      <button type="submit" class="button login sub-btn-js">Sign up</button>
     </form>
 
-    <button type="submit" class="button login">Sign up</button>
-
     <div class="sign">
-      <button type="button" class="btn-sign">Sign up</button>
-      <button type="button" class="btn-sign">Sign in</button>
+      <button type="button" class="btn-sign sing-up-js">Sign up</button>
+      <button type="button" class="btn-sign sing-in-js disabled-btn">
+        Sign in
+      </button>
     </div>
   </div>
 </div>
