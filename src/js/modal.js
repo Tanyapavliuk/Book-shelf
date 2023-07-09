@@ -1,4 +1,7 @@
 import { container as containerEl } from './hero';
+import amazon from '../images/amazon.png'
+import applebooks from '../images/book.png'
+import bookshop from '../images/book-block.png'
 
 const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
@@ -63,17 +66,17 @@ function renderModal(bookData) {
           <ul class="shop-list">
             <li>
               <a href="${data.buy_links[0].url}">
-                <img src="/images/amazon.png" alt="Amazon" />
+                <img src="${amazon}" alt="Amazon" />
               </a>
             </li>
             <li>
               <a href="${data.buy_links[1].url}">
-                <img src="/images/book.png" alt="Apple Books" />
+                <img src="${applebooks}" alt="Apple Books" />
               </a>
             </li>
             <li>
               <a href="${data.buy_links[4].url}">
-                <img src="/images/book-block.png" alt="Bookshop" />
+                <img src="${bookshop}" alt="Bookshop" />
               </a>
             </li>
           </ul>
