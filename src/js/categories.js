@@ -29,14 +29,13 @@ function renderCategory(data) {
 function onCategoryListClick(event) {
   const idElem = event.target;
   const elem = document.querySelector('.categories__title-active');
-  if (elem) {
-    elem.classList.remove('categories__title-active');
-  }
-  event.target.classList.add('categories__title-active');
- 
+  
   if (idElem.tagName !== 'LI') {
     return;
-  } 
+  } else if (elem) {
+    elem.classList.remove('categories__title-active');
+  }  event.target.classList.add('categories__title-active');
+ 
   if (idElem.textContent.trim() === 'All Categories') {
     bookCard.innerHTML = '';
     return getQuery();
