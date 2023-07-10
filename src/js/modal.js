@@ -230,4 +230,3 @@ window.addEventListener('load', function () {
     }
   });
 });
-
