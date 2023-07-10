@@ -19,5 +19,5 @@ try {
   console.log(err);
 }
 
-export { returnBooks, listBooksEl };
+export { returnBooks, isEmpty, listBooksEl };
   
