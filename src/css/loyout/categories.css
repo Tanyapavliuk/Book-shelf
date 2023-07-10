@@ -5,7 +5,7 @@
 }
 .category-list {
   display: inline-block;
-  width: 328px;
+  width: 356px;
   height: 472px;
   font-style: normal;
   font-weight: 400;
@@ -17,6 +17,7 @@
   line-height: 1.33;
   letter-spacing: -0.36px;
   transition: color 250ms linear;
+  
 }
 .category-list::-webkit-scrollbar {
   width: 8px;
@@ -30,20 +31,20 @@
 
 .category-list-item {
   margin-top: 32px;
-  cursor: pointer;
   transition: color 250ms linear;
 }
 
 .category-list-item:hover {
+  cursor: pointer;
   text-transform: uppercase;
   color: var(--brand-color);
   font-family: DM Sans;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.33;
   letter-spacing: -0.36px;
-  transition: color 250ms linear;
+ 
 }
 
 .is-hiden {

@@ -57,7 +57,6 @@
 .button.login {
   width: 100%;
 
-  margin-top: 24px;
   margin-left: auto;
   margin-right: auto;
 
@@ -76,8 +75,7 @@
 
 @media screen and (min-width: 768px) {
   .button.login {
-    margin-top: 40px;
-
+    margin-top: 12px;
     font-size: 18px;
     line-height: 24px;
 
@@ -164,6 +162,7 @@
     box-sizing: border-box;
     width: 499px;
 
+
     font-size: 18px;
     line-height: 24px;
   }
@@ -197,3 +196,8 @@
     height: 28px;
   }
 }
+.disabled-btn {
+  color: var(--button-sign-up-color);
+  opacity: 50%;
+}
+

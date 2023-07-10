@@ -1,6 +1,6 @@
-.section-shopping{
-    padding-bottom: 40px;
-    box-sizing: border-box;
+.section-shopping {
+  padding-bottom: 40px;
+  box-sizing: border-box;
 }
 
 .list-books {
@@ -10,7 +10,9 @@
 }
 
 .shopping-list-card {
+  position: relative;
   display: flex;
+ flex-basis: 100%;
   gap: 14px;
 
   padding: 14px;
@@ -57,4 +59,21 @@
   .shopping-list-store {
     gap: 16px;
   }
+}
+
+.shopping-list-btn-del {
+  position: absolute;
+  background-color: var(--brand-color);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  left: 100%;
+  translate:calc(-100% - 12px) ;
+}
+.trash {
+  width: 16px;
+  height: 16px;
+  fill: rgb(77, 138, 191);
+  stroke: rgb(208, 16, 122);
 }

@@ -199,7 +199,11 @@ input:checked + .slider:before {
   padding-right: 0;
   border: 0;
 }
-
+/* .hamburger-menu:hover,
+.hamburger-menu:focus {
+  color: var(--brand-color);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+} */
 @media screen and (min-width: 768px) {
   .hamburger-menu {
     display: none;
@@ -301,6 +305,8 @@ input:checked + .slider:before {
     #4f2ee8 18.03%,
     #fff 100%
   );
+
+  transition: left 250ms linear;
 }
 
 .mobile-close {
@@ -314,6 +320,17 @@ input:checked + .slider:before {
 .mobile-close-icon {
   height: 28px;
   width: 28px;
+}
+
+/* .mobile-close:hover,
+.mobile-close:focus {
+  color: var(--brand-color);
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+} */
+@media screen and (min-width: 768px) {
+  .mobile-close {
+    display: none;
+  }
 }
 
 .mobile-nav {
@@ -332,8 +349,8 @@ input:checked + .slider:before {
 
 .bg-img {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-image: url(../../images/mobile-menu-books.png);
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -374,6 +391,11 @@ input:checked + .slider:before {
   background-color: transparent;
 }
 
+/* .user-btn-mob:hover,
+.user-btn-mob:focus {
+  color: var(--brand-color);
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+} */
 @media screen and (max-width: 767px) {
   .sing-up-mob {
     position: absolute;
