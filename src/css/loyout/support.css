@@ -101,8 +101,9 @@
 
 .support-container {
   max-height: 295px; 
-  overflow-y: auto;
+  overflow-y: hidden;
   transition: height 0.3s ease, margin-right 0.3s ease;
+  
 }
 
 @media screen and (max-width: 767px) {
@@ -156,14 +157,15 @@
   }
 }
 
+/*  ----- стилізація скролбару ----- */
 .support-container::-webkit-scrollbar {
   width: 8px; 
-  background-color: rgba(55, 29, 199, 0.644); 
+  background-color: rgba(55, 29, 199, 0.432); 
 }
 
 .support-container::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.3); 
-  border-radius: 4px; 
+  background-color: rgba(255, 255, 255, 0.582); 
+  border-radius: 6px; 
 }
 
 .support-container::-webkit-scrollbar-track {
@@ -172,4 +174,16 @@
 
 .support-container::-webkit-scrollbar-corner {
   background-color: transparent; 
+}
+
+/*  ---- плавне зникнення і поява кнопки  ----- */
+
+.see-more.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.see-more.fade-in {
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
