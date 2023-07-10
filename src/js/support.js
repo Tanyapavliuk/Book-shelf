@@ -77,8 +77,6 @@ supportLogos.forEach(function(logo) {
   });
 });
 
-// побачити більше благодійних організацій зі списку 
-
 const supportBlock = document.querySelector('.support');
 const supportContainer = document.querySelector('.support-container');
 const seeMoreButton = document.querySelector('.see-more');
@@ -87,13 +85,15 @@ const seeMoreButton = document.querySelector('.see-more');
 function handleDesktopTablet() {
   supportBlock.classList.toggle('expanded');
   if (supportBlock.classList.contains('expanded')) {
-    seeMoreButton.style.display = 'none';
+    seeMoreButton.classList.remove('fade-in');
+    seeMoreButton.classList.add('fade-out');
     supportContainer.style.overflowY = 'scroll';
     supportContainer.style.overflowX = 'auto';
     supportContainer.style.height = '340px';
     supportContainer.style.marginRight = '10px';
   } else {
-    seeMoreButton.style.display = 'flex';
+    seeMoreButton.classList.remove('fade-out');
+    seeMoreButton.classList.add('fade-in');
     supportContainer.style.overflowY = 'hidden';
     supportContainer.style.overflowX = 'hidden';
     supportContainer.style.height = 'auto';
@@ -105,13 +105,15 @@ function handleDesktopTablet() {
 function handleMobile() {
   supportBlock.classList.toggle('expanded');
   if (supportBlock.classList.contains('expanded')) {
-    seeMoreButton.style.display = 'none';
+    seeMoreButton.classList.remove('fade-in');
+    seeMoreButton.classList.add('fade-out');
     supportContainer.style.overflowY = 'scroll';
     supportContainer.style.overflowX = 'auto';
     supportContainer.style.height = '220px';
     supportContainer.style.marginRight = '10px';
   } else {
-    seeMoreButton.style.display = 'flex';
+    seeMoreButton.classList.remove('fade-out');
+    seeMoreButton.classList.add('fade-in');
     supportContainer.style.overflowY = 'hidden';
     supportContainer.style.overflowX = 'hidden';
     supportContainer.style.height = 'auto';
@@ -125,6 +127,8 @@ function scrollToTop() {
     behavior: 'smooth'
   });
 }
+
+
 // застосування функцій залежно від медіаправила
 if (window.matchMedia("(max-width: 767px)").matches) {
   seeMoreButton.addEventListener('click', function () {
@@ -141,7 +145,9 @@ if (window.matchMedia("(max-width: 767px)").matches) {
 document.addEventListener('click', function (e) {
   if (!e.target.closest('.support')) {
     supportBlock.classList.remove('expanded');
-    seeMoreButton.style.display = 'flex';
+    // showSeeMoreButton();
+    seeMoreButton.classList.remove('fade-out');
+    seeMoreButton.classList.add('fade-in'); 
     supportContainer.style.overflowY = 'hidden';
     supportContainer.style.overflowX = 'hidden';
     supportContainer.style.height = 'auto';
@@ -149,4 +155,80 @@ document.addEventListener('click', function (e) {
     scrollToTop();
   }
 });
+
+
+
+
+// побачити більше благодійних організацій зі списку 
+
+// const supportBlock = document.querySelector('.support');
+// const supportContainer = document.querySelector('.support-container');
+// const seeMoreButton = document.querySelector('.see-more');
+
+// Прослуховувач подій для ширини вюпорта прокрутки таблет та дексктопної версії
+// function handleDesktopTablet() {
+//   supportBlock.classList.toggle('expanded');
+//   if (supportBlock.classList.contains('expanded')) {
+//     seeMoreButton.style.display = 'none';
+//     supportContainer.style.overflowY = 'scroll';
+//     supportContainer.style.overflowX = 'auto';
+//     supportContainer.style.height = '340px';
+//     supportContainer.style.marginRight = '10px';
+//   } else {
+//     seeMoreButton.style.display = 'flex';
+//     supportContainer.style.overflowY = 'hidden';
+//     supportContainer.style.overflowX = 'hidden';
+//     supportContainer.style.height = 'auto';
+//     supportContainer.style.marginRight = '0';
+//   }
+// }
+
+// Прослуховувач подій для ширини вюпорта прокрутки мобільної версії
+// function handleMobile() {
+//   supportBlock.classList.toggle('expanded');
+//   if (supportBlock.classList.contains('expanded')) {
+//     seeMoreButton.style.display = 'none';
+//     supportContainer.style.overflowY = 'scroll';
+//     supportContainer.style.overflowX = 'auto';
+//     supportContainer.style.height = '220px';
+//     supportContainer.style.marginRight = '10px';
+//   } else {
+//     seeMoreButton.style.display = 'flex';
+//     supportContainer.style.overflowY = 'hidden';
+//     supportContainer.style.overflowX = 'hidden';
+//     supportContainer.style.height = 'auto';
+//     supportContainer.style.marginRight = '0';
+//   }
+// }
+
+// function scrollToTop() {
+//   supportContainer.scrollTo({
+//     top: 0,
+//     behavior: 'smooth'
+//   });
+// }
+// застосування функцій залежно від медіаправила
+// if (window.matchMedia("(max-width: 767px)").matches) {
+//   seeMoreButton.addEventListener('click', function () {
+//     handleMobile();
+//     scrollToTop();
+//   });
+// } else {
+//   seeMoreButton.addEventListener('click', function () {
+//     handleDesktopTablet();
+//     scrollToTop();
+//   });
+// }
+
+// document.addEventListener('click', function (e) {
+//   if (!e.target.closest('.support')) {
+//     supportBlock.classList.remove('expanded');
+//     seeMoreButton.style.display = 'flex';
+//     supportContainer.style.overflowY = 'hidden';
+//     supportContainer.style.overflowX = 'hidden';
+//     supportContainer.style.height = 'auto';
+//     supportContainer.style.marginRight = '0';
+//     scrollToTop();
+//   }
+// });
 
