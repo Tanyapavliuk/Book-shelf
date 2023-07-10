@@ -1,17 +1,25 @@
+import amazon from '../../images/amazon.png';
+import applebooks from '../../images/book.png';
+import bookshop from '../../images/book-block.png';
+import trash from '../../images/sprite.svg';
+
 export function marcupListBooks(arr) {
   return arr
     .map(
-        ({
-            title,
-            book_image = './images/book_default/book_default.jpg',
-            author,
-            description,
-            list_name,
-            buy_links,
-        }) => {
-            if (!description) { description =
-              'Sorry, but this book does not have an accessible description. Try reading it on the website of one of the shops'; };
-            return `<li class="shopping-list-card">
+      ({
+        _id,
+        title,
+        book_image = './images/book_default/book_default.jpg',
+        author,
+        description,
+        list_name,
+        buy_links,
+      }) => {
+        if (!description) {
+          description =
+            'Sorry, but this book does not have an accessible description. Try reading it on the website of one of the shops';
+        }
+        return `<li class="shopping-list-card">
             <div class="shopping-list-img-container"><img class="shopping-list-img" src="${book_image}" alt="${title}" /></div>
             <div class="shopping-list-description-thumb">
               <div >
@@ -20,34 +28,44 @@ export function marcupListBooks(arr) {
                 <p class="description">${description}</p>
               </div>
               <div class="shopping-list-thumb">
-                <span class="author">${author.split(",")[0]}</span>
+                <span class="author">${author.split(',')[0]}</span>
                 <ul class="shopping-list-store">
                 <li > 
-                 <a href="${buy_links.filter(({ name }) => {
-                return name === 'Amazon';
-            })[0].url
-            }"><img src="./images/amazon.png" alt="logo Amazon" />
+                 <a href="${
+                   buy_links.filter(({ name }) => {
+                     return name === 'Amazon';
+                   })[0].url
+                 }"><img src="${amazon}" />
 </a>
 </li>
 <li> 
-  <a href="${buy_links.filter(({ name }) => {
-                return name === 'Apple Books';
-            })[0].url
-            }"><img src="./images/book.png" alt="Book" />
+  <a href="${
+    buy_links.filter(({ name }) => {
+      return name === 'Apple Books';
+    })[0].url
+  }"><img src="${applebooks}" alt="Book" />
 </a>
 </li>
 <li> 
-<a href="${buy_links.filter(({ name }) => {
-                return name === 'Bookshop';
-            })[0].url
-            }"><img src="./images/book-block.png" alt="logo Book-block" /></a>
+<a href="${
+          buy_links.filter(({ name }) => {
+            return name === 'Bookshop';
+          })[0].url
+        }"><img src="${bookshop}" alt="logo Book-block" /></a>
 </li></ul>
                 </div>
               </div>
             </div>
-            
+            <button type="button" data-id="${_id}" class="shopping-list-btn-del js-trash "><svg class="trash ">
+  <use href="${trash}#trash"></use>
+</svg> 
+</button> 
           </li>
-`
-        })
+`;
+      }
+    )
     .join('');
 }
+// {/* <svg class="trash ">
+//   <use href="./images/sprite.svg#trash"></use>
+// </svg>; */}

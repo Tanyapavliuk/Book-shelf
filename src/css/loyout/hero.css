@@ -86,12 +86,9 @@
   padding: 14px 28px;
   border-radius: 40px;
   border: 2px solid var(--brand-color);
-<<<<<<< Updated upstream
-  font-weight: 700;
-=======
   background-color: transparent;
   font-family: 'DMSans-Bold';
->>>>>>> Stashed changes
+
   margin-top: 32px;
   margin-left: auto;
 }
