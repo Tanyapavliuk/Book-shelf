@@ -1,4 +1,5 @@
 import fetch from './serviceBook';
+import bookIsEmptyMob from '../../images/shopping_List/IMG_9606 1.png';
 import { marcupListBooks } from './marcupListBooks';
 const listBooksEl = document.querySelector('.js-list-books');
 
