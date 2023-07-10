@@ -145,7 +145,6 @@ if (window.matchMedia("(max-width: 767px)").matches) {
 document.addEventListener('click', function (e) {
   if (!e.target.closest('.support')) {
     supportBlock.classList.remove('expanded');
-    // showSeeMoreButton();
     seeMoreButton.classList.remove('fade-out');
     seeMoreButton.classList.add('fade-in'); 
     supportContainer.style.overflowY = 'hidden';

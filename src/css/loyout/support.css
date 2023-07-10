@@ -165,16 +165,16 @@
 
 .support-container::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.582); 
-  border-radius: 4px; 
+  border-radius: 6px; 
 }
 
-.support-container::-webkit-scrollbar-track {
+/* .support-container::-webkit-scrollbar-track {
   background-color: transparent; 
 }
 
 .support-container::-webkit-scrollbar-corner {
   background-color: transparent; 
-}
+} */
 
 /*  ---- плавне зникнення і поява кнопки  ----- */
 
@@ -185,5 +185,5 @@
 
 .see-more.fade-in {
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
