@@ -1,22 +1,24 @@
 import { returnBooks} from "./shopping";
-import { isEmpty } from "./shopping";
+import { isEmpty } from './isEmpty';
 import { listBooksEl } from "./shopping";
 import { marcupListBooks } from "./marcupListBooks";
 
 export function onRemuveCard(e) {
-    const books = returnBooks();
+  const booksArr = returnBooks();
   if (!e.target.classList.contains('js-trash')) {
     return;
   }
-  const indexDel = books.findIndex(({ _id }) => _id === e.target.dataset.id);
+    console.log(e.target);
+
+  const indexDel = booksArr.findIndex(({ _id }) => _id === e.target.dataset.id);
 
   if (indexDel !== -1) {
-    books.splice(indexDel, 1);
-    localStorage.setItem('savedBooks', JSON.stringify(books));
-    if (!books.length) {
+    booksArr.splice(indexDel, 1);
+    localStorage.setItem('savedBooks', JSON.stringify(booksArr));
+    if (!booksArr.length) {
       return isEmpty();
     }
-    listBooksEl.innerHTML = marcupListBooks(books);
+    listBooksEl.innerHTML = marcupListBooks(booksArr);
   }
 }
 

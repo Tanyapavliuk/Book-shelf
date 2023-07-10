@@ -56,8 +56,8 @@ export function marcupListBooks(arr) {
                 </div>
               </div>
             </div>
-            <button type="button" data-id="${_id}" class="shopping-list-btn-del js-trash "><svg class="trash ">
-  <use href="${trash}#trash"></use>
+            <button type="button" data-id="${_id}" class="shopping-list-btn-del js-trash "><svg class="trash js-trash ">
+  <use class="js-trash" href="${trash}#trash"></use>
 </svg> 
 
 </button> 
