@@ -31,9 +31,9 @@ function onCategoryListClick(event) {
   if (idElem.tagName !== 'LI') {
     return;
   }
-  if (idElem.textContent === ' All Categories ') {
+  if (idElem.textContent.trim() === 'All Categories') {
     bookCard.innerHTML = '';
-    getQuery();
+    return getQuery();
   }
   getBookByCategory(idElem.textContent.trim());
   const elem = document.querySelector('.categories__title-active');
@@ -52,8 +52,6 @@ export async function getBookByCategory(changeCategory) {
 }
 
 function renderedBookCardItem(data) {
-  console.log(data);
-
   const markup = `
     <h2 class ="main-title">${data[0].list_name}</h2>
     <ul class="book-list">${data
