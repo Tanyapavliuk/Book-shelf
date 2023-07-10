@@ -2,9 +2,9 @@ import axios from 'axios';
 
 export const container = document.querySelector('.container-books');
 
-if (!container.firstChild) { getQuery() };
+if (!container.firstChild) getQuery();
 
-// function changeName() {}
+function changeName() {}
 
 export async function getQuery() {
   try {
