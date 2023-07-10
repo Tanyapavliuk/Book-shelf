@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     mask.classList.add('hiden');
     setTimeout(() => {
         mask.remove();
-    }, 600);
+    }, 800);
 })
 // window.onload = function (){
 //     let mask = document.getElementById('#preloader');
