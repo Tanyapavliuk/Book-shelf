@@ -168,13 +168,13 @@
   border-radius: 6px; 
 }
 
-/* .support-container::-webkit-scrollbar-track {
+.support-container::-webkit-scrollbar-track {
   background-color: transparent; 
 }
 
 .support-container::-webkit-scrollbar-corner {
   background-color: transparent; 
-} */
+}
 
 /*  ---- плавне зникнення і поява кнопки  ----- */
 
