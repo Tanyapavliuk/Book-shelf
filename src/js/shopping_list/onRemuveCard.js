@@ -19,3 +19,5 @@ export function onRemuveCard(e) {
     listBooksEl.innerHTML = marcupListBooks(books);
   }
 }
+
+console.log('hello')
