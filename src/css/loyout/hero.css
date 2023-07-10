@@ -1,5 +1,6 @@
 .book-card {
   width: 335px;
+  cursor: pointer;
 }
 
 .book-list {
@@ -17,7 +18,7 @@
 @media screen and (min-width: 375px) {
   .container-books {
     max-width: 375px;
-    padding: 0 20px;
+    padding: 40px 20px 80px;
   }
   .bs-list-item:nth-child(1) {
     display: contents;
@@ -27,7 +28,7 @@
 @media screen and (min-width: 768px) {
   .container-books {
     max-width: 768px;
-    padding: 0 20px;
+    padding: 100px 20px;
   }
   .bs-list-item:nth-child(-n + 3) {
     display: contents;
@@ -47,7 +48,7 @@
 @media screen and (min-width: 1440px) {
   .container-books {
     max-width: 1044px;
-    padding: 0 24px;
+    padding: 40px 24px 72px;
   }
   .bs-list-item {
     display: contents;

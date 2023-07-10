@@ -2,12 +2,11 @@ import axios from 'axios';
 
 export const container = document.querySelector('.container-books');
 
-console.dir(container);
-getQuery();
+if (!container.firstChild) getQuery();
 
 function changeName() {}
 
-async function getQuery() {
+export async function getQuery() {
   try {
     const resp = await axios.get(
       `https://books-backend.p.goit.global/books/top-books `
@@ -21,33 +20,34 @@ async function getQuery() {
 
 function markup(data) {
   let html = '';
+
+  console.log;
   data.forEach(el => {
+    let catName = el.list_name;
     let list = el.books
       .map(
         ({ book_image, author, title, _id }) =>
           `<li class="bs-list-item" hidden>
-        <a href="#" class="book-card js-cta" data-id="${_id}">
-            <img class="book-img js-ct" src="${book_image}" alt="${title}" />
+        <div class="book-card" data-id="${_id}">
+        <div class="image-overlay" data-id="${_id}">
+            <img class="book-img js-ct" src="${book_image}" alt="${title}" loading="lazy" />
+            <div class="image-description js-ct">
+      <p class="image-overlay-description"> quick view  </p>
+     </div>
+      </div>
             <h3 class="book-title js-ct">${title}</h3>
             <h4 class="book-author js-ct">${author}</h4>
-        </a>
+        </div>
         </li>`
       )
       .join('');
     html += `<div class="category-block">
         <h2 class="cat-title">${el.list_name}</h2>
         <ul class="book-list">${list}</ul>
-        <button type="button" class="btn-more">SEE MORE</button>
+        <button type="button" class="btn-more" data-catname="${catName}">SEE MORE</button>
     </div>`;
   });
 
-  setTimeout(() => {
-    const buttonMore = document.querySelector('.btn-more');
-
-    buttonMore.addEventListener('click', event => {
-    event.stopPropagation();
-  });
-  }, 1000);
-
+  html = `<h1 class="main-title">Best Sellers <span>Books</span></h1>` + html;
   return html;
 }
