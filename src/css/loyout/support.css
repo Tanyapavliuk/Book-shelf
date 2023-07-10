@@ -160,7 +160,7 @@
 /*  ----- стилізація скролбару ----- */
 .support-container::-webkit-scrollbar {
   width: 8px; 
-  background-color: rgba(55, 29, 199, 0.644); 
+  background-color: rgba(55, 29, 199, 0.432); 
 }
 
 .support-container::-webkit-scrollbar-thumb {
