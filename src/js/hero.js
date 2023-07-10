@@ -17,7 +17,7 @@ export async function getQuery() {
   }
 }
 
-export function markup(data) {
+function markup(data) {
   let html = '';
 
   console.log;
