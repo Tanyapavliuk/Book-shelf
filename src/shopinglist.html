@@ -7,7 +7,6 @@
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
 
     <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" src="./index.js"></script>
   </head>
 
   <body>
@@ -17,17 +16,19 @@
       </div>
       <main class="main shopping-list__wrapper">
         <div class="wrapper__sidebar shopping-list__wrapper">
-            <include src="./partials/support.html"></include>
+          <include src="./partials/support.html"></include>
         </div>
         <div class="wrapper__content">
-            <include src="./partials/shopping.html"></include>
-        </div> 
+          <include src="./partials/shopping.html"></include>
+        </div>
       </main>
       <include src="./partials/modal.html"></include>
-      
+
       <include src="./partials/modalLogin.html"></include>
+      <include src="./partials/loader.html"></include>
+      <include src="./partials//scrollUp.html"></include>
     </div>
 
-    <script type="module" src="./js/shopping_list/shopping.js"></script>
+    <script type="module" src="./shopping_main.js"></script>
   </body>
 </html>
