@@ -2,23 +2,18 @@ import fetch from './serviceBook';
 import { marcupListBooks } from './marcupListBooks';
 const listBooksEl = document.querySelector('.js-list-books');
 
-async function addLocalStoredge(data) {
-  localStorage.setItem('shopingBooks', JSON.stringify(await data()));
-}
+// async function addLocalStoredge(data) {
+//   localStorage.setItem('shopingBooks', JSON.stringify(await data()));
+// }
 
-addLocalStoredge(fetch);
+// addLocalStoredge(fetch);
 
 try {
-  const books = JSON.parse(localStorage.getItem('shopingBooks'));
-  // console.log('books', books);
-  // const books = [];
+  const books = JSON.parse(localStorage.getItem('savedBooks'));
   if (!books||!books.length) {
-    // console.log("fuck!!!", books.length);
  isEmpty()
   } else {
     listBooksEl.innerHTML = marcupListBooks(books);
-    // const btnDelEl = document.querySelectorAll('.js-trash');
-    // console.log(books)
     listBooksEl.addEventListener('click', onRemuveCard);
 
     function onRemuveCard(e) {
@@ -36,7 +31,9 @@ try {
       console.log(indexDel);
       if (indexDel !== -1) {
         books.splice(indexDel, 1);
-        localStorage.setItem('shopingBooks', JSON.stringify(books));
+
+        localStorage.setItem('savedBooks', JSON.stringify(books));
+
         if(!books.length){return isEmpty()}
         listBooksEl.innerHTML = marcupListBooks(books);
       }
