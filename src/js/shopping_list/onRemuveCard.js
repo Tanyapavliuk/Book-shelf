@@ -20,4 +20,4 @@ export function onRemuveCard(e) {
   }
 }
 
-console.log('hello')
+console.log('hello!')
