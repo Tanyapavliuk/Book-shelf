@@ -12,7 +12,7 @@
 .shopping-list-card {
   position: relative;
   display: flex;
-  flex-basis: 100%;
+ flex-basis: 100%;
   gap: 14px;
 
   padding: 14px;
@@ -53,7 +53,6 @@
 .shopping-list-store {
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
   gap: 8px;
 }
 @media screen and (min-width: 768px) {
@@ -67,23 +66,14 @@
   background-color: var(--brand-color);
   width: 32px;
   height: 32px;
-  padding: 8px;
-
-  border: none;
   border-radius: 50%;
 
   left: 100%;
-  translate: calc(-100% - 12px);
+  translate:calc(-100% - 12px) ;
 }
-@media screen and (min-width: 768px) {
-  .shopping-list-btn-del {
-    translate: calc(-100% - 24px);
-  }
-}
-
 .trash {
   width: 16px;
   height: 16px;
-  fill: var(--brand-color);
-  stroke: var(--white-color);
+  fill: rgb(77, 138, 191);
+  stroke: rgb(208, 16, 122);
 }
