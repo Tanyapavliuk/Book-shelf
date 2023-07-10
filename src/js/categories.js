@@ -28,19 +28,24 @@ function renderCategory(data) {
 
 function onCategoryListClick(event) {
   const idElem = event.target;
-  if (idElem.tagName !== 'LI') {
-    return;
-  }
-  if (idElem.textContent.trim() === 'All Categories') {
-    bookCard.innerHTML = '';
-    return getQuery();
-  }
-  getBookByCategory(idElem.textContent.trim());
   const elem = document.querySelector('.categories__title-active');
   if (elem) {
     elem.classList.remove('categories__title-active');
   }
   event.target.classList.add('categories__title-active');
+ 
+  if (idElem.tagName !== 'LI') {
+    return;
+  } 
+  if (idElem.textContent.trim() === 'All Categories') {
+    bookCard.innerHTML = '';
+    return getQuery();
+   
+  }
+  getBookByCategory(idElem.textContent.trim());
+  
+  
+ 
 }
 
 export async function getBookByCategory(changeCategory) {
