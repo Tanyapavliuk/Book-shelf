@@ -39,6 +39,9 @@
    width: 116px;
   }
 }
+/* .shopping-list-img{
+  width: 100px;
+} */
 .shopping-title-book {
   width: calc(100% - 32px);
   text-overflow: ellipsis;
@@ -55,7 +58,6 @@
 .shopping-list-thumb {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
 }
 
 .shopping-list-store {

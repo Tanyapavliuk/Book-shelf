@@ -7,3 +7,4 @@ export default async function () {
     console.log(res.data);
     return res.data
 }
+
