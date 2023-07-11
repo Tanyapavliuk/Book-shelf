@@ -202,6 +202,12 @@ input:checked + .slider:before {
   border: 0;
 }
 
+.hamburger-menu:focus,
+.hamburger-menu:hover > .hamburger-menu-icon {
+  stroke: var(--brand-color);
+  transition: linear 0.4s;
+}
+
 @media screen and (min-width: 768px) {
   .hamburger-menu {
     display: none;
@@ -349,11 +355,21 @@ input:checked + .slider:before {
   padding: 0;
 }
 
+.mobile-close:focus,
+.mobile-close:hover > .mobile-close-icon {
+  stroke: var(--brand-color);
+  transition: ease 0.5s;
+}
 .mobile-close-icon {
   height: 28px;
   width: 28px;
 }
 
+/* .mobile-close:hover,
+.mobile-close:focus {
+  color: var(--brand-color);
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+} */
 @media screen and (min-width: 768px) {
   .mobile-close {
     display: none;
@@ -418,6 +434,7 @@ input:checked + .slider:before {
   color: var(--white-color);
   background-color: transparent;
 }
+
 
 @media screen and (min-width: 768px) {
   .user-mob {
