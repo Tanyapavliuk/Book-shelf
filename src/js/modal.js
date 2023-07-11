@@ -151,7 +151,7 @@ function renderModalButton(bookIdent) {
 
   if (savedBooks.some(book => book._id === bookIdent)) {
     const modalBtn = `
-      <button type="submit" class="button book">
+      <button type="submit" class="button book" aria-label="Remove from shopping">
         Remove from the shopping list
       </button>
       <p class="congratulation">
@@ -176,7 +176,7 @@ function renderModalButton(bookIdent) {
     });
   } else {
     const modalBtn = `
-      <button type="submit" class="button book">
+      <button type="submit" class="button book" aria-label="Add to shopping">
         Add to shopping list
       </button>
     `;
