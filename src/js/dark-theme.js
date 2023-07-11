@@ -1,4 +1,5 @@
 const checkboxDarkTheme = document.querySelector('input[type = "checkbox"]');
+const amazonDarkTheme = document.getElementById("dark-theme-filter");   
 
 checkboxDarkTheme.addEventListener('change', (event) => {
   event.preventDefault();
@@ -15,9 +16,11 @@ function addDarkThemeToBody() {
   try {
     if (localStorage.getItem('theme') === 'dark') {
       document.body.setAttribute('dark', "");
+      amazonDarkTheme.classList.add("filter-img");
     }
     else {
       document.body.removeAttribute('dark');
+      amazonDarkTheme.classList.remove("filter-img");
     }
   } catch (err) { }
 }

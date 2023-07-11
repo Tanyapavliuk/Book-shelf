@@ -76,11 +76,18 @@
   font-family: DMSans-Regular;
   font-size: 14px;
   line-height: 18px;
+  letter-spacing: -0.56px;
 }
 
 @media screen and (min-width: 768px) {
   .text.book {
     margin-top: 20px;
+  }
+}
+
+@media screen and (max-height: 850px) {
+  .text.book {
+    margin-top: 8px;
   }
 }
 
@@ -107,17 +114,28 @@
 }
 
 .button.book {
+  font-family: DMSans-Bold;
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   text-transform: uppercase;
-  font-weight: 700;
   padding: 14px 23px;
+
+  line-height: 1.28;
+  letter-spacing: -0.14px;
 }
 
 @media screen and (min-width: 768px) {
   .button.book {
     width: 100%;
+    font-size: 18px;
+    letter-spacing: -0.18px;
+  }
+}
+
+@media screen and (max-height: 850px) {
+  .button.book {
+    margin-top: 10px;
   }
 }
 

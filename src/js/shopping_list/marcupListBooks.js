@@ -23,8 +23,8 @@ export function marcupListBooks(arr) {
             <div class="shopping-list-img-container"><img class="shopping-list-img" src="${book_image}" alt="${title}" /></div>
             <div class="shopping-list-description-thumb">
               <div >
-                <h2 class="title-book">${title}</h2>
-                <h3 class="shopping-list__subtitle">${list_name}</h3>
+                <h2 class="title-book shopping-title-book">${title}</h2>
+                <h3 class="shopping-list__subtitle ">${list_name}</h3>
                 <p class="description">${description}</p>
               </div>
               <div class="shopping-list-thumb">
@@ -35,7 +35,7 @@ export function marcupListBooks(arr) {
                    buy_links.filter(({ name }) => {
                      return name === 'Amazon';
                    })[0].url
-                 }"><img src="${amazon}" />
+                 }"><img src="${amazon}" id="dark-theme-filter"/>
 </a>
 </li>
 <li> 
@@ -56,8 +56,8 @@ export function marcupListBooks(arr) {
                 </div>
               </div>
             </div>
-            <button type="button" data-id="${_id}" class="shopping-list-btn-del js-trash "><svg class="trash ">
-  <use href="${trash}#trash"></use>
+            <button type="button" data-id="${_id}" class="shopping-list-btn-del js-trash js-trash-id "><svg class="trash js-trash">
+  <use class="js-trash" href="${trash}#trash"></use>
 </svg> 
 </button> 
           </li>
@@ -66,6 +66,3 @@ export function marcupListBooks(arr) {
     )
     .join('');
 }
-// {/* <svg class="trash ">
-//   <use href="./images/sprite.svg#trash"></use>
-// </svg>; */}

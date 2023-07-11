@@ -6,7 +6,7 @@
 .book-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
-  gap: 24px;
+  row-gap: 40px;
   margin-top: 18px;
 }
 .book-img {
@@ -18,7 +18,7 @@
 @media screen and (min-width: 375px) {
   .container-books {
     max-width: 375px;
-    padding: 40px 20px 80px;
+    /* padding: 40px 20px 80px; */
   }
   .bs-list-item:nth-child(1) {
     display: contents;
@@ -28,7 +28,7 @@
 @media screen and (min-width: 768px) {
   .container-books {
     max-width: 768px;
-    padding: 100px 20px;
+    /* padding: 100px 20px; */
   }
   .bs-list-item:nth-child(-n + 3) {
     display: contents;
@@ -38,6 +38,7 @@
   }
   .book-list {
     grid-template-columns: repeat(auto-fill, minmax(218px, 1fr));
+    column-gap: 25px;
   }
   .book-img {
     width: 218px;
@@ -48,7 +49,7 @@
 @media screen and (min-width: 1440px) {
   .container-books {
     max-width: 1044px;
-    padding: 40px 24px 72px;
+    /* padding: 40px 24px 72px; */
   }
   .bs-list-item {
     display: contents;
@@ -58,6 +59,7 @@
   }
   .book-list {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    column-gap: 24px;
   }
   .book-img {
     width: 180px;
@@ -87,8 +89,10 @@
   border-radius: 40px;
   border: 2px solid var(--brand-color);
   background-color: transparent;
-  font-weight: 700;
-  margin-top: 32px;
+  font-family: 'DMSans-Bold';
+  font-size: 14px;
+
+  margin-top: 8px;
   margin-left: auto;
 }
 
@@ -98,7 +102,7 @@
 .book-title {
   margin-top: 14px;
   font-size: 16px;
-  font-weight: 700;
+  font-family: 'DMSans-Bold';
   line-height: 18px;
   letter-spacing: -0.64px;
   text-transform: uppercase;
@@ -109,8 +113,21 @@
 .book-author {
   margin-top: 4px;
   color: var(--subtitle-color);
-  font-style: italic;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 12px;
   letter-spacing: -0.48px;
+  font-family: 'DMSans-RegularItalic';
+}
+
+@media screen and (min-width: 768px) {
+  .btn-more {
+      margin-top: 20px;
+      
+    }
+}
+
+@media screen and (min-width: 1440px) {
+.btn-more {
+    margin-top: 32px;
+    
+  }
 }

@@ -54,6 +54,10 @@
   }
 }
 
+.button.login.sub-btn-js {
+  color: var(--button-sign-up-font-color);
+}
+
 .button.login {
   width: 100%;
 
@@ -162,7 +166,6 @@
     box-sizing: border-box;
     width: 499px;
 
-
     font-size: 18px;
     line-height: 24px;
   }
@@ -201,3 +204,20 @@
   opacity: 50%;
 }
 
+.span-sing-up {
+  position: relative;
+}
+
+.span-sing-in {
+  position: relative;
+}
+
+.active-btn::after {
+  content: '';
+  display: block;
+  border-bottom: 1.5px solid;
+  position: absolute;
+  top: 95%;
+  left: 0;
+  width: 100%;
+}
