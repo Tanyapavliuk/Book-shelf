@@ -1,28 +1,38 @@
 import { getQuery } from './hero';
 import { container as bookCard } from './hero';
 import { markup } from './hero';
-
+import axios from 'axios';
 const categoryList = document.querySelector('.category-list');
-const axios = require('axios').default;
+// const axios = require('axios').default;
 const btn = document.querySelector('.container-books');
+// btn.addEventListener('click',onBtnClick)
 
-btn.addEventListener('click',onBtnClick)
+
+//btn.addEventListener('click',onBtnClick)
 
 
-function onBtnClick(event){
-  let btn = event.target.dataset.catname;
+//function onBtnClick(event){
+ // let btn = event.target.dataset.catname;
   
-  const itemEl = Array.from(categoryList.querySelectorAll('li'));
+  //const itemEl = Array.from(categoryList.querySelectorAll('li'));
 
-  const findElem = itemEl.find((li) => li.innerText === btn);
-  const allCat = itemEl.find((li) => li.innerText.toLowerCase()  === `all categories`); 
+
+// function onBtnClick(event){
+//   let btn = event.target.dataset.catname;
+//   console.log(btn)
+//   const itemEl = Array.from(categoryList.querySelectorAll('li'));
+// console.log(itemEl)
+//   const findElem = itemEl.find((li) => li.innerText === btn);
+//   console.log('findElem',findElem)
+//   const allCat = itemEl.find((li) => li.innerText.toLowerCase() === `all categories`); 
+//   console.log('allCat',allCat)
  
-  if (findElem){
+//   if (findElem){
 
-    allCat.classList.remove('categories__title-active');
-   findElem.classList.add('categories__title-active');
-  } return
-}
+//     allCat.classList.remove('categories__title-active');
+//    findElem.classList.add('categories__title-active');
+//   } return
+// }
 
 
 categoryList.addEventListener('click', onCategoryListClick);
@@ -52,6 +62,8 @@ function renderCategory(data) {
 }
 
 function onCategoryListClick(event) {
+  console.log('hello')
+
   const idElem = event.target;
   const elem = document.querySelector('.categories__title-active');
   
