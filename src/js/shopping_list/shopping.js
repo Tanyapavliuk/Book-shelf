@@ -1,4 +1,4 @@
-// import fetch from './serviceBook'
+import fetch from './serviceBook'
 import { marcupListBooks } from './marcupListBooks';
 import { isActivePage } from '../is-active-page';
 import { isEmpty } from './isEmpty';

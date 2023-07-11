@@ -4,6 +4,7 @@ export const container = document.querySelector('.container-books');
 
 if (!container.firstChild) getQuery();
 
+function changeName() {}
 
 export async function getQuery() {
   try {
@@ -19,6 +20,7 @@ export async function getQuery() {
 function markup(data) {
   let html = '';
 
+  console.log;
   data.forEach(el => {
     let catName = el.list_name;
     let list = el.books
