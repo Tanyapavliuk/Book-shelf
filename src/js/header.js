@@ -21,6 +21,9 @@ const mobCloseEl = document.querySelector('.mobile-close');
 const bodyEl = document.querySelector('body');
 const spanSingUpEl = document.querySelector('.span-sing-up');
 const spanSingInEl = document.querySelector('.span-sing-in');
+const shopListDescEl = document.querySelector('.shop-list-desc-js');
+const shopListMobEl = document.querySelector('.shop-list-mob-js');
+const homeMobEl = document.querySelector('.home-mob-js');
 
 // відкриття модалки логіну
 
@@ -117,6 +120,17 @@ function handlerFormReg(evt) {
     evt.target.useremail.value &&
     evt.target.userpass.value
   ) {
+    const { users: checkEmail } = JSON.parse(localStorage.getItem('users'));
+
+    if (
+      checkEmail.find(userObj => userObj.email === evt.target.useremail.value)
+    ) {
+      console.log('Такий email вже зареестрований на нашому сайті.');
+      evt.target.useremail.value = '';
+      evt.target.userpass.value = '';
+      return;
+    }
+
     if (!localStorage.getItem('users')) {
       const users = {
         users: [
@@ -137,6 +151,40 @@ function handlerFormReg(evt) {
       });
       localStorage.removeItem('users');
       localStorage.setItem(`users`, JSON.stringify(addUsers));
+    }
+
+    // автологін при реестрації
+
+    submitBtnEl.textContent = 'Sing in';
+
+    if (
+      submitBtnEl.textContent === 'Sing in' &&
+      evt.target.useremail.value &&
+      evt.target.userpass.value
+    ) {
+      const { users } = JSON.parse(localStorage.getItem('users'));
+
+      const user = users.find(
+        user =>
+          user.email === evt.target.useremail.value &&
+          user.password === evt.target.userpass.value
+      );
+
+      localStorage.setItem('userLogin', true);
+      localStorage.setItem('userInSite', JSON.stringify(user));
+
+      handlerCloseLoginModal();
+
+      userNameMobEl.textContent = user.name;
+      userNameEl.textContent = user.name;
+      loginBtnMobEl.classList.add('visually-hidden');
+      loginBtnEl.classList.add('visually-hidden');
+      userDescEl.classList.remove('visually-hidden');
+      userMobEl.classList.remove('visually-hidden');
+      logoutMobEl.classList.remove('visually-hidden');
+      shopListDescEl.classList.remove('visually-hidden');
+      shopListMobEl.classList.remove('visually-hidden');
+      homeMobEl.classList.remove('visually-hidden');
     }
 
     evt.target.username.value = '';
@@ -184,6 +232,9 @@ function handlerFormLogin(evt) {
     userDescEl.classList.remove('visually-hidden');
     userMobEl.classList.remove('visually-hidden');
     logoutMobEl.classList.remove('visually-hidden');
+    shopListDescEl.classList.remove('visually-hidden');
+    shopListMobEl.classList.remove('visually-hidden');
+    homeMobEl.classList.remove('visually-hidden');
   }
 }
 
@@ -199,6 +250,9 @@ function checkUser() {
     userDescEl.classList.remove('visually-hidden');
     userMobEl.classList.remove('visually-hidden');
     logoutMobEl.classList.remove('visually-hidden');
+    shopListDescEl.classList.remove('visually-hidden');
+    shopListMobEl.classList.remove('visually-hidden');
+    homeMobEl.classList.remove('visually-hidden');
   }
 }
 checkUser();
@@ -216,6 +270,10 @@ function handlerLogout() {
   userMobEl.classList.add('visually-hidden');
   loginBtnMobEl.classList.remove('visually-hidden');
   loginBtnEl.classList.remove('visually-hidden');
+  shopListDescEl.classList.add('visually-hidden');
+  shopListMobEl.classList.add('visually-hidden');
+  homeMobEl.classList.add('visually-hidden');
+
   localStorage.removeItem('userLogin');
   localStorage.removeItem('userInSite');
   handlerCloseMobMenu();
