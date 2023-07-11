@@ -19,8 +19,9 @@
 
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
-  background: var(--white-color);
+  background: var(--bg-color-header-card);
 }
+
 
 @media screen and (min-width: 768px) {
   .shopping-list-card {
