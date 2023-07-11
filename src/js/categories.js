@@ -10,7 +10,7 @@ btn.addEventListener('click',onBtnClick)
 
 
 function onBtnClick(event){
-  let btn = event.target.dataset.catname.trim();
+  let btn = event.target.dataset.catname;
   
   const itemEl = Array.from(categoryList.querySelectorAll('li'));
 
