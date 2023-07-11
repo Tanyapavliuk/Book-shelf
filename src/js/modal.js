@@ -9,9 +9,6 @@ const modalCard = document.querySelector('.modal');
 const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
 
-// Temporary const
-const isLogin = 1;
-
 let bookIdent;
 
 function isLocalStorage() {
@@ -165,8 +162,12 @@ function renderModalButton(bookIdent) {
     modalShoppingEl.insertAdjacentHTML('beforeend', modalBtn);
 
     const submitShoppingEl = document.querySelector('.button.book');
+
+    let isLogin = JSON.parse(localStorage.getItem('userLogin'));
+
     if (!isLogin) {
       submitShoppingEl.disabled = true;
+      submitShoppingEl.textContent = 'Login please';
     }
 
     submitShoppingEl.addEventListener('click', event => {
@@ -182,8 +183,12 @@ function renderModalButton(bookIdent) {
     modalShoppingEl.insertAdjacentHTML('beforeend', modalBtn);
 
     const submitShoppingEl = document.querySelector('.button.book');
+
+    let isLogin = JSON.parse(localStorage.getItem('userLogin'));
+
     if (!isLogin) {
       submitShoppingEl.disabled = true;
+      submitShoppingEl.textContent = 'Login please';
     }
 
     submitShoppingEl.addEventListener('click', event => {
@@ -198,7 +203,7 @@ isLocalStorage();
 window.addEventListener('load', function () {
   containerEl.addEventListener('click', event => {
     let bookId;
-    console.dir(event.target);
+
     if (event.target.tagName === 'BUTTON') {
       getBookByCategory(event.target.dataset.catname);
     }
