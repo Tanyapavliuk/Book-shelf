@@ -1,8 +1,13 @@
 import fetch from './serviceBook';
 import bookIsEmptyMob from '../../images/shopping_List/IMG_9606 1.png';
 import { marcupListBooks } from './marcupListBooks';
-const listBooksEl = document.querySelector('.js-list-books');
+import { isActivePage } from '../is-active-page';
 
+const listBooksEl = document.querySelector('.js-list-books');
+const serchActivEl = document.querySelector('.home');
+const activPage = document.querySelector('.shopping-list');
+
+isActivePage.call(activPage);
 // async function addLocalStoredge(data) {
 //   localStorage.setItem('shopingBooks', JSON.stringify(await data()));
 // }
@@ -48,3 +53,4 @@ function isEmpty() {
   <img src="${bookIsEmptyMob}" alt=""/></div>
 `;
 }
+

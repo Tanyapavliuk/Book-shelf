@@ -97,11 +97,8 @@
 }
 
 .shopping-list {
-  font-weight: 500;
   display: flex;
   align-items: center;
-  color: var(--button-yelow-font-color);
-  font-family: DMSans-Bold;
 }
 
 .shopping-list-icon {
