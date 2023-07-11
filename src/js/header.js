@@ -1,3 +1,5 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const loginBtnEl = document.querySelector('.sing-up-btn');
 const loginBtnMobEl = document.querySelector('.sing-up-btn-mob');
 const backdropLoginEl = document.querySelector('.backdrop-login');
@@ -125,7 +127,8 @@ function handlerFormReg(evt) {
     if (
       checkEmail.find(userObj => userObj.email === evt.target.useremail.value)
     ) {
-      console.log('Такий email вже зареестрований на нашому сайті.');
+      Notify.warning('Такий email вже зареестрований на нашому сайті.');
+
       evt.target.useremail.value = '';
       evt.target.userpass.value = '';
       return;
@@ -195,7 +198,7 @@ function handlerFormReg(evt) {
   } else if (submitBtnEl.textContent !== 'Sing up') {
     return;
   } else {
-    console.log('Заповніть усі поля');
+    Notify.warning('Заповніть усі поля.');
   }
 }
 
