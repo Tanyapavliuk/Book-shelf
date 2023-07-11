@@ -1,18 +1,12 @@
-import fetch from './serviceBook';
-import bookIsEmptyMob from '../../images/shopping_List/IMG_9606 1.png';
 import { marcupListBooks } from './marcupListBooks';
 import { isActivePage } from '../is-active-page';
+import { isEmpty } from './isEmpty';
 
 const listBooksEl = document.querySelector('.js-list-books');
 const serchActivEl = document.querySelector('.home');
 const activPage = document.querySelector('.shopping-list');
 
 isActivePage.call(activPage);
-// async function addLocalStoredge(data) {
-//   localStorage.setItem('shopingBooks', JSON.stringify(await data()));
-// }
-
-// addLocalStoredge(fetch);
 
 try {
   const books = JSON.parse(localStorage.getItem('savedBooks'));
@@ -47,10 +41,4 @@ try {
   console.log(err);
 }
 
-function isEmpty() {
-  listBooksEl.innerHTML = `<div class="is-empty">
-  <p class="text-empty">This page is empty, add some books and proceed to order.</p>
-  <img src="${bookIsEmptyMob}" alt=""/></div>
-`;
-}
-
+export{listBooksEl,books}
