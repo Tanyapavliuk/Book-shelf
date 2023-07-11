@@ -8,6 +8,15 @@ const btn = document.querySelector('.container-books');
 // btn.addEventListener('click',onBtnClick)
 
 
+//btn.addEventListener('click',onBtnClick)
+
+
+//function onBtnClick(event){
+ // let btn = event.target.dataset.catname;
+  
+  //const itemEl = Array.from(categoryList.querySelectorAll('li'));
+
+
 // function onBtnClick(event){
 //   let btn = event.target.dataset.catname;
 //   console.log(btn)

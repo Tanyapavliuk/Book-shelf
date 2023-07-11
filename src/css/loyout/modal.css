@@ -85,6 +85,12 @@
   }
 }
 
+@media screen and (max-height: 850px) {
+  .text.book {
+    margin-top: 8px;
+  }
+}
+
 .shop-list {
   margin-top: 14px;
 
@@ -124,6 +130,12 @@
     width: 100%;
     font-size: 18px;
     letter-spacing: -0.18px;
+  }
+}
+
+@media screen and (max-height: 850px) {
+  .button.book {
+    margin-top: 10px;
   }
 }
 
