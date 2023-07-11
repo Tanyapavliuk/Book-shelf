@@ -167,7 +167,7 @@ function renderModalButton(bookIdent) {
 
     if (!isLogin) {
       submitShoppingEl.disabled = true;
-      submitShoppingEl.textContent = 'LOGIN PLEASE';
+      submitShoppingEl.textContent = 'Login please';
     }
 
     submitShoppingEl.addEventListener('click', event => {
@@ -188,7 +188,7 @@ function renderModalButton(bookIdent) {
 
     if (!isLogin) {
       submitShoppingEl.disabled = true;
-      submitShoppingEl.textContent = 'LOGIN PLEASE';
+      submitShoppingEl.textContent = 'Login please';
     }
 
     submitShoppingEl.addEventListener('click', event => {
