@@ -15,7 +15,9 @@
       <ul class="site-nav">
         <li><a class="home nav-title" href="./index.html">home</a></li>
         <li>
-          <a class="shopping-list nav-title" href="./shopinglist.html"
+          <a
+            class="shopping-list nav-title visually-hidden shop-list-desc-js"
+            href="./shopinglist.html"
             >shopping list
             <svg class="shopping-list-icon">
               <use href="./images/sprite.svg#icon-package"></use></svg
@@ -61,15 +63,15 @@
         <!-- user -->
         <div class="user visually-hidden">
           <button class="user-btn" type="button">
-            <div class="user-img">
-              <img src="./images/user.png" alt="user-img" />
-            </div>
-            <div class="user-thomb">
+            <span class="user-img">
+              <img src="./images/user.png" alt="user photo" width="37px" />
+            </span>
+            <span class="user-thomb">
               <span class="name-user">User</span
               ><svg class="arrow-icon">
                 <use href="./images/sprite.svg#icon-fi-ss-caret-down"></use>
               </svg>
-            </div>
+            </span>
           </button>
 
           <!-- logout -->
@@ -91,9 +93,17 @@
     <!-- mobile-nav -->
     <nav class="mobile-nav">
       <ul class="mobile-nav-list">
-        <li><a class="home nav-title" href="./index.html">home</a></li>
         <li>
-          <a class="shopping-list nav-title" href="./shopinglist.html"
+          <a
+            class="home nav-title visually-hidden home-mob-js"
+            href="./index.html"
+            >home</a
+          >
+        </li>
+        <li>
+          <a
+            class="shopping-list nav-title visually-hidden shop-list-mob-js"
+            href="./shopinglist.html"
             >shopping list
             <svg class="shopping-list-icon">
               <use href="./images/sprite.svg#icon-package"></use></svg
@@ -106,7 +116,7 @@
     <div class="user-mob visually-hidden">
       <button class="user-btn-mob" type="button">
         <div class="user-img">
-          <img src="./images/user.png" alt="user-img" />
+          <img src="./images/user.png" alt="user photo" />
         </div>
         <div class="user-thomb">
           <span class="name-user-mob">User</span>
