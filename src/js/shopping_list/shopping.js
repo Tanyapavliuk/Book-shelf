@@ -2,6 +2,7 @@ import { marcupListBooks } from './marcupListBooks';
 import { isActivePage } from '../is-active-page';
 import { isEmpty } from './isEmpty';
 import { onRemuveCard } from './remuve-card';
+import fetch from './serviceBook'
 
 const listBooksEl = document.querySelector('.js-list-books');
 const serchActivEl = document.querySelector('.home');
