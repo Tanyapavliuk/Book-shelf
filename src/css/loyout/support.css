@@ -42,7 +42,7 @@
   }
 }
 
-.support-heaher {
+.support-header {
   margin-top: 24px;
   margin-left: 40px;
   margin-bottom: 40px;
@@ -141,7 +141,7 @@
 }
 
 
-.see-more {
+.see-more-funds {
   border-radius: 50%;
   border: none;
   background-color: var(--white-color);
@@ -154,7 +154,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .see-more {
+  .see-more-funds {
     width: 38px;
     height: 38px; 
   }
@@ -181,12 +181,12 @@
 
 /*  ---- плавне зникнення і поява кнопки  ----- */
 
-.see-more.fade-out {
+.see-more-funds.fade-out {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.see-more.fade-in {
+.see-more-funds.fade-in {
   opacity: 1;
   transition: opacity 0.4s ease;
 }
