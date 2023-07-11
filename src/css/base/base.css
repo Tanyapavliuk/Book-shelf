@@ -1,3 +1,9 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 body,
 html {
   height: 100%;
@@ -199,8 +205,8 @@ body {
 .book-title-in-modal {
   color: var(--text-color);
   font-family: DMSans-Bold;
-  font-size: 24px;
-  line-height: 1.16;
+  font-size: 16px;
+  line-height: 1.12;
   letter-spacing: -0.96px;
 }
 .button-modal {

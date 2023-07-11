@@ -86,7 +86,6 @@
 
 .home {
   color: var(--button-yelow-font-color);
-  font-weight: 700;
   background-color: var(--yelow-color);
   font-family: DMSans-Bold;
 
@@ -423,8 +422,7 @@ input:checked + .slider:before {
   justify-content: space-between;
   cursor: auto;
 
-  font-family: DMSans-Regular;
-  font-weight: 700;
+  font-family: DMSans-bold;
   font-size: 22px;
   line-height: 28.64px;
   letter-spacing: -0.04;
