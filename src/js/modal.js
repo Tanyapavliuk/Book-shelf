@@ -104,7 +104,8 @@ const imgFilterAmazon = () => {
 // ---
 
 async function callModal(bookId) {
-  try {
+  try { 
+    scrollUpBntEl.classList.add("visually-hidden");
     modalShoppingEl.innerHTML = '';
     const bookData = await fetchBookDetails(bookId);
     bookIdent = bookData[0]._id;
@@ -148,9 +149,7 @@ async function saveObjectLocal(bookIdent) {
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
   } catch (error) {
     console.error(error);
-  } finally {
-      scrollUpBntEl.classList.add("visually-hidden");
-    }
+  }
 }
 
 function deleteObjectLocal(bookIdent) {
