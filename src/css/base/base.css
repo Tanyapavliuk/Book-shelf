@@ -231,3 +231,10 @@ body {
   color: var(--white-color);
   background-color: var(--brand-color);
 }
+
+
+/* Фільтр для амазон темної теми */
+
+.filter-img {
+  filter: brightness(0) invert(1);
+}
