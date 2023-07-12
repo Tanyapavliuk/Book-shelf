@@ -60,8 +60,8 @@ const charityFunds = [
 const charityList = document.querySelector('.support-list');
 
 const listItems = charityFunds.map(function(fund) {
-  return `<li class="support-item">
-  <div class="fund-container"> <img src="${fund.img}" alt="${fund.title}" class="support-logo" data-url="${fund.url}" height="32px"></div>
+  return `<li class="support-item" aria-label="${fund.title}">
+  <div class="fund-container"> <img src="${fund.img}" alt="${fund.title}" class="support-logo" data-url="${fund.url}" width="auto" height="32px"></div>
  
   </li>`;
 });
@@ -79,7 +79,7 @@ supportLogos.forEach(function(logo) {
 
 const supportBlock = document.querySelector('.support');
 const supportContainer = document.querySelector('.support-container');
-const seeMoreButton = document.querySelector('.see-more');
+const seeMoreButton = document.querySelector('.see-more-funds');
 
 // Прослуховувач подій для ширини вюпорта прокрутки таблет та дексктопної версії
 function handleDesktopTablet() {
