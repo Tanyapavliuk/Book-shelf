@@ -1,10 +1,10 @@
 export function isActivePage() {
-  const serchActivEl = document.querySelectorAll('.home');
-  if (!serchActivEl.length) {
+  const serchActivEl = document.querySelector('.home');
+  if (!serchActivEl) {
     this.classList.add('home');
   }
-  if (serchActivEl.length) {
-    [...serchActivEl].forEach(el => el.classList.remove('home'));
+  if (serchActivEl) {
+    serchActivEl.remove('home');
   }
   this.classList.add('home');
 }
