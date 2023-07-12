@@ -6,40 +6,40 @@ const categoryList = document.querySelector('.category-list');
 const axios = require('axios').default;
 const btn = document.querySelector('.container-books');
 
-btn.addEventListener('click', onBtnClick);
+btn.addEventListener('click',onBtnClick)
+
 
 function onBtnClick(event){
   let btn = event.target.dataset.catname;
   
-
   const itemEl = Array.from(categoryList.querySelectorAll('li'));
 
-  const findElem = itemEl.find(li => li.innerText === btn);
-  const allCat = itemEl.find(
-    li => li.innerText.toLowerCase() === `all categories`
-  );
+  const findElem = itemEl.find((li) => li.innerText === btn);
+  const allCat = itemEl.find((li) => li.innerText.toLowerCase()  === `all categories`); 
+ 
+  if (findElem){
 
-  if (findElem) {
     allCat.classList.remove('categories__title-active');
-    findElem.classList.add('categories__title-active');
-  }
-  return;
+   findElem.classList.add('categories__title-active');
+  } return
 }
+
 
 categoryList.addEventListener('click', onCategoryListClick);
 
 getCategoryList();
 
 async function getCategoryList() {
-  try {
-    const response = await axios.get(
-      `https://books-backend.p.goit.global/books/category-list`
-    );
-    renderCategory(response.data);
-  } catch (error) {
-    console.log('error', error);
+  try{
+    const response = await axios
+    .get(`https://books-backend.p.goit.global/books/category-list`);
+    renderCategory(response.data)
+  } catch (error){
+    console.log('error', error)
   }
+ 
 }
+
 
 function renderCategory(data) {
   let markup = data
@@ -54,19 +54,20 @@ function renderCategory(data) {
 function onCategoryListClick(event) {
   const idElem = event.target;
   const elem = document.querySelector('.categories__title-active');
-
+  
   if (idElem.tagName !== 'LI') {
     return;
   } else if (elem) {
     elem.classList.remove('categories__title-active');
-  }
-  event.target.classList.add('categories__title-active');
-
+  }  event.target.classList.add('categories__title-active');
+ 
   if (idElem.textContent.trim() === 'All Categories') {
     bookCard.innerHTML = '';
     return getQuery();
+   
   }
   getBookByCategory(idElem.textContent.trim());
+  
 }
 
 export async function getBookByCategory(changeCategory) {
