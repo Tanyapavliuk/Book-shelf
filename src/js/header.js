@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { isActivePage } from './is-active-page';
 
 const loginBtnEl = document.querySelector('.sing-up-btn');
 const loginBtnMobEl = document.querySelector('.sing-up-btn-mob');
@@ -24,8 +25,17 @@ const bodyEl = document.querySelector('body');
 const spanSingUpEl = document.querySelector('.span-sing-up');
 const spanSingInEl = document.querySelector('.span-sing-in');
 const shopListDescEl = document.querySelector('.shop-list-desc-js');
-const shopListMobEl = document.querySelector('.shop-list-mob-js');
+export const shopListMobEl = document.querySelector('.shop-list-mob-js');
 const homeMobEl = document.querySelector('.home-mob-js');
+const homeDescEl = document.querySelector('.home-desc-js');
+
+// оформлення активної сторінки(Ардрій)
+
+if (window.innerWidth < 768) {
+  isActivePage.call(homeMobEl);
+} else {
+  isActivePage.call(homeDescEl);
+}
 
 // відкриття модалки логіну
 
