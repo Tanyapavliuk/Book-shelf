@@ -63,17 +63,17 @@ function renderModal(bookData) {
           </p>
           <ul class="shop-list">
             <li>
-              <a href="${data.buy_links[0].url}">
+              <a href="${data.buy_links[0].url}" target="_blank">
                 <img src="${amazon}" alt="Amazon" class="darkFilterModal"/>
               </a>
             </li>
             <li>
-              <a href="${data.buy_links[1].url}">
+              <a href="${data.buy_links[1].url}" target="_blank">
                 <img src="${applebooks}" alt="Apple Books" />
               </a>
             </li>
             <li>
-              <a href="${data.buy_links[4].url}">
+              <a href="${data.buy_links[4].url}" target="_blank">
                 <img src="${bookshop}" alt="Bookshop" />
               </a>
             </li>
