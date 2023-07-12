@@ -222,6 +222,14 @@ function handlerFormLogin(evt) {
   try {
     if (
       submitBtnEl.textContent === 'Sing in' &&
+      (!evt.target.useremail.value || !evt.target.userpass.value)
+    ) {
+      Notify.warning('Введіть логін і пароль.');
+      return;
+    }
+
+    if (
+      submitBtnEl.textContent === 'Sing in' &&
       evt.target.useremail.value &&
       evt.target.userpass.value
     ) {
