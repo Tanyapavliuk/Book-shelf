@@ -122,9 +122,10 @@ function handlerFormReg(evt) {
     evt.target.useremail.value &&
     evt.target.userpass.value
   ) {
-    const { users: checkEmail } = JSON.parse(localStorage.getItem('users'));
-
-    if (
+    
+    try {
+      const { users: checkEmail } = JSON.parse(localStorage.getItem('users'))
+    if ( 
       checkEmail.find(userObj => userObj.email === evt.target.useremail.value)
     ) {
       Notify.warning('Такий email вже зареестрований на нашому сайті.');
@@ -132,7 +133,10 @@ function handlerFormReg(evt) {
       evt.target.useremail.value = '';
       evt.target.userpass.value = '';
       return;
-    }
+    }}
+    catch (err) {
+      console.log("Error");
+     };
 
     if (!localStorage.getItem('users')) {
       const users = {
