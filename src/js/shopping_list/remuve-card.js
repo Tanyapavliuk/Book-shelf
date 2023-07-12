@@ -3,7 +3,7 @@ import { isEmpty } from './isEmpty';
 import { listBooksEl } from './shopping';
 import { marcupListBooks } from './marcupListBooks';
 
-export function onRemuveCard(e) {
+export function onRemoveCard(e) {
   const { target } = e;
   if (!target.classList.contains('js-trash')) {
     return;

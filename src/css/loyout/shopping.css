@@ -30,35 +30,33 @@
   }
 }
 
-.shopping-list-img-container {
+.shopping-list-img {
   width: 100px;
+  height: 142px;
   border-radius: 8px;
-  overflow: hidden;
 }
 @media screen and (min-width: 768px) {
-  .shopping-list-img-container {
+  .shopping-list-img {
     width: 116px;
+    height: 165px;
   }
-}
-/* .shopping-list-img{
-  width: 100px;
-} */
-.shopping-title-book {
-  width: calc(100% - 32px);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .shopping-list-description-thumb {
   display: flex;
-  width: 100%;
+  flex-basis: 100%;
   flex-direction: column;
   justify-content: space-between;
 }
+.shopping-title-book {
+  width: calc(100% - 32px);
+}
+
 .shopping-list-thumb {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  gap: 5px;
 }
 
 .shopping-list-store {

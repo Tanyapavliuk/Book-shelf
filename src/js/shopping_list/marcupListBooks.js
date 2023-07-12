@@ -19,8 +19,13 @@ export function marcupListBooks(arr) {
           description =
             'Sorry, but this book does not have an accessible description. Try reading it on the website of one of the shops';
         }
-        return `<li class="shopping-list-card">
-            <div class="shopping-list-img-container"><img class="shopping-list-img" src="${book_image}" alt="${title}" /></div>
+        if (window.innerWidth < 768) {
+          if (description.length >= 25) {
+            description = description.slice(0, 50) + `<span> ...</span>`;
+          }
+        }
+        return `<li class="shopping-list-card"><img class="shopping-list-img" src="${book_image}" alt="${title}" />
+          
             <div class="shopping-list-description-thumb">
               <div >
                 <h2 class="title-book shopping-title-book">${title}</h2>
@@ -35,7 +40,8 @@ export function marcupListBooks(arr) {
                    buy_links.filter(({ name }) => {
                      return name === 'Amazon';
                    })[0].url
-                 }"><img src="${amazon}" class="darkFilter"/>
+                 }"><img style="height:16px " src="${amazon}" id="dark-theme-filter" alt="Amazon"/>
+
 </a>
 </li>
 <li> 
@@ -43,7 +49,7 @@ export function marcupListBooks(arr) {
     buy_links.filter(({ name }) => {
       return name === 'Apple Books';
     })[0].url
-  }"><img src="${applebooks}" alt="Book" />
+  }"><img style="height:16px " src="${applebooks}" alt="Apple Books" />
 </a>
 </li>
 <li> 
@@ -51,7 +57,7 @@ export function marcupListBooks(arr) {
           buy_links.filter(({ name }) => {
             return name === 'Bookshop';
           })[0].url
-        }"><img src="${bookshop}" alt="logo Book-block" /></a>
+        }"><img style="height:16px "  src="${bookshop}" alt="logo Book-block" /></a>
 </li></ul>
                 </div>
               </div>

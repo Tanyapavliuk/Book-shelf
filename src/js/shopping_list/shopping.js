@@ -2,8 +2,7 @@ import fetch from './serviceBook';
 import { marcupListBooks } from './marcupListBooks';
 import { isActivePage } from '../is-active-page';
 import { isEmpty } from './isEmpty';
-import { onRemuveCard } from './remuve-card';
-import { resetPag } from './pagination';
+import { onRemoveCard } from './remuve-card';
 
 export const listBooksEl = document.querySelector('.js-list-books');
 const serchActivEl = document.querySelector('.home');
@@ -18,8 +17,7 @@ try {
     isEmpty();
   } else {
     listBooksEl.innerHTML = marcupListBooks(books);
-    listBooksEl.addEventListener('click', onRemuveCard);
-    isPagination();
+    listBooksEl.addEventListener('click', onRemoveCard);
   }
 } catch (err) {
   console.log(err);
