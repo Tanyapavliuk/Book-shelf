@@ -94,6 +94,7 @@ function switchPosition() {
 switchPosition();
 
 // опрацювання модалки логіну, реестрація і логінізація
+submitBtnEl.textContent = 'Sing up';
 if (submitBtnEl.textContent === 'Sing up') {
   submitBtnEl.textContent = 'Sing up';
 } else {
@@ -128,6 +129,10 @@ formEl.addEventListener('submit', handlerFormLogin);
 
 function handlerFormReg(evt) {
   evt.preventDefault();
+
+  if (submitBtnEl.textContent === 'Sing in') {
+    return;
+  }
 
   if (
     submitBtnEl.textContent === 'Sing up' &&
@@ -228,6 +233,10 @@ function handlerFormReg(evt) {
 
 function handlerFormLogin(evt) {
   evt.preventDefault();
+
+  if (localStorage.getItem('userLogin')) {
+    return;
+  }
 
   try {
     if (
