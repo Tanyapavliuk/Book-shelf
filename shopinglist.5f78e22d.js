@@ -10,7 +10,7 @@ let t;function e(t){return t&&t.__esModule?t.default:t}var n="undefined"!=typeof
                 <span class="author">${s.split(",")[0]}</span>
                 <ul class="shopping-list-store">
                 <li > 
-                 <a href="${p.filter(({name:t})=>"Amazon"===t)[0].url}" target="_blank"><img style="height:16px " src="${e(r)}" id="dark-theme-filter" alt="Amazon"/>
+                 <a href="${p.filter(({name:t})=>"Amazon"===t)[0].url}" target="_blank"><img style="height:16px " src="${e(r)}" class="darkFilter" alt="Amazon"/>
 
 </a>
 </li>
@@ -33,4 +33,4 @@ let t;function e(t){return t&&t.__esModule?t.default:t}var n="undefined"!=typeof
   <p class="text-empty">This page is empty, add some books and proceed to order.</p>
   <img src="${e(f)}" alt=""/></div>
 `,b.removeEventListener("click",m)}var y=o("bUb57");const b=document.querySelector(".js-list-books");document.querySelector(".home");const P=document.querySelector(".shopping-list");let E=null;window.innerWidth<768?(0,p.isActivePage).call(y.shopListMobEl):(0,p.isActivePage).call(P);try{(E=JSON.parse(localStorage.getItem("savedBooks")))&&E.length?(b.innerHTML=l(E),d.length>3&&(b.insertAdjacentHTML("afterend",'<div id="tui-pagination-container" class="tui-pagination"></div>'),t=new(e(h))("#tui-pagination-container",_),document.querySelector("#tui-pagination-container").addEventListener("click",()=>{t.getCurrentPage()!==g&&(g=t.getCurrentPage(),b.innerHTML=l(function(){let e=JSON.parse(localStorage.getItem("savedBooks")),n=t.getCurrentPage();return e.splice(3*n-3,3)}()))})),b.addEventListener("click",m)):x()}catch(t){console.log(t)}o("1MnFF"),o("gjiCh"),o("h8wPa");
-//# sourceMappingURL=shopinglist.12709770.js.map
+//# sourceMappingURL=shopinglist.5f78e22d.js.map
