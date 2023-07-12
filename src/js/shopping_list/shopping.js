@@ -1,5 +1,4 @@
-import fetch from './serviceBook';
-import bookIsEmptyMob from '../../images/shopping_List/IMG_9606 1.png';
+import fetch from './serviceBook'
 import { marcupListBooks } from './marcupListBooks';
 export const listBooksEl = document.querySelector('.js-list-books');
 import { resetPag } from './pagination';
@@ -8,10 +7,11 @@ import { isPagination } from './pagination';
 //   localStorage.setItem('shopingBooks', JSON.stringify(await data()));
 // }
 
-// addLocalStoredge(fetch);
+
+isActivePage.call(activPage);
 
 try {
-  const books = JSON.parse(localStorage.getItem('savedBooks'));
+  books = JSON.parse(localStorage.getItem('savedBooks'));
   if (!books || !books.length) {
     isEmpty();
   } else {
@@ -40,14 +40,8 @@ try {
         resetPag(qAfterDel.length);
       }
     }
-  }
 } catch (err) {
   console.log(err);
 }
 
-function isEmpty() {
-  listBooksEl.innerHTML = `<div class="is-empty">
-  <p class="text-empty">This page is empty, add some books and proceed to order.</p>
-  <img src="${bookIsEmptyMob}" alt=""/></div>
-`;
-}
+export { listBooksEl, books };

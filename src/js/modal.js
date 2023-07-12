@@ -9,9 +9,6 @@ const modalCard = document.querySelector('.modal');
 const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
 
-// Temporary const
-const isLogin = 1;
-
 let bookIdent;
 
 function isLocalStorage() {
@@ -67,7 +64,7 @@ function renderModal(bookData) {
           <ul class="shop-list">
             <li>
               <a href="${data.buy_links[0].url}">
-                <img src="${amazon}" alt="Amazon" />
+                <img src="${amazon}" alt="Amazon" class="darkFilterModal"/>
               </a>
             </li>
             <li>
@@ -90,6 +87,21 @@ function renderModal(bookData) {
   modalShoppingEl.insertAdjacentHTML('beforeend', modalMarkup);
 }
 
+// Застосування білого фільтру для картинки Амазон
+
+const imgFilterAmazon = () => {
+  const forAmazonFilterModal = document.querySelector('.darkFilterModal');
+
+  if (localStorage.getItem('theme') === 'dark') {
+    forAmazonFilterModal.classList.add('filter-img');
+    
+  } else {
+    forAmazonFilterModal.classList.remove('filter-img');
+  }
+};
+
+// ---
+
 async function callModal(bookId) {
   try {
     modalShoppingEl.innerHTML = '';
@@ -97,6 +109,7 @@ async function callModal(bookId) {
     bookIdent = bookData[0]._id;
 
     renderModal(bookData);
+    imgFilterAmazon();
     renderModalButton(bookIdent);
   } catch (error) {
     console.error(error);
@@ -154,7 +167,7 @@ function renderModalButton(bookIdent) {
 
   if (savedBooks.some(book => book._id === bookIdent)) {
     const modalBtn = `
-      <button type="submit" class="button book">
+      <button type="submit" class="button book" aria-label="Remove from shopping">
         Remove from the shopping list
       </button>
       <p class="congratulation">
@@ -165,8 +178,12 @@ function renderModalButton(bookIdent) {
     modalShoppingEl.insertAdjacentHTML('beforeend', modalBtn);
 
     const submitShoppingEl = document.querySelector('.button.book');
+
+    let isLogin = JSON.parse(localStorage.getItem('userLogin'));
+
     if (!isLogin) {
       submitShoppingEl.disabled = true;
+      submitShoppingEl.textContent = 'Login please';
     }
 
     submitShoppingEl.addEventListener('click', event => {
@@ -175,15 +192,19 @@ function renderModalButton(bookIdent) {
     });
   } else {
     const modalBtn = `
-      <button type="submit" class="button book">
+      <button type="submit" class="button book" aria-label="Add to shopping">
         Add to shopping list
       </button>
     `;
     modalShoppingEl.insertAdjacentHTML('beforeend', modalBtn);
 
     const submitShoppingEl = document.querySelector('.button.book');
+
+    let isLogin = JSON.parse(localStorage.getItem('userLogin'));
+
     if (!isLogin) {
       submitShoppingEl.disabled = true;
+      submitShoppingEl.textContent = 'Login please';
     }
 
     submitShoppingEl.addEventListener('click', event => {
@@ -198,7 +219,7 @@ isLocalStorage();
 window.addEventListener('load', function () {
   containerEl.addEventListener('click', event => {
     let bookId;
-    console.dir(event.target);
+
     if (event.target.tagName === 'BUTTON') {
       getBookByCategory(event.target.dataset.catname);
     }
