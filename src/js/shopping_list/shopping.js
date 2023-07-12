@@ -1,8 +1,9 @@
 import fetch from './serviceBook';
 import bookIsEmptyMob from '../../images/shopping_List/IMG_9606 1.png';
 import { marcupListBooks } from './marcupListBooks';
-const listBooksEl = document.querySelector('.js-list-books');
-
+export const listBooksEl = document.querySelector('.js-list-books');
+import { resetPag } from './pagination';
+import { isPagination } from './pagination';
 // async function addLocalStoredge(data) {
 //   localStorage.setItem('shopingBooks', JSON.stringify(await data()));
 // }
@@ -15,7 +16,7 @@ try {
     isEmpty();
   } else {
     listBooksEl.innerHTML = marcupListBooks(books);
-
+    isPagination();
     listBooksEl.addEventListener('click', onRemuveCard);
 
     function onRemuveCard(e) {
@@ -35,6 +36,8 @@ try {
           return isEmpty();
         }
         listBooksEl.innerHTML = marcupListBooks(books);
+        qAfterDel = JSON.parse(localStorage.getItem('savedBooks'));
+        resetPag(qAfterDel.length);
       }
     }
   }
