@@ -8,7 +8,6 @@ const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
 const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
-const scrollUpBntEl = document.querySelector('.scroll-btn');
 
 let bookIdent;
 
@@ -20,7 +19,6 @@ function isLocalStorage() {
 }
 
 function closeModal() {
-  scrollUpBntEl.classList.remove("visually-hidden");
   modalEl.classList.remove('active');
   modalCard.classList.remove('active');
   document.body.style.overflow = 'auto';
@@ -106,7 +104,6 @@ const imgFilterAmazon = () => {
 
 async function callModal(bookId) {
   try {
-    scrollUpBntEl.classList.add("visually-hidden");
     modalShoppingEl.innerHTML = '';
     const bookData = await fetchBookDetails(bookId);
     bookIdent = bookData[0]._id;
@@ -117,9 +114,6 @@ async function callModal(bookId) {
   } catch (error) {
     console.error(error);
   }
-  // finally {
-  //   scrollUpBntEl.classList.add("visually-hidden");
-  // }
 }
 
 async function saveObjectLocal(bookIdent) {
