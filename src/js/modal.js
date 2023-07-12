@@ -8,7 +8,7 @@ const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
 const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
-
+const scrollUpBntEl = document.querySelector('.scroll-btn');
 let bookIdent;
 
 function isLocalStorage() {
@@ -21,6 +21,7 @@ function isLocalStorage() {
 function closeModal() {
   modalEl.classList.remove('active');
   modalCard.classList.remove('active');
+  scrollUpBntEl.classList.remove("visually-hidden");
   document.body.style.overflow = 'auto';
 }
 
@@ -147,7 +148,9 @@ async function saveObjectLocal(bookIdent) {
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
   } catch (error) {
     console.error(error);
-  }
+  } finally {
+      scrollUpBntEl.classList.add("visually-hidden");
+    }
 }
 
 function deleteObjectLocal(bookIdent) {
@@ -228,19 +231,19 @@ function removeModalButtonEventListeners() {
   submitShoppingEl.removeEventListener('click', handleAddButtonClick);
 }
 
-function handleModalBackdropClick(event) {
+function modalBackdropClose(event) {
   if (event.target === modalEl) {
     closeModal();
     removeModalEventListeners();
   }
 }
 
-function handleModalCloseButtonClick(event) {
+function modalCloseButtonClick(event) {
   closeModal();
   removeModalEventListeners();
 }
 
-function handleEscapeKeyPress(event) {
+function escapeKeyClose(event) {
   if (event.key === 'Escape') {
     closeModal();
     removeModalEventListeners();
@@ -248,18 +251,18 @@ function handleEscapeKeyPress(event) {
 }
 
 function removeModalEventListeners() {
-  modalEl.removeEventListener('click', handleModalBackdropClick);
-  document.removeEventListener('keydown', handleEscapeKeyPress);
-  closeButtonEl.removeEventListener('click', handleModalCloseButtonClick);
+  modalEl.removeEventListener('click', modalBackdropClose);
+  document.removeEventListener('keydown', escapeKeyClose);
+  closeButtonEl.removeEventListener('click', modalCloseButtonClick);
 }
 
 isLocalStorage();
 
 window.addEventListener('load', function () {
-  containerEl.addEventListener('click', handleContainerClick);
+  containerEl.addEventListener('click', containerClick);
 });
 
-function handleContainerClick(event) {
+function containerClick(event) {
   let bookId;
 
   if (event.target.tagName === 'BUTTON') {
@@ -275,8 +278,8 @@ function handleContainerClick(event) {
     modalCard.classList.add('active');
     document.body.style.overflow = 'hidden';
 
-    modalEl.addEventListener('click', handleModalBackdropClick);
-    document.addEventListener('keydown', handleEscapeKeyPress);
-    closeButtonEl.addEventListener('click', handleModalCloseButtonClick);
+    modalEl.addEventListener('click', modalBackdropClose);
+    document.addEventListener('keydown', escapeKeyClose);
+    closeButtonEl.addEventListener('click', modalCloseButtonClick);
   }
 }

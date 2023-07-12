@@ -40,25 +40,4 @@ const scrollUp = () => {
 scrollUpBtn.addEventListener('click', scrollUp);
 document.addEventListener('scroll', onScroll);
 
-modalCloseBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-  modal.removeAttribute('data-open');
-  scrollUpBtn.classList.add('show-scroll-btn');
-});
-
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    modal.style.display = 'none';
-    modal.removeAttribute('data-open');
-    scrollUpBtn.classList.add('show-scroll-btn');
-  }
-});
-
-
-const showModal = () => {
-  modal.style.display = 'block';
-  modal.setAttribute('data-open', 'true');
-  scrollUpBtn.classList.remove('show-scroll-btn');
-};
-
 
