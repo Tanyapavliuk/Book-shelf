@@ -35,7 +35,7 @@ export function marcupListBooks(arr) {
                    buy_links.filter(({ name }) => {
                      return name === 'Amazon';
                    })[0].url
-                 }"><img src="${amazon}" id="dark-theme-filter"/>
+                 }"><img src="${amazon}" class="darkFilter"/>
 </a>
 </li>
 <li> 
@@ -66,3 +66,5 @@ export function marcupListBooks(arr) {
     )
     .join('');
 }
+
+
