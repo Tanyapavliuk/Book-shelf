@@ -4,6 +4,8 @@ import { isActivePage } from '../is-active-page';
 import { isEmpty } from './isEmpty';
 import { onRemoveCard } from './remuve-card';
 import { shopListMobEl } from '../header';
+import { isPagination } from './pagination';
+
 
 const listBooksEl = document.querySelector('.js-list-books');
 const serchActivEl = document.querySelector('.home');
@@ -24,6 +26,7 @@ try {
     isEmpty();
   } else {
     listBooksEl.innerHTML = marcupListBooks(books);
+    isPagination();
     listBooksEl.addEventListener('click', onRemoveCard);
   }
 } catch (err) {

@@ -266,7 +266,8 @@ input:checked + .slider:before {
 
 .user-img {
   border-radius: 50%;
-  margin-left: 0;
+  width: 37px;
+  height: 37px;
 }
 
 .user-btn {

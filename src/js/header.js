@@ -94,8 +94,11 @@ function switchPosition() {
 switchPosition();
 
 // опрацювання модалки логіну, реестрація і логінізація
-
-submitBtnEl.textContent = 'Sing up';
+if (submitBtnEl.textContent === 'Sing up') {
+  submitBtnEl.textContent = 'Sing up';
+} else {
+  submitBtnEl.textContent = 'Sing in';
+}
 
 singUpEl.addEventListener('click', handleSingUp);
 singInEl.addEventListener('click', handlesingIn);
@@ -125,6 +128,16 @@ formEl.addEventListener('submit', handlerFormLogin);
 
 function handlerFormReg(evt) {
   evt.preventDefault();
+
+  if (
+    submitBtnEl.textContent === 'Sing up' &&
+    (!evt.target.username.value ||
+      !evt.target.useremail.value ||
+      !evt.target.userpass.value)
+  ) {
+    Notify.warning('Заповніть усі поля.');
+    return;
+  }
 
   if (
     submitBtnEl.textContent === 'Sing up' &&
@@ -208,10 +221,6 @@ function handlerFormReg(evt) {
     evt.target.userpass.value = '';
 
     handlesingIn();
-  } else if (submitBtnEl.textContent !== 'Sing up') {
-    return;
-  } else {
-    Notify.warning('Заповніть усі поля.');
   }
 }
 
@@ -220,37 +229,50 @@ function handlerFormReg(evt) {
 function handlerFormLogin(evt) {
   evt.preventDefault();
 
-  if (
-    submitBtnEl.textContent === 'Sing in' &&
-    evt.target.useremail.value &&
-    evt.target.userpass.value
-  ) {
-    const { users } = JSON.parse(localStorage.getItem('users'));
+  try {
+    if (
+      submitBtnEl.textContent === 'Sing in' &&
+      (!evt.target.useremail.value || !evt.target.userpass.value)
+    ) {
+      Notify.warning('Введіть логін і пароль.');
+      return;
+    }
 
-    const user = users.find(
-      user =>
-        user.email === evt.target.useremail.value &&
-        user.password === evt.target.userpass.value
-    );
+    if (
+      submitBtnEl.textContent === 'Sing in' &&
+      evt.target.useremail.value &&
+      evt.target.userpass.value
+    ) {
+      const { users } = JSON.parse(localStorage.getItem('users'));
 
-    localStorage.setItem('userLogin', true);
-    localStorage.setItem('userInSite', JSON.stringify(user));
+      const user = users.find(
+        user =>
+          user.email === evt.target.useremail.value &&
+          user.password === evt.target.userpass.value
+      );
 
-    evt.target.useremail.value = '';
-    evt.target.userpass.value = '';
+      evt.target.useremail.value = '';
+      evt.target.userpass.value = '';
 
-    handlerCloseLoginModal();
+      handlerCloseLoginModal();
 
-    userNameMobEl.textContent = user.name;
-    userNameEl.textContent = user.name;
-    loginBtnMobEl.classList.add('visually-hidden');
-    loginBtnEl.classList.add('visually-hidden');
-    userDescEl.classList.remove('visually-hidden');
-    userMobEl.classList.remove('visually-hidden');
-    logoutMobEl.classList.remove('visually-hidden');
-    shopListDescEl.classList.remove('visually-hidden');
-    shopListMobEl.classList.remove('visually-hidden');
-    homeMobEl.classList.remove('visually-hidden');
+      userNameMobEl.textContent = user.name;
+      userNameEl.textContent = user.name;
+      loginBtnMobEl.classList.add('visually-hidden');
+      loginBtnEl.classList.add('visually-hidden');
+      userDescEl.classList.remove('visually-hidden');
+      userMobEl.classList.remove('visually-hidden');
+      logoutMobEl.classList.remove('visually-hidden');
+      shopListDescEl.classList.remove('visually-hidden');
+      shopListMobEl.classList.remove('visually-hidden');
+      homeMobEl.classList.remove('visually-hidden');
+
+      localStorage.setItem('userLogin', true);
+      localStorage.setItem('userInSite', JSON.stringify(user));
+    }
+  } catch (err) {
+    Notify.warning('Логін або пароль невірний. Спробуйте ще разю');
+    handlerOpenLoginModal();
   }
 }
 
