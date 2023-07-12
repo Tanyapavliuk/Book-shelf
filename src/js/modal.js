@@ -170,10 +170,8 @@ function renderModalButton(bookIdent) {
       submitShoppingEl.textContent = 'Login please';
     }
 
-    submitShoppingEl.addEventListener('click', event => {
-      deleteObjectLocal(bookIdent);
-      closeModal();
-    });
+    submitShoppingEl.addEventListener('click', handleRemoveButtonClick);
+    
   } else {
     const modalBtn = `
       <button type="submit" class="button book" aria-label="Add to shopping">
@@ -191,47 +189,78 @@ function renderModalButton(bookIdent) {
       submitShoppingEl.textContent = 'Login please';
     }
 
-    submitShoppingEl.addEventListener('click', event => {
-      saveObjectLocal(bookIdent);
-      closeModal();
-    });
+    submitShoppingEl.addEventListener('click', handleAddButtonClick);
   }
+}
+
+
+function handleAddButtonClick(event) {
+  saveObjectLocal(bookIdent);
+  closeModal();
+  removeModalButtonEventListeners();
+}
+
+function handleRemoveButtonClick(event) {
+  deleteObjectLocal(bookIdent);
+  closeModal();
+  removeModalButtonEventListeners();
+}
+
+function removeModalButtonEventListeners() {
+  const submitShoppingEl = document.querySelector('.button.book');
+  submitShoppingEl.removeEventListener('click', handleRemoveButtonClick);
+  submitShoppingEl.removeEventListener('click', handleAddButtonClick);
+}
+
+function handleModalBackdropClick(event) {
+  if (event.target === modalEl) {
+    closeModal();
+    removeModalEventListeners();
+  }
+}
+
+function handleModalCloseButtonClick(event) {
+  closeModal();
+  removeModalEventListeners();
+}
+
+function handleEscapeKeyPress(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+    removeModalEventListeners();
+  }
+}
+
+function removeModalEventListeners() {
+  modalEl.removeEventListener('click', handleModalBackdropClick);
+  document.removeEventListener('keydown', handleEscapeKeyPress);
+  closeButtonEl.removeEventListener('click', handleModalCloseButtonClick);
 }
 
 isLocalStorage();
 
 window.addEventListener('load', function () {
-  containerEl.addEventListener('click', event => {
-    let bookId;
-
-    if (event.target.tagName === 'BUTTON') {
-      getBookByCategory(event.target.dataset.catname);
-    }
-    if (event.target.classList.value.includes('js-ct')) {
-      bookId = event.target.parentElement.dataset.id;
-    }
-
-    if (bookId) {
-      callModal(bookId);
-      modalEl.classList.add('active');
-      modalCard.classList.add('active');
-      document.body.style.overflow = 'hidden';
-
-      modalEl.addEventListener('click', event => {
-        if (event.target === modalEl) {
-          closeModal();
-        }
-      });
-
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') {
-          closeModal();
-        }
-      });
-
-      closeButtonEl.addEventListener('click', event => {
-        closeModal();
-      });
-    }
-  });
+  containerEl.addEventListener('click', handleContainerClick);
 });
+
+function handleContainerClick(event) {
+  let bookId;
+
+  if (event.target.tagName === 'BUTTON') {
+    getBookByCategory(event.target.dataset.catname);
+  }
+  if (event.target.classList.value.includes('js-ct')) {
+    bookId = event.target.parentElement.dataset.id;
+  }
+
+  if (bookId) {
+    callModal(bookId);
+    modalEl.classList.add('active');
+    modalCard.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    modalEl.addEventListener('click', handleModalBackdropClick);
+    document.addEventListener('keydown', handleEscapeKeyPress);
+    closeButtonEl.addEventListener('click', handleModalCloseButtonClick);
+  }
+}
