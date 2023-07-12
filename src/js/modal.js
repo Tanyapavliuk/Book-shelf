@@ -64,7 +64,7 @@ function renderModal(bookData) {
           <ul class="shop-list">
             <li>
               <a href="${data.buy_links[0].url}">
-                <img src="${amazon}" alt="Amazon" />
+                <img src="${amazon}" alt="Amazon" class="darkFilterModal"/>
               </a>
             </li>
             <li>
@@ -87,6 +87,21 @@ function renderModal(bookData) {
   modalShoppingEl.insertAdjacentHTML('beforeend', modalMarkup);
 }
 
+// Застосування білого фільтру для картинки Амазон
+
+const imgFilterAmazon = () => {
+  const forAmazonFilterModal = document.querySelector('.darkFilterModal');
+
+  if (localStorage.getItem('theme') === 'dark') {
+    forAmazonFilterModal.classList.add('filter-img');
+    
+  } else {
+    forAmazonFilterModal.classList.remove('filter-img');
+  }
+};
+
+// ---
+
 async function callModal(bookId) {
   try {
     modalShoppingEl.innerHTML = '';
@@ -94,6 +109,7 @@ async function callModal(bookId) {
     bookIdent = bookData[0]._id;
 
     renderModal(bookData);
+    imgFilterAmazon();
     renderModalButton(bookIdent);
   } catch (error) {
     console.error(error);
