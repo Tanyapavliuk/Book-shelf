@@ -88,7 +88,6 @@
   padding: 14px 28px;
   border-radius: 40px;
   border: 2px solid var(--brand-color);
-  background-color: transparent;
   font-family: 'DMSans-Bold';
   font-size: 14px;
 
@@ -120,14 +119,12 @@
 
 @media screen and (min-width: 768px) {
   .btn-more {
-      margin-top: 20px;
-      
-    }
+    margin-top: 20px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-.btn-more {
+  .btn-more {
     margin-top: 32px;
-    
   }
 }
