@@ -41,10 +41,10 @@ body {
 /* Кольори для темної теми */
 
 [dark] {
-  --brand-color: #4F2EE8;
-  --text-color: #FFFFFF;
-  --subtitle-color: #B4AFAF;
-  --categories-rgba-color: rgba(255, 255, 255, 0.60);
+  --brand-color: #4f2ee8;
+  --text-color: #ffffff;
+  --subtitle-color: #b4afaf;
+  --categories-rgba-color: rgba(255, 255, 255, 0.6);
   --background-color: #202024;
   --bg-color-header-card: #111111;
 
@@ -157,6 +157,7 @@ body {
   line-height: 1.16;
   letter-spacing: 0.36px;
 
+  max-width: calc(100% - 32px);
   margin-bottom: 8px;
 }
 @media screen and (min-width: 768px) {
