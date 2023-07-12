@@ -7,8 +7,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 638px;
+  height: 562px;
   overflow: hidden;
+}
+@media screen and (min-width: 768) {
+  .list-books {
+    height: 690px;
+  }
 }
 
 .shopping-list-card {
