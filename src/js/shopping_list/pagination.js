@@ -7,7 +7,6 @@ let currPage = 1;
 let itemsPerPage = 3;
 if (window.innerWidth < 768) {
   itemsPerPage = 2;
-  console.log(window.innerWidth);
 }
 
 const options = {
@@ -54,8 +53,10 @@ if (pagination) {
     });
 }
 // резка массива на количество книг на одной странице и извлечение нужного куска
+
 function getPagArr() {
   const books = JSON.parse(localStorage.getItem('savedBooks'));
+
   let page = pagination.getCurrentPage();
   return books.splice(page * 3 - 3, 3);
 }
