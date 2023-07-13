@@ -3,6 +3,7 @@ import { getBookByCategory } from './categories';
 import amazon from '../images/amazon.png';
 import applebooks from '../images/book.png';
 import bookshop from '../images/book-block.png';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
@@ -37,7 +38,7 @@ async function fetchBookDetails(bookId) {
     const bookData = await response.json();
     return [bookData];
   } catch (error) {
-    console.error(error);
+    Notify.warning("Sorry, failed to load information");
   }
 }
 
@@ -101,8 +102,6 @@ const imgFilterAmazon = () => {
   }
 };
 
-// ---
-
 async function callModal(bookId) {
   try { 
     scrollUpBntEl.classList.add("visually-hidden");
@@ -114,7 +113,7 @@ async function callModal(bookId) {
     imgFilterAmazon();
     renderModalButton(bookIdent);
   } catch (error) {
-    console.error(error);
+    Notify.warning("Sorry, failed to load information");
   }
 }
 
@@ -148,7 +147,7 @@ async function saveObjectLocal(bookIdent) {
 
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
   } catch (error) {
-    console.error(error);
+    Notify.warning("Sorry, failed to load information");
   }
 }
 

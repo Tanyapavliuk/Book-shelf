@@ -6,7 +6,3 @@ window.addEventListener('load', () => {
         mask.remove();
     }, 800);
 })
-// window.onload = function (){
-//     let mask = document.getElementById('#preloader');
-//     mask.style.display = 'none';
-//  }

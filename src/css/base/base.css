@@ -36,6 +36,8 @@ body {
 
   --white-color: #ffffff;
   --yelow-color: #eac645;
+  --pagination-butn: #b4afaf;
+  --black-color: #111111;
 }
 
 /* Кольори для темної теми */
@@ -58,6 +60,8 @@ body {
 
   --white-color: #ffffff;
   --yelow-color: #eac645;
+  --pagination-butn: #ffffff;
+  --black-color: #111111;
 }
 
 .container {
@@ -231,10 +235,8 @@ body {
   color: var(--white-color);
   background-color: var(--brand-color);
 }
-
-
 /* Фільтр для амазон темної теми */
 
 .filter-img {
-  filter: brightness(0) invert(1);
+  filter: grayscale(100%) invert(50%) brightness(200%);
 }

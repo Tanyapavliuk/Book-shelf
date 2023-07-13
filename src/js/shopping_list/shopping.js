@@ -5,6 +5,7 @@ import { isEmpty } from './isEmpty';
 import { onRemoveCard } from './remuve-card';
 import { shopListMobEl } from '../header';
 import { isPagination } from './pagination';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 
 const listBooksEl = document.querySelector('.js-list-books');
@@ -30,7 +31,7 @@ try {
     listBooksEl.addEventListener('click', onRemoveCard);
   }
 } catch (err) {
-  console.log(err);
+  Notify.warning("Sorry, failed to load information");
 }
 
 export { listBooksEl, books };

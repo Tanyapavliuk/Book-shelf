@@ -1,6 +1,7 @@
 import { getQuery } from './hero';
 import { container as bookCard } from './hero';
 import { markup } from './hero';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const categoryList = document.querySelector('.category-list');
 const axios = require('axios').default;
@@ -36,7 +37,7 @@ async function getCategoryList() {
     );
     renderCategory(response.data);
   } catch (error) {
-    console.log('error', error);
+    Notify.warning("Sorry, failed to load information");
   }
 }
 
@@ -77,10 +78,6 @@ export async function getBookByCategory(changeCategory) {
 }
 
 function renderedBookCardItem(data) {
-  // const choosedBooks = JSON.parse(localStorage.getItem('savedBooks'));
-  // const choosedID = choosedBooks.map(el => el._id);
-  // console.log(choosedID);
-  // const dataCheck = data.map();
   const markup = `
     <h2 class ="main-title">${data[0].list_name}</h2>
     <ul class="book-list">${data

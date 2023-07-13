@@ -364,11 +364,6 @@ input:checked + .slider:before {
   width: 28px;
 }
 
-/* .mobile-close:hover,
-.mobile-close:focus {
-  color: var(--brand-color);
-  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
-} */
 @media screen and (min-width: 768px) {
   .mobile-close {
     display: none;
