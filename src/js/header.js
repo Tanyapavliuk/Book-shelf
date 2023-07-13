@@ -140,7 +140,7 @@ function handlerFormReg(evt) {
       !evt.target.useremail.value ||
       !evt.target.userpass.value)
   ) {
-    Notify.warning('Заповніть усі поля.');
+    Notify.warning('Please, fill in all fields');
     return;
   }
 
@@ -155,15 +155,13 @@ function handlerFormReg(evt) {
       if (
         checkEmail.find(userObj => userObj.email === evt.target.useremail.value)
       ) {
-        Notify.warning('Такий email вже зареестрований на нашому сайті.');
+        Notify.warning('This email is already registered on website');
 
         evt.target.useremail.value = '';
         evt.target.userpass.value = '';
         return;
       }
-    } catch (err) {
-      console.log('Error');
-    }
+    } catch (err) {}
 
     if (!localStorage.getItem('users')) {
       const users = {
@@ -243,7 +241,7 @@ function handlerFormLogin(evt) {
       submitBtnEl.textContent === 'Sing in' &&
       (!evt.target.useremail.value || !evt.target.userpass.value)
     ) {
-      Notify.warning('Введіть логін і пароль.');
+      Notify.warning('Please, enter your login and password');
       return;
     }
 
@@ -280,7 +278,7 @@ function handlerFormLogin(evt) {
       localStorage.setItem('userInSite', JSON.stringify(user));
     }
   } catch (err) {
-    Notify.warning('Логін або пароль невірний. Спробуйте ще разю');
+    Notify.warning('The login or password is incorrect. Please, try again.');
     handlerOpenLoginModal();
   }
 }

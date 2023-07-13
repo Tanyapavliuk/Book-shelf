@@ -2,6 +2,8 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { marcupListBooks } from './marcupListBooks';
 import { listBooksEl } from './shopping';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const books = JSON.parse(localStorage.getItem('savedBooks'));
 let currPage = 1;
 let itemsPerPage = 3;
@@ -25,7 +27,7 @@ export function resetPag(i) {
       const p = document.querySelector('#tui-pagination-container');
       p.remove();
     } catch (err) {
-      // console.log(err);
+      Notify.warning("Sorry, failed to load information");
     }
   } else pagination.setTotalItems(i);
 }

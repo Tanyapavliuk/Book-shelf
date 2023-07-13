@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const container = document.querySelector('.container-books');
 
@@ -11,17 +12,14 @@ export async function getQuery() {
     const resp = await axios.get(
       `https://books-backend.p.goit.global/books/top-books `
     );
-    console.log(resp.data);
     container.insertAdjacentHTML('beforeend', markup(resp.data));
   } catch (err) {
-    console.log(err);
+     Notify.warning("Sorry, failed to load information");
   }
 }
 
 function markup(data) {
   let html = '';
-
-  console.log;
   data.forEach(el => {
     let catName = el.list_name;
     let list = el.books
