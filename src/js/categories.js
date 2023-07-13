@@ -77,9 +77,9 @@ export async function getBookByCategory(changeCategory) {
 }
 
 function renderedBookCardItem(data) {
-  const choosedBooks = JSON.parse(localStorage.getItem('savedBooks'));
-  const choosedID = choosedBooks.map(el => el._id);
-  console.log(choosedID);
+  // const choosedBooks = JSON.parse(localStorage.getItem('savedBooks'));
+  // const choosedID = choosedBooks.map(el => el._id);
+  // console.log(choosedID);
   // const dataCheck = data.map();
   const markup = `
     <h2 class ="main-title">${data[0].list_name}</h2>
