@@ -27,7 +27,10 @@ export function resetPag(i) {
       const p = document.querySelector('#tui-pagination-container');
       p.remove();
     } catch (err) {
-      Notify.warning("Sorry, failed to load information");
+      if (i === 1)
+        Notify.info(`There is one book in your shopping cart.`);
+      if (i === 2|| i ===3)
+      Notify.info(`There are ${i} books in your shopping cart.`);
     }
   } else pagination.setTotalItems(i);
 }
