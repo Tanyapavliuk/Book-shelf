@@ -77,11 +77,15 @@ export async function getBookByCategory(changeCategory) {
 }
 
 function renderedBookCardItem(data) {
+  const choosedBooks = JSON.parse(localStorage.getItem('savedBooks'));
+  const choosedID = choosedBooks.map(el => el._id);
+  console.log(choosedID);
+  // const dataCheck = data.map();
   const markup = `
     <h2 class ="main-title">${data[0].list_name}</h2>
     <ul class="book-list">${data
       .map(
-        ({ author, book_image, description, title, _id }) =>
+        ({ author, book_image, title, _id }) =>
           `<li class="bs-list-item">
           <div class="book-card " data-id="${_id}">
     <div class="image-overlay" data-id="${_id}">
