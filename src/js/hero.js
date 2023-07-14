@@ -1,5 +1,10 @@
 import axios from 'axios';
+
+import chekedImg from '../images/choosed.png';
+import { getGhoosedBooks } from './categories';
+import { isChoosed } from './categories';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 export const container = document.querySelector('.container-books');
 
@@ -22,14 +27,22 @@ function markup(data) {
   let html = '';
   data.forEach(el => {
     let catName = el.list_name;
-    let list = el.books
+    const dataCheck = el.books.map(el => {
+      if (getGhoosedBooks().includes(el._id)) el.choosed = 1;
+      else el.choosed = 0;
+      return el;
+    });
+    let list = dataCheck
       .map(
-        ({ book_image, author, title, _id }) =>
+        ({ book_image, author, title, _id, choosed }) =>
           `<li class="bs-list-item" hidden>
         <div class="book-card" data-id="${_id}">
-        <div class="image-overlay" data-id="${_id}">
+        <img class="choosed-icon js-ct ${isChoosed(
+          choosed
+        )}" src="${chekedImg}" alt="icon" width="25" >
+        <div class="image-overlay">
             <img class="book-img js-ct" src="${book_image}" alt="${title}" loading="lazy" />
-            <div class="image-description" data-id="${_id}">
+            <div class="image-description">
       <p class="image-overlay-description js-ct">quick view</p>
      </div>
       </div>

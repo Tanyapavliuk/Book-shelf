@@ -73,6 +73,8 @@
   opacity: 1;
   pointer-events: all;
   overflow: hidden;
+  position: fixed;
+  z-index: 100;
 }
 
 .backdrop-login {

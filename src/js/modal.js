@@ -3,7 +3,10 @@ import { getBookByCategory } from './categories';
 import amazon from '../images/amazon.png';
 import applebooks from '../images/book.png';
 import bookshop from '../images/book-block.png';
+import { getGhoosedBooks } from './categories';
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
@@ -11,6 +14,8 @@ const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
 const scrollUpBntEl = document.querySelector('.scroll-btn');
 let bookIdent;
+let bookClicked;
+let bookId;
 
 function isLocalStorage() {
   const savedBooks = JSON.parse(localStorage.getItem('savedBooks'));
@@ -19,11 +24,18 @@ function isLocalStorage() {
   }
 }
 
+function visualCheck() {
+  if (getGhoosedBooks().includes(bookId))
+    bookClicked.children[0].classList.remove('visually-hidden');
+  else bookClicked.children[0].classList.add('visually-hidden');
+}
+
 function closeModal() {
   modalEl.classList.remove('active');
   modalCard.classList.remove('active');
   scrollUpBntEl.classList.remove("visually-hidden");
   document.body.style.overflow = 'auto';
+  visualCheck();
 }
 
 async function fetchBookDetails(bookId) {
@@ -96,7 +108,6 @@ const imgFilterAmazon = () => {
 
   if (localStorage.getItem('theme') === 'dark') {
     forAmazonFilterModal.classList.add('filter-img');
-    
   } else {
     forAmazonFilterModal.classList.remove('filter-img');
   }
@@ -146,6 +157,7 @@ async function saveObjectLocal(bookIdent) {
     savedBooks.push(savedBook);
 
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
+    visualCheck();
   } catch (error) {
     Notify.warning("Sorry, failed to load information");
   }
@@ -257,11 +269,20 @@ function removeModalEventListeners() {
 isLocalStorage();
 
 window.addEventListener('load', function () {
+
+  containerEl.addEventListener('click', event => {
+    if (event.target.tagName === 'BUTTON') {
+      getBookByCategory(event.target.dataset.catname);
+    }
+    if (event.target.classList.value.includes('js-ct')) {
+      bookClicked = event.target.closest('.book-card');
+      bookId = bookClicked.dataset.id;
+    }
   containerEl.addEventListener('click', containerClick);
 });
 
 function containerClick(event) {
-  let bookId;
+
 
   if (event.target.tagName === 'BUTTON') {
     getBookByCategory(event.target.dataset.catname);
