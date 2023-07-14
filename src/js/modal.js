@@ -12,6 +12,14 @@ const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
 const scrollUpBntEl = document.querySelector('.scroll-btn');
 let bookIdent;
+let bookClicked;
+let bookId;
+
+function visualCheck() {
+  if (getGhoosedBooks().includes(bookId))
+    bookClicked.children[0].classList.remove('visually-hidden');
+  else bookClicked.children[0].classList.add('visually-hidden');
+}
 
 function isLocalStorage() {
   const savedBooks = JSON.parse(localStorage.getItem('savedBooks'));
@@ -25,6 +33,7 @@ function closeModal() {
   modalCard.classList.remove('active');
   scrollUpBntEl.classList.remove('visually-hidden');
   document.body.style.overflow = 'auto';
+  visualCheck();
 }
 
 async function fetchBookDetails(bookId) {
@@ -146,6 +155,7 @@ async function saveObjectLocal(bookIdent) {
     savedBooks.push(savedBook);
 
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
+    visualCheck();
   } catch (error) {
     Notify.warning('Sorry, failed to load information');
   }
@@ -291,13 +301,12 @@ window.addEventListener('load', function () {
 });
 
 function containerClick(event) {
-  let bookId;
-
   if (event.target.tagName === 'BUTTON') {
     getBookByCategory(event.target.dataset.catname);
   }
   if (event.target.classList.value.includes('js-ct')) {
-    bookId = event.target.parentElement.dataset.id;
+    bookClicked = event.target.closest('.book-card');
+    bookId = bookClicked.dataset.id;
   }
 
   if (bookId) {
