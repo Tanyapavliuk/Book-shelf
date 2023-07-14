@@ -1,5 +1,8 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import chekedImg from '../images/choosed.png';
+import { getGhoosedBooks } from './categories';
+import { isChoosed } from './categories';
 
 export const container = document.querySelector('.container-books');
 
@@ -14,7 +17,7 @@ export async function getQuery() {
     );
     container.insertAdjacentHTML('beforeend', markup(resp.data));
   } catch (err) {
-     Notify.warning("Sorry, failed to load information");
+    Notify.warning('Sorry, failed to load information');
   }
 }
 

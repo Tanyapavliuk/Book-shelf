@@ -4,6 +4,7 @@ import amazon from '../images/amazon.png';
 import applebooks from '../images/book.png';
 import bookshop from '../images/book-block.png';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { getGhoosedBooks } from './categories';
 
 const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
@@ -22,7 +23,7 @@ function isLocalStorage() {
 function closeModal() {
   modalEl.classList.remove('active');
   modalCard.classList.remove('active');
-  scrollUpBntEl.classList.remove("visually-hidden");
+  scrollUpBntEl.classList.remove('visually-hidden');
   document.body.style.overflow = 'auto';
 }
 
@@ -38,7 +39,7 @@ async function fetchBookDetails(bookId) {
     const bookData = await response.json();
     return [bookData];
   } catch (error) {
-    Notify.warning("Sorry, failed to load information");
+    Notify.warning('Sorry, failed to load information');
   }
 }
 
@@ -96,15 +97,14 @@ const imgFilterAmazon = () => {
 
   if (localStorage.getItem('theme') === 'dark') {
     forAmazonFilterModal.classList.add('filter-img');
-    
   } else {
     forAmazonFilterModal.classList.remove('filter-img');
   }
 };
 
 async function callModal(bookId) {
-  try { 
-    scrollUpBntEl.classList.add("visually-hidden");
+  try {
+    scrollUpBntEl.classList.add('visually-hidden');
     modalShoppingEl.innerHTML = '';
     const bookData = await fetchBookDetails(bookId);
     bookIdent = bookData[0]._id;
@@ -113,7 +113,7 @@ async function callModal(bookId) {
     imgFilterAmazon();
     renderModalButton(bookIdent);
   } catch (error) {
-    Notify.warning("Sorry, failed to load information");
+    Notify.warning('Sorry, failed to load information');
   }
 }
 
@@ -147,7 +147,7 @@ async function saveObjectLocal(bookIdent) {
 
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
   } catch (error) {
-    Notify.warning("Sorry, failed to load information");
+    Notify.warning('Sorry, failed to load information');
   }
 }
 
@@ -188,7 +188,6 @@ function renderModalButton(bookIdent) {
     }
 
     submitShoppingEl.addEventListener('click', handleRemoveButtonClick);
-    
   } else {
     const modalBtn = `
       <button type="submit" class="button book" aria-label="Add to shopping">
@@ -209,7 +208,6 @@ function renderModalButton(bookIdent) {
     submitShoppingEl.addEventListener('click', handleAddButtonClick);
   }
 }
-
 
 function handleAddButtonClick(event) {
   saveObjectLocal(bookIdent);
@@ -257,6 +255,38 @@ function removeModalEventListeners() {
 isLocalStorage();
 
 window.addEventListener('load', function () {
+  containerEl.addEventListener('click', event => {
+    if (event.target.tagName === 'BUTTON') {
+      getBookByCategory(event.target.dataset.catname);
+    }
+    if (event.target.classList.value.includes('js-ct')) {
+      bookClicked = event.target.closest('.book-card');
+      bookId = bookClicked.dataset.id;
+    }
+
+    if (bookId) {
+      callModal(bookId);
+      modalEl.classList.add('active');
+      modalCard.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      modalEl.addEventListener('click', event => {
+        if (event.target === modalEl) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+      });
+
+      closeButtonEl.addEventListener('click', event => {
+        closeModal();
+      });
+    }
+  });
   containerEl.addEventListener('click', containerClick);
 });
 
