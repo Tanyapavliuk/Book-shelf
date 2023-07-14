@@ -88,7 +88,6 @@ function renderedBookCardItem(data) {
     else el.choosed = 0;
     return el;
   });
-  console.log(dataCheck);
   const markup = `
     <h2 class ="main-title">${data[0].list_name}</h2>
     <ul class="book-list">${dataCheck

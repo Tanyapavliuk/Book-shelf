@@ -234,7 +234,6 @@ window.addEventListener('load', function () {
     if (event.target.classList.value.includes('js-ct')) {
       bookClicked = event.target.closest('.book-card');
       bookId = bookClicked.dataset.id;
-      console.dir(bookClicked);
     }
 
     if (bookId) {

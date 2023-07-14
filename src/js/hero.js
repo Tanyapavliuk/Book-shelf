@@ -14,7 +14,6 @@ export async function getQuery() {
     const resp = await axios.get(
       `https://books-backend.p.goit.global/books/top-books `
     );
-    console.log(resp.data);
     container.insertAdjacentHTML('beforeend', markup(resp.data));
   } catch (err) {
     console.log(err);
@@ -23,8 +22,6 @@ export async function getQuery() {
 
 function markup(data) {
   let html = '';
-
-  console.log;
   data.forEach(el => {
     let catName = el.list_name;
     const dataCheck = el.books.map(el => {
