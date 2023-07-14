@@ -99,9 +99,9 @@ function renderedBookCardItem(data) {
             <img class="choosed-icon js-ct ${isChoosed(
               choosed
             )}" src="${chekedImg}" alt="icon" width="25" >
-    <div class="image-overlay" data-id="${_id}">
+    <div class="image-overlay" >
     <img class="book-img js-ct" src="${book_image}" alt="${title}" loading="lazy" >
-    <div class="image-description" data-id="${_id}">
+    <div class="image-description">
       <p class="image-overlay-description js-ct"> quick view  </p>
      </div>
       </div>
@@ -124,7 +124,7 @@ function renderedBookCardItem(data) {
   );
 }
 
-function isChoosed(idx) {
+export function isChoosed(idx) {
   if (!idx) return 'visually-hidden';
   else return null;
 }
