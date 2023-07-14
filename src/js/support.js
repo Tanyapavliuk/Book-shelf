@@ -8,7 +8,6 @@ import actionAgainstHunger from '../images/support/action_against_hunger.png';
 import worldVision from '../images/support/world_vision.png';
 import serhiyPrytulaCharityFoundation from '../images/support/serhiy_prytula_charity_foundation.png';
 
-
 const charityFunds = [
   {
     title: 'Save the Children',
@@ -55,105 +54,78 @@ const charityFunds = [
     url: 'https://prytulafoundation.org/en',
     img: serhiyPrytulaCharityFoundation,
   },
+    
 ];
 
-const charityList = document.querySelector('.support-list');
+const supportList = document.querySelector('.support-list');
 
-const listItems = charityFunds.map(function(fund) {
-  return `<li class="support-item" aria-label="${fund.title}">
-  <div class="fund-container"> <img src="${fund.img}" alt="${fund.title}" class="support-logo" data-url="${fund.url}" width="auto" height="32px"></div>
- 
-  </li>`;
+function generateListItems() {
+  return charityFunds
+    .map(
+      (fund) =>
+        `<li class="support-item" aria-label="${fund.title}">
+          <div class="fund-container">
+            <img src="${fund.img}" alt="${fund.title}" class="support-logo" data-url="${fund.url}" width="auto" height="32px">
+          </div>
+        </li>`
+    )
+    .join('');
+}
+
+
+supportList.innerHTML = generateListItems();
+
+const container = document.querySelector('.support-list');
+const items = container.querySelectorAll('.support-item');
+
+// обчислення висоти елементу, проміжку та контейнера, тощо
+const containerHeight = container.offsetHeight;
+const firstItemHeight = items[0].offsetHeight;
+const numItems = items.length;
+const gapHeight = (containerHeight - (firstItemHeight * numItems)) / (numItems - 1);
+const listItemHeight = firstItemHeight + gapHeight;
+
+// слайдер з поверненням в початкову позицію і плавним скролом
+const seeMoreButton = document.querySelector('.see-more-funds');
+const supportContainer = document.querySelector('.support-container');
+let scrollPosition = 0;
+
+seeMoreButton.addEventListener('click', () => {
+  scrollPosition += listItemHeight;
+  if (scrollPosition > (numItems - 5)*listItemHeight) {
+    scrollPosition = 0;
+  }
+
+  supportList.style.transform = `translateY(-${scrollPosition}px)`;
+  supportContainer.scrollTo({
+    top: scrollPosition,
+    behavior: 'smooth',
+  });
 });
 
-charityList.innerHTML = listItems.join('');
+// клік поза блоком суппорт = повернення списку в висхідне положення
+document.addEventListener('click', (event) => {
+  const isClickedOutside = !event.target.closest('.support');
+  if (isClickedOutside) {
+    scrollPosition = 0;
+    supportList.style.transform = 'translateY(0)';
+    supportContainer.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+});
 
+// відкривання фонду в новій вкладці
 const supportLogos = document.querySelectorAll('.support-logo');
-
-supportLogos.forEach(function(logo) {
-  logo.addEventListener('click', function() {
+supportLogos.forEach((logo) => {
+  logo.addEventListener('click', function () {
     const url = this.getAttribute('data-url');
     window.open(url, '_blank');
   });
 });
 
-const supportBlock = document.querySelector('.support');
-const supportContainer = document.querySelector('.support-container');
-const seeMoreButton = document.querySelector('.see-more-funds');
 
-// Прослуховувач подій для ширини вюпорта прокрутки таблет та дексктопної версії
-function handleDesktopTablet() {
-  supportBlock.classList.toggle('expanded');
-  if (supportBlock.classList.contains('expanded')) {
-    seeMoreButton.classList.remove('fade-in');
-    seeMoreButton.classList.add('fade-out');
-    supportContainer.style.overflowY = 'scroll';
-    supportContainer.style.overflowX = 'auto';
-    supportContainer.style.height = '340px';
-    supportContainer.style.marginRight = '10px';
-  } else {
-    seeMoreButton.classList.remove('fade-out');
-    seeMoreButton.classList.add('fade-in');
-    supportContainer.style.overflowY = 'hidden';
-    supportContainer.style.overflowX = 'hidden';
-    supportContainer.style.height = 'auto';
-    supportContainer.style.marginRight = '0';
-  }
-}
-
-// Прослуховувач подій для ширини вюпорта прокрутки мобільної версії
-function handleMobile() {
-  supportBlock.classList.toggle('expanded');
-  if (supportBlock.classList.contains('expanded')) {
-    seeMoreButton.classList.remove('fade-in');
-    seeMoreButton.classList.add('fade-out');
-    supportContainer.style.overflowY = 'scroll';
-    supportContainer.style.overflowX = 'auto';
-    supportContainer.style.height = '220px';
-    supportContainer.style.marginRight = '10px';
-  } else {
-    seeMoreButton.classList.remove('fade-out');
-    seeMoreButton.classList.add('fade-in');
-    supportContainer.style.overflowY = 'hidden';
-    supportContainer.style.overflowX = 'hidden';
-    supportContainer.style.height = 'auto';
-    supportContainer.style.marginRight = '0';
-  }
-}
-
-function scrollToTop() {
-  supportContainer.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-}
-
-
-// застосування функцій залежно від медіаправила
-if (window.matchMedia("(max-width: 767px)").matches) {
-  seeMoreButton.addEventListener('click', function () {
-    handleMobile();
-    scrollToTop();
-  });
-} else {
-  seeMoreButton.addEventListener('click', function () {
-    handleDesktopTablet();
-    scrollToTop();
-  });
-}
-
-document.addEventListener('click', function (e) {
-  if (!e.target.closest('.support')) {
-    supportBlock.classList.remove('expanded');
-    seeMoreButton.classList.remove('fade-out');
-    seeMoreButton.classList.add('fade-in'); 
-    supportContainer.style.overflowY = 'hidden';
-    supportContainer.style.overflowX = 'hidden';
-    supportContainer.style.height = 'auto';
-    supportContainer.style.marginRight = '0';
-    scrollToTop();
-  }
-});
 
 
 

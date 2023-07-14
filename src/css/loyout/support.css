@@ -59,24 +59,30 @@
   vertical-align: middle;
 }
 
+@media screen and (max-width: 767px) {
+  .support-list {
+    margin: 0 auto;
+    counter-reset: list-counter;
+    color: var(--white-color);
+    letter-spacing: -0.56px;
+    
+    display: flex;
+    flex-direction: column; 
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
 .support-list {
   margin: 0 auto;
-  margin-bottom: 100px;
   counter-reset: list-counter;
   color: var(--white-color);
-  font-family: DMSans-Regular;
   letter-spacing: -0.56px;
   
   display: flex;
-  flex-direction: column;
-  column-gap: 20px;
+  flex-direction: column; 
   gap: 20px;
-  overflow-y: auto;
-}
-@media screen and (max-width: 767px) {
-  .support-list {
-    gap: 20px;
-  }
+ }
 }
 
 .support-item {
@@ -84,7 +90,7 @@
   list-style: none;
   display: flex;
   gap: 16px;
- 
+  transition: transform 0.3s ease-in-out;
 
 }
 
@@ -92,6 +98,11 @@
   counter-increment: list-counter;
   content: counter(list-counter, decimal-leading-zero);
   
+}
+
+.support-item:hover,
+.support-item:focus {
+  transform: scale(1.1);
 }
  
 .support-logo {
@@ -103,11 +114,9 @@
   
 
 .support-container {
-  max-height: 295px; 
-  overflow-y: hidden;
-  transition: height 0.3s ease, margin-right 0.3s ease;
-  
-}
+  max-height: 292px; 
+  overflow: hidden;
+ }
 
 @media screen and (max-width: 767px) {
   .support-container {
@@ -150,7 +159,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  transition: transform 0.3s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
@@ -160,33 +169,6 @@
   }
 }
 
-/*  ----- стилізація скролбару ----- */
-.support-container::-webkit-scrollbar {
-  width: 8px; 
-  background-color: rgba(55, 29, 199, 0.432); 
-}
-
-.support-container::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.582); 
-  border-radius: 6px; 
-}
-
-.support-container::-webkit-scrollbar-track {
-  background-color: transparent; 
-}
-
-.support-container::-webkit-scrollbar-corner {
-  background-color: transparent; 
-}
-
-/*  ---- плавне зникнення і поява кнопки  ----- */
-
-.see-more-funds.fade-out {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.see-more-funds.fade-in {
-  opacity: 1;
-  transition: opacity 0.4s ease;
+.see-more-funds:hover {
+  transform: scale(1.1);
 }
