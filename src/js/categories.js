@@ -3,6 +3,9 @@ import { container as bookCard } from './hero';
 import { markup } from './hero';
 import chekedImg from '../images/choosed.png';
 
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+
 const categoryList = document.querySelector('.category-list');
 const axios = require('axios').default;
 const btn = document.querySelector('.container-books');
@@ -37,7 +40,7 @@ async function getCategoryList() {
     );
     renderCategory(response.data);
   } catch (error) {
-    console.log('error', error);
+    Notify.warning("Sorry, failed to load information");
   }
 }
 
@@ -83,11 +86,13 @@ export function getGhoosedBooks() {
 }
 
 function renderedBookCardItem(data) {
+
   const dataCheck = data.map(el => {
     if (getGhoosedBooks().includes(el._id)) el.choosed = 1;
     else el.choosed = 0;
     return el;
   });
+
   const markup = `
     <h2 class ="main-title">${data[0].list_name}</h2>
     <ul class="book-list">${dataCheck

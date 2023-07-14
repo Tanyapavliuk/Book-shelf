@@ -19,7 +19,6 @@
 .shopping-list-card {
   position: relative;
   display: flex;
-  /* flex-basis: 100%; */
   gap: 14px;
 
   padding: 14px;
@@ -54,7 +53,7 @@
   justify-content: space-between;
 }
 .shopping-title-book {
-  width: calc(100% - 32px);
+  width: calc(100% - 36px);
 }
 
 .shopping-list-thumb {
@@ -85,8 +84,12 @@
   border: none;
 
   left: 100%;
-  translate: calc(-100% - 12px);
+  transform: translateX(-46px);
 }
+@media screen and (min-width: 768px) {
+.shopping-list-btn-del {
+  transform: translateX(-56px);
+}}
 .trash {
   width: 16px;
   height: 16px;

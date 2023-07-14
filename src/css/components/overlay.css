@@ -1,7 +1,4 @@
-/* Стили для подложки */
-
 .overlay {
-  /* Скрываем подложку  */
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
@@ -16,12 +13,10 @@
   transition: 0.3s all;
 }
 
-/* Стили для модальных окон */
 .modal {
   padding: 40px 24px;
   text-align: center;
 
-  /* Скрываем окна  */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -30,16 +25,14 @@
   border: 2px solid #111111;
   border-radius: 18px;
 
-  /*  Установаем ширину окна  */
   width: 100%;
   max-width: 335px;
 
-  /*  Центрируем и задаем z-index */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 30; /* Должен быть выше чем у подложки*/
+  z-index: 30; 
   box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
 }
 
@@ -49,8 +42,6 @@
     padding: 40px;
   }
 }
-
-/* Стили для активных классов подложки и окна */
 
 .modal.active,
 .overlay.active {
@@ -109,7 +100,6 @@
   opacity: 1;
   pointer-events: all;
 }
-
 /* Фільтр для амазон темної теми */
 
 .filter-img {

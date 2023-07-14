@@ -3,14 +3,23 @@ import { marcupListBooks } from './marcupListBooks';
 import { isActivePage } from '../is-active-page';
 import { isEmpty } from './isEmpty';
 import { onRemoveCard } from './remuve-card';
+import { shopListMobEl } from '../header';
 import { isPagination } from './pagination';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 const listBooksEl = document.querySelector('.js-list-books');
 const serchActivEl = document.querySelector('.home');
-const activPage = document.querySelector('.shopping-list');
+const activePage = document.querySelector('.shopping-list');
 let books = null;
 
-isActivePage.call(activPage);
+// оформлення активної сторінки
+
+if (window.innerWidth < 768) {
+  isActivePage.call(shopListMobEl);
+} else {
+  isActivePage.call(activePage);
+}
 
 try {
   books = JSON.parse(localStorage.getItem('savedBooks'));
@@ -22,7 +31,7 @@ try {
     listBooksEl.addEventListener('click', onRemoveCard);
   }
 } catch (err) {
-  console.log(err);
+  Notify.warning("Sorry, failed to load information");
 }
 
 export { listBooksEl, books };

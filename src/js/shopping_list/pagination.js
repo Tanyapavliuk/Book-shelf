@@ -2,6 +2,8 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { marcupListBooks } from './marcupListBooks';
 import { listBooksEl } from './shopping';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const books = JSON.parse(localStorage.getItem('savedBooks'));
 let currPage = 1;
 let itemsPerPage = 3;
@@ -25,7 +27,10 @@ export function resetPag(i) {
       const p = document.querySelector('#tui-pagination-container');
       p.remove();
     } catch (err) {
-      // console.log(err);
+      if (i === 1)
+        Notify.info(`There is one book in your shopping cart.`);
+      if (i === 2|| i ===3)
+      Notify.info(`There are ${i} books in your shopping cart.`);
     }
   } else pagination.setTotalItems(i);
 }

@@ -5,11 +5,14 @@ import applebooks from '../images/book.png';
 import bookshop from '../images/book-block.png';
 import { getGhoosedBooks } from './categories';
 
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+
 const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
 const closeButtonEl = document.querySelector('.modal-shopping-close');
 const modalShoppingEl = document.querySelector('.render-modal');
-
+const scrollUpBntEl = document.querySelector('.scroll-btn');
 let bookIdent;
 let bookClicked;
 let bookId;
@@ -30,6 +33,7 @@ function visualCheck() {
 function closeModal() {
   modalEl.classList.remove('active');
   modalCard.classList.remove('active');
+  scrollUpBntEl.classList.remove("visually-hidden");
   document.body.style.overflow = 'auto';
   visualCheck();
 }
@@ -46,7 +50,7 @@ async function fetchBookDetails(bookId) {
     const bookData = await response.json();
     return [bookData];
   } catch (error) {
-    console.error(error);
+    Notify.warning("Sorry, failed to load information");
   }
 }
 
@@ -73,17 +77,17 @@ function renderModal(bookData) {
           </p>
           <ul class="shop-list">
             <li>
-              <a href="${data.buy_links[0].url}">
+              <a href="${data.buy_links[0].url}" target="_blank">
                 <img src="${amazon}" alt="Amazon" class="darkFilterModal"/>
               </a>
             </li>
             <li>
-              <a href="${data.buy_links[1].url}">
+              <a href="${data.buy_links[1].url}" target="_blank">
                 <img src="${applebooks}" alt="Apple Books" />
               </a>
             </li>
             <li>
-              <a href="${data.buy_links[4].url}">
+              <a href="${data.buy_links[4].url}" target="_blank">
                 <img src="${bookshop}" alt="Bookshop" />
               </a>
             </li>
@@ -109,10 +113,9 @@ const imgFilterAmazon = () => {
   }
 };
 
-// ---
-
 async function callModal(bookId) {
-  try {
+  try { 
+    scrollUpBntEl.classList.add("visually-hidden");
     modalShoppingEl.innerHTML = '';
     const bookData = await fetchBookDetails(bookId);
     bookIdent = bookData[0]._id;
@@ -121,7 +124,7 @@ async function callModal(bookId) {
     imgFilterAmazon();
     renderModalButton(bookIdent);
   } catch (error) {
-    console.error(error);
+    Notify.warning("Sorry, failed to load information");
   }
 }
 
@@ -156,7 +159,7 @@ async function saveObjectLocal(bookIdent) {
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
     visualCheck();
   } catch (error) {
-    console.error(error);
+    Notify.warning("Sorry, failed to load information");
   }
 }
 
@@ -196,10 +199,8 @@ function renderModalButton(bookIdent) {
       submitShoppingEl.textContent = 'Login please';
     }
 
-    submitShoppingEl.addEventListener('click', event => {
-      deleteObjectLocal(bookIdent);
-      closeModal();
-    });
+    submitShoppingEl.addEventListener('click', handleRemoveButtonClick);
+    
   } else {
     const modalBtn = `
       <button type="submit" class="button book" aria-label="Add to shopping">
@@ -217,16 +218,58 @@ function renderModalButton(bookIdent) {
       submitShoppingEl.textContent = 'Login please';
     }
 
-    submitShoppingEl.addEventListener('click', event => {
-      saveObjectLocal(bookIdent);
-      closeModal();
-    });
+    submitShoppingEl.addEventListener('click', handleAddButtonClick);
   }
+}
+
+
+function handleAddButtonClick(event) {
+  saveObjectLocal(bookIdent);
+  closeModal();
+  removeModalButtonEventListeners();
+}
+
+function handleRemoveButtonClick(event) {
+  deleteObjectLocal(bookIdent);
+  closeModal();
+  removeModalButtonEventListeners();
+}
+
+function removeModalButtonEventListeners() {
+  const submitShoppingEl = document.querySelector('.button.book');
+  submitShoppingEl.removeEventListener('click', handleRemoveButtonClick);
+  submitShoppingEl.removeEventListener('click', handleAddButtonClick);
+}
+
+function modalBackdropClose(event) {
+  if (event.target === modalEl) {
+    closeModal();
+    removeModalEventListeners();
+  }
+}
+
+function modalCloseButtonClick(event) {
+  closeModal();
+  removeModalEventListeners();
+}
+
+function escapeKeyClose(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+    removeModalEventListeners();
+  }
+}
+
+function removeModalEventListeners() {
+  modalEl.removeEventListener('click', modalBackdropClose);
+  document.removeEventListener('keydown', escapeKeyClose);
+  closeButtonEl.removeEventListener('click', modalCloseButtonClick);
 }
 
 isLocalStorage();
 
 window.addEventListener('load', function () {
+
   containerEl.addEventListener('click', event => {
     if (event.target.tagName === 'BUTTON') {
       getBookByCategory(event.target.dataset.catname);
@@ -235,28 +278,27 @@ window.addEventListener('load', function () {
       bookClicked = event.target.closest('.book-card');
       bookId = bookClicked.dataset.id;
     }
-
-    if (bookId) {
-      callModal(bookId);
-      modalEl.classList.add('active');
-      modalCard.classList.add('active');
-      document.body.style.overflow = 'hidden';
-
-      modalEl.addEventListener('click', event => {
-        if (event.target === modalEl) {
-          closeModal();
-        }
-      });
-
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') {
-          closeModal();
-        }
-      });
-
-      closeButtonEl.addEventListener('click', event => {
-        closeModal();
-      });
-    }
-  });
+  containerEl.addEventListener('click', containerClick);
 });
+
+function containerClick(event) {
+
+
+  if (event.target.tagName === 'BUTTON') {
+    getBookByCategory(event.target.dataset.catname);
+  }
+  if (event.target.classList.value.includes('js-ct')) {
+    bookId = event.target.parentElement.dataset.id;
+  }
+
+  if (bookId) {
+    callModal(bookId);
+    modalEl.classList.add('active');
+    modalCard.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    modalEl.addEventListener('click', modalBackdropClose);
+    document.addEventListener('keydown', escapeKeyClose);
+    closeButtonEl.addEventListener('click', modalCloseButtonClick);
+  }
+}

@@ -40,7 +40,7 @@ export function marcupListBooks(arr) {
                    buy_links.filter(({ name }) => {
                      return name === 'Amazon';
                    })[0].url
-                 }"><img style="height:16px " src="${amazon}" id="dark-theme-filter" alt="Amazon"/>
+                 }" target="_blank"><img style="height:16px " src="${amazon}" class="darkFilter" alt="Amazon"/>
 
 </a>
 </li>
@@ -49,7 +49,7 @@ export function marcupListBooks(arr) {
     buy_links.filter(({ name }) => {
       return name === 'Apple Books';
     })[0].url
-  }"><img style="height:16px " src="${applebooks}" alt="Apple Books" />
+  }" target="_blank"><img style="height:16px " src="${applebooks}" alt="Apple Books" />
 </a>
 </li>
 <li> 
@@ -57,7 +57,7 @@ export function marcupListBooks(arr) {
           buy_links.filter(({ name }) => {
             return name === 'Bookshop';
           })[0].url
-        }"><img style="height:16px "  src="${bookshop}" alt="logo Book-block" /></a>
+        }" target="_blank"><img style="height:16px "  src="${bookshop}" alt="logo Book-block" /></a>
 </li></ul>
                 </div>
               </div>
