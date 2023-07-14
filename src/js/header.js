@@ -322,6 +322,7 @@ function handlerLogout() {
   localStorage.removeItem('userLogin');
   localStorage.removeItem('userInSite');
   handlerCloseMobMenu();
+  window.location.replace('../index.html');
 }
 
 function handlerOpenLogout() {
