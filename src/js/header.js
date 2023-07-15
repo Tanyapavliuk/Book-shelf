@@ -1,5 +1,12 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { isActivePage } from './is-active-page';
+import { initializeApp } from 'firebase/app';
+import {
+  getAuth,
+  updateProfile,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 const loginBtnEl = document.querySelector('.sing-up-btn');
 const loginBtnMobEl = document.querySelector('.sing-up-btn-mob');
@@ -28,6 +35,19 @@ const shopListDescEl = document.querySelector('.shop-list-desc-js');
 export const shopListMobEl = document.querySelector('.shop-list-mob-js');
 const homeMobEl = document.querySelector('.home-mob-js');
 const homeDescEl = document.querySelector('.home-desc-js');
+
+// firebaseConfig
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyA4yszxh0AqIQzaacjac7HnRxpxxEis8ZA',
+  authDomain: 'testfirebase-b154f.firebaseapp.com',
+  projectId: 'testfirebase-b154f',
+  storageBucket: 'testfirebase-b154f.appspot.com',
+  messagingSenderId: '705316293196',
+  appId: '1:705316293196:web:075376a8f264c03b9982e9',
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 // оформлення активної сторінки(Ардрій)
 
@@ -127,159 +147,118 @@ formEl.addEventListener('submit', handlerFormLogin);
 
 // реестрація
 
-function handlerFormReg(evt) {
+async function handlerFormReg(evt) {
   evt.preventDefault();
 
-  if (submitBtnEl.textContent === 'Sing in') {
-    return;
-  }
+  if (submitBtnEl.textContent === 'Sing up') {
+    const name = evt.target.username.value;
+    const email = evt.target.useremail.value;
+    const password = evt.target.userpass.value;
 
-  if (
-    submitBtnEl.textContent === 'Sing up' &&
-    (!evt.target.username.value ||
-      !evt.target.useremail.value ||
-      !evt.target.userpass.value)
-  ) {
-    Notify.warning('Please, fill in all fields');
-    return;
-  }
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        });
 
-  if (
-    submitBtnEl.textContent === 'Sing up' &&
-    evt.target.username.value &&
-    evt.target.useremail.value &&
-    evt.target.userpass.value
-  ) {
-    try {
-      const { users: checkEmail } = JSON.parse(localStorage.getItem('users'));
-      if (
-        checkEmail.find(userObj => userObj.email === evt.target.useremail.value)
-      ) {
-        Notify.warning('This email is already registered on website');
+        const { email: uEmail, uid: uId } = userCredential.user;
+        const user = { name: name, email: uEmail, uid: uId };
 
+        localStorage.setItem('userLogin', true);
+        localStorage.setItem('userInSite', JSON.stringify(user));
+
+        handlerCloseLoginModal();
+
+        userNameMobEl.textContent = user.name;
+        userNameEl.textContent = user.name;
+        loginBtnMobEl.classList.add('visually-hidden');
+        loginBtnEl.classList.add('visually-hidden');
+        userDescEl.classList.remove('visually-hidden');
+        userMobEl.classList.remove('visually-hidden');
+        logoutMobEl.classList.remove('visually-hidden');
+        shopListDescEl.classList.remove('visually-hidden');
+        shopListMobEl.classList.remove('visually-hidden');
+        homeMobEl.classList.remove('visually-hidden');
+
+        evt.target.username.value = '';
         evt.target.useremail.value = '';
         evt.target.userpass.value = '';
-        return;
-      }
-    } catch (err) {}
 
-    if (!localStorage.getItem('users')) {
-      const users = {
-        users: [
-          {
-            name: evt.target.username.value,
-            email: evt.target.useremail.value,
-            password: evt.target.userpass.value,
-          },
-        ],
-      };
-      localStorage.setItem(`users`, JSON.stringify(users));
-    } else {
-      const addUsers = JSON.parse(localStorage.getItem('users'));
-      addUsers.users.push({
-        name: evt.target.username.value,
-        email: evt.target.useremail.value,
-        password: evt.target.userpass.value,
+        handlesingIn();
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        if (errorCode === 'auth/email-already-in-use') {
+          Notify.warning('Email already in use');
+        } else if (errorCode === 'auth/invalid-email') {
+          Notify.warning('Invalid email');
+        } else if (errorCode === 'auth/missing-password') {
+          Notify.warning('Missing password');
+        }
       });
-      localStorage.removeItem('users');
-      localStorage.setItem(`users`, JSON.stringify(addUsers));
-    }
-
-    // автологін при реестрації
-
-    submitBtnEl.textContent = 'Sing in';
-
-    if (
-      submitBtnEl.textContent === 'Sing in' &&
-      evt.target.useremail.value &&
-      evt.target.userpass.value
-    ) {
-      const { users } = JSON.parse(localStorage.getItem('users'));
-
-      const user = users.find(
-        user =>
-          user.email === evt.target.useremail.value &&
-          user.password === evt.target.userpass.value
-      );
-
-      localStorage.setItem('userLogin', true);
-      localStorage.setItem('userInSite', JSON.stringify(user));
-
-      handlerCloseLoginModal();
-
-      userNameMobEl.textContent = user.name;
-      userNameEl.textContent = user.name;
-      loginBtnMobEl.classList.add('visually-hidden');
-      loginBtnEl.classList.add('visually-hidden');
-      userDescEl.classList.remove('visually-hidden');
-      userMobEl.classList.remove('visually-hidden');
-      logoutMobEl.classList.remove('visually-hidden');
-      shopListDescEl.classList.remove('visually-hidden');
-      shopListMobEl.classList.remove('visually-hidden');
-      homeMobEl.classList.remove('visually-hidden');
-    }
-
-    evt.target.username.value = '';
-    evt.target.useremail.value = '';
-    evt.target.userpass.value = '';
-
-    handlesingIn();
   }
 }
 
 // логінізація
 
-function handlerFormLogin(evt) {
+async function handlerFormLogin(evt) {
   evt.preventDefault();
 
   if (localStorage.getItem('userLogin')) {
     return;
   }
 
-  try {
-    if (
-      submitBtnEl.textContent === 'Sing in' &&
-      (!evt.target.useremail.value || !evt.target.userpass.value)
-    ) {
-      Notify.warning('Please, enter your login and password');
-      return;
-    }
+  if (submitBtnEl.textContent === 'Sing in') {
+    const email = evt.target.useremail.value;
+    const password = evt.target.userpass.value;
 
-    if (
-      submitBtnEl.textContent === 'Sing in' &&
-      evt.target.useremail.value &&
-      evt.target.userpass.value
-    ) {
-      const { users } = JSON.parse(localStorage.getItem('users'));
+    await signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        // Signed in
 
-      const user = users.find(
-        user =>
-          user.email === evt.target.useremail.value &&
-          user.password === evt.target.userpass.value
-      );
+        const {
+          displayName: name,
+          email: uEmail,
+          uid: uId,
+        } = userCredential.user;
 
-      evt.target.useremail.value = '';
-      evt.target.userpass.value = '';
+        const user = { name: name, email: uEmail, uid: uId };
 
-      handlerCloseLoginModal();
+        localStorage.setItem('userLogin', true);
+        localStorage.setItem('userInSite', JSON.stringify(user));
 
-      userNameMobEl.textContent = user.name;
-      userNameEl.textContent = user.name;
-      loginBtnMobEl.classList.add('visually-hidden');
-      loginBtnEl.classList.add('visually-hidden');
-      userDescEl.classList.remove('visually-hidden');
-      userMobEl.classList.remove('visually-hidden');
-      logoutMobEl.classList.remove('visually-hidden');
-      shopListDescEl.classList.remove('visually-hidden');
-      shopListMobEl.classList.remove('visually-hidden');
-      homeMobEl.classList.remove('visually-hidden');
+        evt.target.useremail.value = '';
+        evt.target.userpass.value = '';
 
-      localStorage.setItem('userLogin', true);
-      localStorage.setItem('userInSite', JSON.stringify(user));
-    }
-  } catch (err) {
-    Notify.warning('The login or password is incorrect. Please, try again.');
-    handlerOpenLoginModal();
+        handlerCloseLoginModal();
+
+        userNameMobEl.textContent = user.name;
+        userNameEl.textContent = user.name;
+        loginBtnMobEl.classList.add('visually-hidden');
+        loginBtnEl.classList.add('visually-hidden');
+        userDescEl.classList.remove('visually-hidden');
+        userMobEl.classList.remove('visually-hidden');
+        logoutMobEl.classList.remove('visually-hidden');
+        shopListDescEl.classList.remove('visually-hidden');
+        shopListMobEl.classList.remove('visually-hidden');
+        homeMobEl.classList.remove('visually-hidden');
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        if (errorCode === 'auth/wrong-password') {
+          Notify.warning('Wrong password');
+        } else if (errorCode === 'auth/user-not-found') {
+          Notify.warning('User not found');
+        } else if (errorCode === 'auth/invalid-email') {
+          Notify.warning('Invalid email');
+        } else if (errorCode === 'auth/missing-password') {
+          Notify.warning('Missing password');
+        }
+      });
   }
 }
 
@@ -309,6 +288,7 @@ logoutMobEl.addEventListener('click', handlerLogout);
 userBtnEl.addEventListener('click', handlerOpenLogout);
 
 function handlerLogout() {
+  window.location.href = './index.html';
   logoutDescEl.classList.add('visually-hidden');
   logoutMobEl.classList.add('visually-hidden');
   userDescEl.classList.add('visually-hidden');
