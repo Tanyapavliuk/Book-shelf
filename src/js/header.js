@@ -35,6 +35,7 @@ const shopListDescEl = document.querySelector('.shop-list-desc-js');
 export const shopListMobEl = document.querySelector('.shop-list-mob-js');
 const homeMobEl = document.querySelector('.home-mob-js');
 const homeDescEl = document.querySelector('.home-desc-js');
+const userImgEl = document.querySelector('.user-img');
 
 // firebaseConfig
 
@@ -103,7 +104,6 @@ function handlerCloseMobMenu() {
 
 // зміна теми
 
-const switchThemeEl = document.querySelector('.switch');
 const checkboxEl = document.querySelector('.checkbox-theme');
 
 function switchPosition() {
@@ -188,7 +188,6 @@ async function handlerFormReg(evt) {
       })
       .catch(error => {
         const errorCode = error.code;
-        const errorMessage = error.message;
 
         if (errorCode === 'auth/email-already-in-use') {
           Notify.warning('Email already in use');
@@ -217,14 +216,20 @@ async function handlerFormLogin(evt) {
     await signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
         // Signed in
-
+        console.dir(userCredential.user);
         const {
           displayName: name,
           email: uEmail,
           uid: uId,
+          photoURL,
         } = userCredential.user;
-
-        const user = { name: name, email: uEmail, uid: uId };
+        userImgEl.src = photoURL;
+        const user = {
+          name: name,
+          email: uEmail,
+          uid: uId,
+          photoURL: photoURL,
+        };
 
         localStorage.setItem('userLogin', true);
         localStorage.setItem('userInSite', JSON.stringify(user));
@@ -247,7 +252,6 @@ async function handlerFormLogin(evt) {
       })
       .catch(error => {
         const errorCode = error.code;
-        const errorMessage = error.message;
 
         if (errorCode === 'auth/wrong-password') {
           Notify.warning('Wrong password');
@@ -269,6 +273,8 @@ function checkUser() {
     const user = JSON.parse(localStorage.getItem('userInSite'));
     userNameMobEl.textContent = user.name;
     userNameEl.textContent = user.name;
+    userImgEl.src = user.photoURL;
+
     loginBtnMobEl.classList.add('visually-hidden');
     loginBtnEl.classList.add('visually-hidden');
     userDescEl.classList.remove('visually-hidden');
@@ -287,21 +293,57 @@ logoutDescEl.addEventListener('click', handlerLogout);
 logoutMobEl.addEventListener('click', handlerLogout);
 userBtnEl.addEventListener('click', handlerOpenLogout);
 
-function handlerLogout() {
-  window.location.href = './index.html';
-  logoutDescEl.classList.add('visually-hidden');
-  logoutMobEl.classList.add('visually-hidden');
-  userDescEl.classList.add('visually-hidden');
-  userMobEl.classList.add('visually-hidden');
-  loginBtnMobEl.classList.remove('visually-hidden');
-  loginBtnEl.classList.remove('visually-hidden');
-  shopListDescEl.classList.add('visually-hidden');
-  shopListMobEl.classList.add('visually-hidden');
-  homeMobEl.classList.add('visually-hidden');
+function handlerLogout(evt) {
+  if (evt.target.classList.contains('change-photo')) {
+    logoutDescEl.insertAdjacentHTML(
+      'beforeend',
+      `<input class="input-photo sing-log" type="text" placeholder="url photo" /><button class="change-photo-active sing-log" type="button">
+              Change photo
+            </button>`
+    );
 
-  localStorage.removeItem('userLogin');
-  localStorage.removeItem('userInSite');
-  handlerCloseMobMenu();
+    const urlPhotoEl = document.querySelector('.input-photo');
+    const changePhotoBtnEl = document.querySelector('.change-photo-active');
+
+    changePhotoBtnEl.addEventListener('click', handleChangePhoto);
+
+    function handleChangePhoto() {
+      if (urlPhotoEl.value) {
+        updateProfile(auth.currentUser, {
+          photoURL: urlPhotoEl.value,
+        });
+        userImgEl.src = urlPhotoEl.value;
+
+        const user = JSON.parse(localStorage.getItem('userInSite'));
+        localStorage.removeItem('userInSite');
+        user.photoURL = urlPhotoEl.value;
+        console.dir(user);
+        localStorage.setItem('userInSite', JSON.stringify(user));
+
+        logoutDescEl.classList.add('visually-hidden');
+      }
+    }
+  }
+
+  if (
+    evt.target.classList.contains('log-out-btn-desc') ||
+    evt.target.classList.contains('log-out-btn-mob')
+  ) {
+    window.location.href = './index.html';
+    logoutDescEl.classList.add('visually-hidden');
+    logoutMobEl.classList.add('visually-hidden');
+    userDescEl.classList.add('visually-hidden');
+    userMobEl.classList.add('visually-hidden');
+    loginBtnMobEl.classList.remove('visually-hidden');
+    loginBtnEl.classList.remove('visually-hidden');
+    shopListDescEl.classList.add('visually-hidden');
+    shopListMobEl.classList.add('visually-hidden');
+    homeMobEl.classList.add('visually-hidden');
+
+    localStorage.removeItem('userLogin');
+    localStorage.removeItem('userInSite');
+    handlerCloseMobMenu();
+  }
 }
 
 function handlerOpenLogout() {
