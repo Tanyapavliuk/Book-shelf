@@ -2,16 +2,10 @@ import { getQuery } from './hero';
 import { container as bookCard } from './hero';
 import { markup } from './hero';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import choosedImg from '../images/choosed.png';
 
 const categoryList = document.querySelector('.category-list');
 const axios = require('axios').default;
 const btn = document.querySelector('.container-books');
-
-export function getGhoosedBooks() {
-  const choosedBooks = JSON.parse(localStorage.getItem('savedBooks'));
-  return choosedBooks.map(el => el._id);
-}
 
 btn.addEventListener('click', onBtnClick);
 
@@ -43,7 +37,7 @@ async function getCategoryList() {
     );
     renderCategory(response.data);
   } catch (error) {
-    Notify.warning('Sorry, failed to load information');
+    Notify.warning("Sorry, failed to load information");
   }
 }
 
@@ -84,24 +78,16 @@ export async function getBookByCategory(changeCategory) {
 }
 
 function renderedBookCardItem(data) {
-  const dataCheck = data.map(el => {
-    if (getGhoosedBooks().includes(el._id)) el.choosed = 1;
-    else el.choosed = 0;
-    return el;
-  });
   const markup = `
     <h2 class ="main-title">${data[0].list_name}</h2>
-    <ul class="book-list">${dataCheck
+    <ul class="book-list">${data
       .map(
-        ({ author, book_image, title, _id, choosed }) =>
+        ({ author, book_image, title, _id }) =>
           `<li class="bs-list-item">
           <div class="book-card " data-id="${_id}">
-          <img class="choosed-icon js-ct ${isChoosed(
-            choosed
-          )}" src="${choosedImg}" alt="icon" width="25" >
-    <div class="image-overlay">
+    <div class="image-overlay" data-id="${_id}">
     <img class="book-img js-ct" src="${book_image}" alt="${title} loading="lazy" >
-    <div class="image-description">
+    <div class="image-description" data-id="${_id}">
       <p class="image-overlay-description js-ct"> quick view  </p>
      </div>
       </div>
@@ -122,9 +108,4 @@ function renderedBookCardItem(data) {
     lastWord,
     `<span class="brendcolor">${lastWord}</span>`
   );
-}
-
-export function isChoosed(idx) {
-  if (!idx) return 'visually-hidden';
-  else return '';
 }
