@@ -309,14 +309,14 @@ function containerClick(event) {
     bookId = bookClicked.dataset.id;
   }
 
-  if (bookId) {
-    callModal(bookId);
-    modalEl.classList.add('active');
-    modalCard.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  // if (bookId) {
+  //   callModal(bookId);
+  //   modalEl.classList.add('active');
+  //   modalCard.classList.add('active');
+  //   document.body.style.overflow = 'hidden';
 
-    modalEl.addEventListener('click', modalBackdropClose);
-    document.addEventListener('keydown', escapeKeyClose);
-    closeButtonEl.addEventListener('click', modalCloseButtonClick);
-  }
+  //   modalEl.addEventListener('click', modalBackdropClose);
+  //   document.addEventListener('keydown', escapeKeyClose);
+  //   closeButtonEl.addEventListener('click', modalCloseButtonClick);
+  // }
 }
