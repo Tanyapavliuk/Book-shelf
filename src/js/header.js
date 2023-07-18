@@ -65,7 +65,7 @@ closeModalLoginEl.addEventListener('click', handlerCloseLoginModal);
 
 function handlerOpenLoginModal() {
   backdropLoginEl.classList.add('active');
-  backdropLoginEl.style.zIndex = '10';
+  backdropLoginEl.style.zIndex = '2';
   modalLoginEl.classList.add('active');
 }
 function handlerCloseLoginModal() {
