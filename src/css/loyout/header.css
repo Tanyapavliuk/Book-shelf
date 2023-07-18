@@ -303,12 +303,6 @@ input:checked + .slider:before {
 }
 
 /* logout-desc */
-
-.log-out-decs {
-  display: flex;
-  flex-direction: column;
-}
-
 .log-out-btn-desc {
   background-color: var(--white-color);
   border: 1.5px solid var(--button-yelow-font-color);
@@ -330,48 +324,6 @@ input:checked + .slider:before {
 .log-out-icon-desc {
   width: 20px;
   height: 20px;
-}
-
-.change-photo {
-  background-color: var(--white-color);
-  border: 1.5px solid var(--button-yelow-font-color);
-  color: var(--button-yelow-font-color);
-  height: 48px;
-  padding: 14px 24px;
-  border-radius: 18px;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  top: 93px;
-  left: 0;
-}
-
-.input-photo {
-  background-color: var(--white-color);
-  border: 1.5px solid var(--button-yelow-font-color);
-  color: var(--button-yelow-font-color);
-  height: 48px;
-  padding: 14px 24px;
-  border-radius: 18px;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  top: 93px;
-  left: 0;
-}
-
-.change-photo-active {
-  background-color: var(--white-color);
-  border: 1.5px solid var(--button-yelow-font-color);
-  color: var(--button-yelow-font-color);
-  height: 48px;
-  padding: 14px 24px;
-  border-radius: 18px;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  top: 141px;
-  left: 0;
 }
 
 /* mobile menu */
