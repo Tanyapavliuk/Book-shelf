@@ -3,6 +3,7 @@ import { isEmpty } from './isEmpty';
 import { listBooksEl } from './shopping';
 import { marcupListBooks } from './marcupListBooks';
 import { resetPag } from './pagination';
+import { setCounterCard } from '../cart'; 
 
 export function onRemoveCard(e) {
   const { target } = e;
@@ -13,12 +14,14 @@ export function onRemoveCard(e) {
     target.dataset.id ?? target.closest('.js-trash-id').dataset.id;
 
   const indexDel = books.findIndex(({ _id }) => _id === shoppingCardId);
+  
   if (indexDel !== -1) {
     books.splice(indexDel, 1);
 
     localStorage.setItem('savedBooks', JSON.stringify(books));
     const booksADel = JSON.parse(localStorage.getItem('savedBooks'));
     resetPag(booksADel.length);
+    setCounterCard();
     if (!books.length) {
       return isEmpty();
     }
