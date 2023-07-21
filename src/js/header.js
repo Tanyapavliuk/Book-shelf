@@ -7,7 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { setCounterCard } from './cart';
+import { userTrue } from './cart';
 
 const loginBtnEl = document.querySelector('.sing-up-btn');
 const loginBtnMobEl = document.querySelector('.sing-up-btn-mob');
@@ -132,6 +132,7 @@ function handleSingUp() {
   spanSingUpEl.classList.add('active-btn');
   submitBtnEl.textContent = 'Sing up';
   nameEl.classList.remove('visually-hidden');
+  setCounterCard();
 }
 
 function handlesingIn() {
@@ -141,6 +142,7 @@ function handlesingIn() {
   spanSingUpEl.classList.remove('active-btn');
   nameEl.classList.add('visually-hidden');
   submitBtnEl.textContent = 'Sing in';
+  setCounterCard();
 }
 
 formEl.addEventListener('submit', handlerFormReg);
@@ -198,6 +200,8 @@ async function handlerFormReg(evt) {
         } else if (errorCode === 'auth/missing-password') {
           Notify.warning('Missing password');
         }
+      }).finally(() => {
+        userTrue();
       })
   }
 }
@@ -235,8 +239,6 @@ async function handlerFormLogin(evt) {
 
         handlerCloseLoginModal();
         
-        
-
         userNameMobEl.textContent = user.name;
         userNameEl.textContent = user.name;
         loginBtnMobEl.classList.add('visually-hidden');
@@ -261,6 +263,8 @@ async function handlerFormLogin(evt) {
         } else if (errorCode === 'auth/missing-password') {
           Notify.warning('Missing password');
         }
+      }).finally(() => {
+        userTrue();
       })
   }
 }

@@ -16,11 +16,13 @@ else {
 export function setCounterCard() {
     try{if (window.localStorage.getItem('savedBooks') === []) {
         counter.textContent = 0;
+        cart.classList.remove("visually-hidden");
         }
     else {
         const arreyBook = JSON.parse(window.localStorage.getItem('savedBooks'));
         console.log(arreyBook);
         counter.textContent = arreyBook.length;
+        cart.classList.remove("visually-hidden");
     }
     }
     catch (err) {
