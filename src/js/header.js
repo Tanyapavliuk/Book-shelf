@@ -169,6 +169,7 @@ async function handlerFormReg(evt) {
         localStorage.setItem('userInSite', JSON.stringify(user));
 
         handlerCloseLoginModal();
+        
 
         userNameMobEl.textContent = user.name;
         userNameEl.textContent = user.name;
@@ -234,6 +235,7 @@ async function handlerFormLogin(evt) {
         evt.target.userpass.value = '';
 
         handlerCloseLoginModal();
+        
 
         userNameMobEl.textContent = user.name;
         userNameEl.textContent = user.name;

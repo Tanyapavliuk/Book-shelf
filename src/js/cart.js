@@ -1,5 +1,7 @@
 const counter = document.querySelector(".cart-counter");
 const cart = document.querySelector(".header__cart");
+const icon = document.querySelector(".header__cart-icon");
+
 console.log(counter);
 
 export function userTrue() {
@@ -29,5 +31,6 @@ export function setCounterCard(params) {
     
 }
 userTrue();
+
 
 

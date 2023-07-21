@@ -16,6 +16,22 @@
     position: absolute;
     top: 4px;
     left: 6px;
+    fill: var(--brand-color);
+
+    animation-name: color;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+}
+@keyframes color {
+    from {
+        fill: var(--brand-color);
+    }
+
+    to {
+        fill: var(--yelow-color);
+    }
 }
 
 .cart-text {
@@ -28,4 +44,3 @@
     color: var(--blue-color);
 }
 
-.cart-counter {}

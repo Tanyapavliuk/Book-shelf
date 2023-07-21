@@ -87,7 +87,7 @@
 </symbol>
 
 <symbol id="icon-cart" viewBox="0 0 33 32">
-<path fill="#4f2ee8" style="fill: var(--color1, #4f2ee8)" d="M32.452 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+<path d="M32.452 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
 <path fill="#fff" style="fill: var(--color2, #fff); stroke: var(--color2, #fff)" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="0.8571" d="M14.611 22.286c0.386 0 0.698-0.313 0.698-0.698s-0.313-0.698-0.698-0.698c-0.386 0-0.698 0.313-0.698 0.698s0.313 0.698 0.698 0.698z"></path>
 <path fill="#fff" style="fill: var(--color2, #fff); stroke: var(--color2, #fff)" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="0.8571" d="M19.5 22.286c0.386 0 0.698-0.313 0.698-0.698s-0.313-0.698-0.698-0.698c-0.386 0-0.698 0.313-0.698 0.698s0.313 0.698 0.698 0.698z"></path>
 <path fill="none" stroke="#fff" style="stroke: var(--color2, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.1429" d="M9.023 9.714h2.161l1.621 9.185h8.644"></path>
