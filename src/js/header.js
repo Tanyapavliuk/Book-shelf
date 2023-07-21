@@ -7,7 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { userTrue } from './cart';
+import { setCounterCard } from './cart';
 
 const loginBtnEl = document.querySelector('.sing-up-btn');
 const loginBtnMobEl = document.querySelector('.sing-up-btn-mob');
@@ -169,7 +169,6 @@ async function handlerFormReg(evt) {
         localStorage.setItem('userInSite', JSON.stringify(user));
 
         handlerCloseLoginModal();
-        
 
         userNameMobEl.textContent = user.name;
         userNameEl.textContent = user.name;
@@ -199,7 +198,7 @@ async function handlerFormReg(evt) {
         } else if (errorCode === 'auth/missing-password') {
           Notify.warning('Missing password');
         }
-      });
+      })
   }
 }
 
@@ -236,6 +235,7 @@ async function handlerFormLogin(evt) {
 
         handlerCloseLoginModal();
         
+        
 
         userNameMobEl.textContent = user.name;
         userNameEl.textContent = user.name;
@@ -261,7 +261,7 @@ async function handlerFormLogin(evt) {
         } else if (errorCode === 'auth/missing-password') {
           Notify.warning('Missing password');
         }
-      });
+      })
   }
 }
 
