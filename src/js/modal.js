@@ -4,6 +4,7 @@ import amazon from '../images/amazon.png';
 import applebooks from '../images/book.png';
 import bookshop from '../images/book-block.png';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { setCounterCard } from './cart';
 
 const modalEl = document.querySelector('.backdrop');
 const modalCard = document.querySelector('.modal');
@@ -215,10 +216,12 @@ function handleAddButtonClick(event) {
   saveObjectLocal(bookIdent);
   closeModal();
   removeModalButtonEventListeners();
+  setCounterCard();
 }
 
 function handleRemoveButtonClick(event) {
   deleteObjectLocal(bookIdent);
+  setCounterCard();
   closeModal();
   removeModalButtonEventListeners();
 }

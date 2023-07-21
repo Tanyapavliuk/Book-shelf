@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
+import { userTrue } from './cart';
 
 const loginBtnEl = document.querySelector('.sing-up-btn');
 const loginBtnMobEl = document.querySelector('.sing-up-btn-mob');

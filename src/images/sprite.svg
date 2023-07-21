@@ -86,6 +86,14 @@
 <path d="M6 2H10M2 4H14M12.6667 4L12.1991 11.0129C12.129 12.065 12.0939 12.5911 11.8667 12.99C11.6666 13.3412 11.3648 13.6235 11.0011 13.7998C10.588 14 10.0607 14 9.00623 14H6.99377C5.93927 14 5.41202 14 4.99889 13.7998C4.63517 13.6235 4.33339 13.3412 4.13332 12.99C3.90607 12.5911 3.871 12.065 3.80086 11.0129L3.33333 4M6.66667 7V10.3333M9.33333 7V10.3333" stroke-linecap="round"/>
 </symbol>
 
+<symbol id="icon-cart" viewBox="0 0 33 32">
+<path fill="#4f2ee8" style="fill: var(--color1, #4f2ee8)" d="M32.452 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+<path fill="#fff" style="fill: var(--color2, #fff); stroke: var(--color2, #fff)" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="0.8571" d="M14.611 22.286c0.386 0 0.698-0.313 0.698-0.698s-0.313-0.698-0.698-0.698c-0.386 0-0.698 0.313-0.698 0.698s0.313 0.698 0.698 0.698z"></path>
+<path fill="#fff" style="fill: var(--color2, #fff); stroke: var(--color2, #fff)" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="0.8571" d="M19.5 22.286c0.386 0 0.698-0.313 0.698-0.698s-0.313-0.698-0.698-0.698c-0.386 0-0.698 0.313-0.698 0.698s0.313 0.698 0.698 0.698z"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color2, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.1429" d="M9.023 9.714h2.161l1.621 9.185h8.644"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color2, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.1429" d="M12.516 16.676l8.713 0.061c0.062 0 0.123-0.022 0.171-0.061s0.081-0.095 0.094-0.156l0.972-4.862c0.008-0.039 0.007-0.080-0.003-0.118s-0.028-0.075-0.053-0.106-0.057-0.056-0.093-0.073c-0.036-0.017-0.076-0.026-0.116-0.026h-10.567"></path>
+</symbol>
+
 </defs>
 </svg>
 
