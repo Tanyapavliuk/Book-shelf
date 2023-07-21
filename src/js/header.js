@@ -132,7 +132,6 @@ function handleSingUp() {
   spanSingUpEl.classList.add('active-btn');
   submitBtnEl.textContent = 'Sing up';
   nameEl.classList.remove('visually-hidden');
-  setCounterCard();
 }
 
 function handlesingIn() {
@@ -142,7 +141,6 @@ function handlesingIn() {
   spanSingUpEl.classList.remove('active-btn');
   nameEl.classList.add('visually-hidden');
   submitBtnEl.textContent = 'Sing in';
-  setCounterCard();
 }
 
 formEl.addEventListener('submit', handlerFormReg);
