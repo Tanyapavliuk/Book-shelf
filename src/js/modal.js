@@ -150,6 +150,9 @@ async function saveObjectLocal(bookIdent) {
   } catch (error) {
     Notify.warning("Sorry, failed to load information");
   }
+  finally {
+    setCounterCard();
+  }
 }
 
 function deleteObjectLocal(bookIdent) {
@@ -162,6 +165,7 @@ function deleteObjectLocal(bookIdent) {
   }
 
   localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
+  setCounterCard();
 }
 
 function renderModalButton(bookIdent) {
@@ -216,12 +220,10 @@ function handleAddButtonClick(event) {
   saveObjectLocal(bookIdent);
   closeModal();
   removeModalButtonEventListeners();
-  setCounterCard();
 }
 
 function handleRemoveButtonClick(event) {
   deleteObjectLocal(bookIdent);
-  setCounterCard();
   closeModal();
   removeModalButtonEventListeners();
 }

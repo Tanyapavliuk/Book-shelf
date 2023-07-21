@@ -3,10 +3,8 @@
     position: relative;
     margin-left: 10px;
 
-    width: 159px;
+    width: 70px;
     height: 66px;
-    border-radius: 33px;
-    border: 1px solid #E0E0E0;
 
     display: flex;
     align-items: center;
@@ -19,10 +17,11 @@
     fill: var(--brand-color);
 
     animation-name: color;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count:infinite;
     animation-direction: alternate;
+
 }
 @keyframes color {
     from {
@@ -42,5 +41,22 @@
     line-height: normal;
 
     color: var(--blue-color);
+}
+
+.cart-counter{
+    position: absolute;
+    top: 50%;
+    right: -30%;
+
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+
+    background: rgb(79, 46, 232);
+    background: linear-gradient(351deg, rgba(79, 46, 232, 1) 0%, rgba(234, 198, 69, 1) 100%);
+    color: #FFFFFF;
+    border-radius: 50%;  
 }
 

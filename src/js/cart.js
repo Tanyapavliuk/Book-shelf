@@ -2,8 +2,6 @@ const counter = document.querySelector(".cart-counter");
 const cart = document.querySelector(".header__cart");
 const icon = document.querySelector(".header__cart-icon");
 
-console.log(counter);
-
 export function userTrue() {
 if (!window.localStorage.getItem('userLogin')) {
     cart.classList.add("visually-hidden");
@@ -15,7 +13,7 @@ else {
 
 
 
-export function setCounterCard(params) {
+export function setCounterCard() {
     try{if (window.localStorage.getItem('savedBooks') === []) {
         counter.textContent = 0;
         }
