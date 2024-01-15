@@ -29,8 +29,9 @@
 .category-list-item {
   margin-bottom: 24px;
   transition: color 250ms linear;
-  height: 24px;
+  height: 18px;
 }
+
 
 .category-list-item:hover {
   cursor: pointer;
@@ -90,6 +91,7 @@
   }
     .category-list-item {
       margin-bottom: 32px;
+      height: 24px;
     }
   
 }
