@@ -14,6 +14,7 @@
   transition: color 250ms linear;
   
   margin-bottom: 40px;
+
 }
 .category-list::-webkit-scrollbar {
   width: 8px;
@@ -28,6 +29,7 @@
 .category-list-item {
   margin-bottom: 24px;
   transition: color 250ms linear;
+  height: 24px;
 }
 
 .category-list-item:hover {
@@ -38,7 +40,6 @@
   font-size: 16px;
   line-height: 1.33;
   letter-spacing: -0.36px;
- 
 }
 
 .is-hiden {
